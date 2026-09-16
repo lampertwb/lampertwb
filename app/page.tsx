@@ -10,15 +10,20 @@ const badgeClass: Record<Badge, string> = {
   explain: "badge explain",
 };
 
-const flagshipProjects: {
+type Project = {
+  category?: string;
   eyebrow: string;
   name: string;
-  stackLine: string;
+  stackLine?: string;
   description: string;
+  longDescription?: string;
+  image?: string;
   badge: Badge;
   badgeLabel: string;
   cost: string;
-}[] = [
+};
+
+const flagshipProjects: Project[] = [
   {
     eyebrow: "Claude Skill — pipeline",
     name: "Job Search System",
@@ -39,6 +44,18 @@ const flagshipProjects: {
     badgeLabel: "Explain it",
     cost: "$17/mo shared*",
   },
+  {
+    eyebrow: "Python — built at BILL",
+    name: "Route Detective",
+    stackLine: "Gemini API (zero-temperature) → graph compression → 5-bucket root-cause classification",
+    description:
+      "AI diagnostic tool that triangulates actual vs. expected lead-routing outcomes across a 300+ node routing graph — built from scratch after four other approaches failed.",
+    longDescription:
+      "BILL's routing graph spans 300+ decision nodes across 14 sales teams and multiple ownership layers. It worked, but no one outside the person who built it could explain why a lead landed where it did — not reps, not managers, not even LeanData's own native AI feature, which could only reference audit logs and couldn't say whether a routing outcome was actually correct.\n\nFour attempts failed (n8n, Glean, Claude Cowork, LeanData's native AI) before I designed a custom Python application on the Gemini API. The core engineering challenge was context: the full routing graph runs ~400KB, too large for any model to reason over per-record. I built a compression approach that extracts only the nodes a given lead actually traversed, cutting the payload to under 1KB with no loss of investigative accuracy — then ran it at zero-temperature so the same inputs always produce the same structured verdict.\n\nRoute Detective triangulates four inputs (routing log, Rules of Engagement, compressed graph, rep's stated expectation) and classifies discrepancies into five root-cause buckets, distinguishing a real misroute from routing that was \"working as designed.\" Completed July 2026; testing already confirms correct classification against real anonymized data. Together with a companion field-level change I shipped, it targets a 30-40% reduction in \"why did I get this lead?\" tickets and roughly 20 hours/month of manual log-tracing eliminated.",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "N/A — employer-covered",
+  },
 ];
 
 const categories = [
@@ -50,15 +67,7 @@ const categories = [
   "Python",
 ];
 
-const otherProjects: {
-  category: string;
-  eyebrow: string;
-  name: string;
-  description: string;
-  badge: Badge;
-  badgeLabel: string;
-  cost: string;
-}[] = [
+const otherProjects: Project[] = [
   {
     category: "Web App",
     eyebrow: "Web App",
@@ -123,19 +132,10 @@ const otherProjects: {
     name: "TOFU Lead-Routing Pipeline",
     description:
       "Intake → Hunter.io enrichment → Claude ICP scoring → routing → CRM write → nurture loop.",
+    image: "/project-media/tofu-pipeline-canvas.jpg",
     badge: "show",
     badgeLabel: "Show it",
     cost: "$0–low/mo (free tiers)",
-  },
-  {
-    category: "Python",
-    eyebrow: "Python — built at BILL",
-    name: "Route Detective",
-    description:
-      "AI diagnostic tool triangulating actual vs. expected lead-routing outcomes.",
-    badge: "explain",
-    badgeLabel: "Explain it",
-    cost: "N/A — employer-covered",
   },
   {
     category: "Python",
@@ -185,11 +185,56 @@ const skills = [
 
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [expanded, setExpanded] = useState<string[]>([]);
 
   const visibleProjects =
     activeFilter === "All"
       ? otherProjects
       : otherProjects.filter((p) => p.category === activeFilter);
+
+  const toggleExpanded = (name: string) => {
+    setExpanded((current) =>
+      current.includes(name)
+        ? current.filter((n) => n !== name)
+        : [...current, name]
+    );
+  };
+
+  const renderProjectExtras = (project: Project) => {
+    const isExpanded = expanded.includes(project.name);
+    return (
+      <>
+        {project.image && (
+          <a
+            className="project-image"
+            href={project.image}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={project.image} alt={`${project.name} screenshot`} />
+          </a>
+        )}
+        {project.longDescription && (
+          <>
+            <button
+              type="button"
+              className="read-more-btn"
+              onClick={() => toggleExpanded(project.name)}
+            >
+              {isExpanded ? "Show less ↑" : "Read the case study ↓"}
+            </button>
+            {isExpanded && (
+              <div className="long-description">
+                {project.longDescription.split("\n\n").map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </>
+    );
+  };
 
   return (
     <div className="min-h-screen">
@@ -244,6 +289,7 @@ export default function Home() {
                   <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
                   <span className="cost-tag">{project.cost}</span>
                 </div>
+                {renderProjectExtras(project)}
               </div>
             ))}
           </div>
@@ -274,6 +320,7 @@ export default function Home() {
                   <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
                   <span className="cost-tag">{project.cost}</span>
                 </div>
+                {renderProjectExtras(project)}
               </div>
             ))}
           </div>
