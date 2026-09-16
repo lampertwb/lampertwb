@@ -1,26 +1,185 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2f1ee;
+  --foreground: #26251f;
+  --surface: #ffffff;
+  --wire: #b7b5ae;
+  --wire-strong: #8f8c84;
+  --muted: #83807a;
+  --note: #3b5ba5;
+  --note-bg: #e9edf7;
+  --tryit: #2f6f4f;
+  --tryit-bg: #e4f0e9;
+  --showit: #8a5a1e;
+  --showit-bg: #f5ead9;
+  --explainit: #5a5650;
+  --explainit-bg: #eae8e3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1c1b18;
+    --foreground: #ece9e2;
+    --surface: #242320;
+    --wire: #4a473f;
+    --wire-strong: #65625a;
+    --muted: #9a968c;
+    --note: #8fb0f0;
+    --note-bg: #26314a;
+    --tryit: #8fd0ac;
+    --tryit-bg: #1f3329;
+    --showit: #e3b872;
+    --showit-bg: #3a2e1a;
+    --explainit: #c9c5bc;
+    --explainit-bg: #332f29;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plex-sans), Arial, Helvetica, sans-serif;
+}
+
+.mono {
+  font-family: var(--font-plex-mono), "Courier New", monospace;
+}
+
+.wire {
+  border: 1.5px solid var(--wire);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 150px;
+}
+
+.card .eyebrow {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 15.5px;
+}
+
+.card p.desc {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+  flex: 1;
+}
+
+.flagship-card {
+  border-width: 2.5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.flagship-card .eyebrow {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--note);
+}
+
+.flagship-card h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.flagship-card .stack-line {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.flagship-card p.desc {
+  margin: 0;
+  font-size: 14px;
+}
+
+.badge {
+  align-self: flex-start;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 10.5px;
+  padding: 3px 9px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.badge.try {
+  color: var(--tryit);
+  background: var(--tryit-bg);
+}
+
+.badge.show {
+  color: var(--showit);
+  background: var(--showit-bg);
+}
+
+.badge.explain {
+  color: var(--explainit);
+  background: var(--explainit-bg);
+}
+
+.cost-tag {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.chip {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1.5px solid var(--wire-strong);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--foreground);
+  border-color: var(--foreground);
+  color: var(--background);
+}
+
+.tag {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11.5px;
+  padding: 5px 10px;
+  border: 1px solid var(--wire-strong);
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+.section-title {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 14px;
 }
