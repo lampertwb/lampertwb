@@ -17,7 +17,7 @@ type Project = {
   stackLine?: string;
   description: string;
   longDescription?: string;
-  image?: string;
+  images?: string[];
   badge: Badge;
   badgeLabel: string;
   cost: string;
@@ -25,11 +25,18 @@ type Project = {
 
 const flagshipProjects: Project[] = [
   {
-    eyebrow: "Claude Skill — pipeline",
-    name: "Job Search System",
-    stackLine: "Job Search Agent (Proficiently) → ATS Navigator",
+    eyebrow: "Cowork Agent + Skills — pipeline",
+    name: "Job Search Pipeline",
+    stackLine: "Job Search Agent (Proficiently MCP) → ATS Navigator",
     description:
-      "Reverse-engineered why algorithmic hiring systems reject candidates, then built the pipeline that scores Resume Fit vs. Job Risk before applying.",
+      "Treated my own job search like a GTM pipeline: defined an Ideal Job Profile (my own ICP), then built an agent that qualifies every new posting against it on a daily schedule — no manual re-scanning.",
+    longDescription:
+      "I run RevOps by building an ICP and a pipeline to qualify against it. I pointed that same thinking at my own job search: an **Ideal Job Profile** stands in for the ICP, and a scheduled **Cowork agent plus a set of custom Skills** stands in for the pipeline.\n\nThe agent runs **daily** against niche job sources via the **Proficiently MCP** — the MCP integration is what lets it actually reach and score postings on sites outside the mainstream boards, not just run a generic search. Each run scores new postings against my profile, flags High/Medium fits, dedupes against everything it's already seen (**~365 confirmed dedupes/skips** logged so far), and delivers the digest straight to Slack.\n\nEvery High-fit posting then gets run through a second tool, ATS Navigator. **It's not a keyword optimizer** — that's the shallow version of this problem. It's built on Stanford Digital Economy Lab research showing that **only ~42 underlying AI models** now sit behind the hiring pipelines processing millions of applications, creating an algorithmic monoculture: one model's rejection tends to propagate across every employer running the same system, and **roughly 10% of applicants who apply to 4+ jobs get systemically rejected by all of them regardless of fit**. ATS Navigator identifies which vendor and model sit behind a given listing, then separates what's actually fixable (resume-parser formatting, missing keywords) from what's a fixed structural risk score I can't change — so **I know which fights are worth fighting**.",
+    images: [
+      "/project-media/ats-navigator-analysis-1.png",
+      "/project-media/ats-navigator-analysis-2.png",
+      "/project-media/job-search-pipeline-run.png",
+    ],
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "$17/mo shared*",
@@ -132,7 +139,7 @@ const otherProjects: Project[] = [
     name: "TOFU Lead-Routing Pipeline",
     description:
       "Intake → Hunter.io enrichment → Claude ICP scoring → routing → CRM write → nurture loop.",
-    image: "/project-media/tofu-pipeline-canvas.jpg",
+    images: ["/project-media/tofu-pipeline-canvas.jpg"],
     badge: "show",
     badgeLabel: "Show it",
     cost: "$0–low/mo (free tiers)",
@@ -183,9 +190,20 @@ const skills = [
   "…and more",
 ];
 
+function renderWithBold(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return <span key={i}>{part}</span>;
+  });
+}
+
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [expanded, setExpanded] = useState<string[]>([]);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   const visibleProjects =
     activeFilter === "All"
@@ -204,15 +222,19 @@ export default function Home() {
     const isExpanded = expanded.includes(project.name);
     return (
       <>
-        {project.image && (
-          <a
-            className="project-image"
-            href={project.image}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={project.image} alt={`${project.name} screenshot`} />
-          </a>
+        {project.images && project.images.length > 0 && (
+          <div className="project-image-row">
+            {project.images.map((src, i) => (
+              <button
+                key={src}
+                type="button"
+                className="project-image"
+                onClick={() => setLightboxSrc(src)}
+              >
+                <img src={src} alt={`${project.name} screenshot ${i + 1}`} />
+              </button>
+            ))}
+          </div>
         )}
         {project.longDescription && (
           <>
@@ -226,7 +248,7 @@ export default function Home() {
             {isExpanded && (
               <div className="long-description">
                 {project.longDescription.split("\n\n").map((para, i) => (
-                  <p key={i}>{para}</p>
+                  <p key={i}>{renderWithBold(para)}</p>
                 ))}
               </div>
             )}
@@ -343,6 +365,15 @@ export default function Home() {
           [ email / LinkedIn / resume link ]
         </div>
       </footer>
+
+      {lightboxSrc && (
+        <div
+          className="lightbox-overlay"
+          onClick={() => setLightboxSrc(null)}
+        >
+          <img src={lightboxSrc} alt="Expanded screenshot" />
+        </div>
+      )}
     </div>
   );
 }
