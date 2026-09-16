@@ -16,6 +16,8 @@
   --explainit: #3f3c35;
   --explainit-bg: #e3e0d6;
   --tag-bg: #e6e3d8;
+  --award: #7a5c00;
+  --award-bg: #f7edc4;
 }
 
 @theme inline {
@@ -42,6 +44,8 @@
     --explainit: #e4e0d5;
     --explainit-bg: #332f29;
     --tag-bg: #2e2c25;
+    --award: #f0d585;
+    --award-bg: #3d3210;
   }
 }
 
@@ -262,4 +266,43 @@ body {
   max-height: 100%;
   border-radius: 4px;
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+}
+
+.award-banner {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-plex-mono), monospace;
+  background: var(--award-bg);
+  border: 1.5px solid var(--award);
+  border-radius: 6px;
+  padding: 7px 12px;
+  margin-bottom: 4px;
+}
+
+.award-banner-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 32px;
+}
+
+.award-banner-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.award-banner .award-main {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--award);
+}
+
+.award-banner .award-note {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--muted);
 }
