@@ -63,14 +63,21 @@ body {
   border: 2px solid var(--wire);
   border-radius: 6px;
   background: var(--surface);
+  overflow: hidden;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 150px;
+  flex: 1;
+  min-height: 134px;
 }
 
 .card .eyebrow {
@@ -96,6 +103,11 @@ body {
 
 .flagship-card {
   border-width: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flagship-body {
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -227,6 +239,24 @@ body {
   margin-top: 8px;
 }
 
+.case-study-block {
+  margin-bottom: 10px;
+}
+
+.case-study-block:last-child {
+  margin-bottom: 0;
+}
+
+.case-study-label {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--note);
+  margin-bottom: 3px;
+}
+
 .project-image {
   border: 1.5px solid var(--wire);
   border-radius: 4px;
@@ -247,6 +277,85 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 8px;
+}
+
+.card-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  border-bottom: 1.5px solid var(--wire-strong);
+}
+
+.card-hero-image-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+}
+
+.card-hero-image-btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-hero-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--wire-strong);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.16) 0px,
+    rgba(255, 255, 255, 0.16) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+.card-hero-placeholder[data-cat="python"] {
+  background-color: #3f5f8a;
+}
+
+.card-hero-placeholder[data-cat="agent"] {
+  background-color: #b5623f;
+}
+
+.card-hero-placeholder[data-cat="artifact"] {
+  background-color: #6b5590;
+}
+
+.card-hero-placeholder[data-cat="automation"] {
+  background-color: #a83b5e;
+}
+
+.card-hero-placeholder[data-cat="web"] {
+  background-color: #2f7d5c;
+}
+
+.card-hero-placeholder[data-cat="skill"] {
+  background-color: #3f7a6b;
+}
+
+.card-hero-label {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 6px 14px;
 }
 
 .lightbox-overlay {
@@ -305,4 +414,52 @@ body {
   font-size: 10px;
   font-weight: 500;
   color: var(--muted);
+}
+
+.roi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.roi-table th,
+.roi-table td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--wire);
+}
+
+.roi-table th {
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.roi-table td.num {
+  font-family: var(--font-plex-mono), monospace;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.roi-table tr.roi-total td {
+  font-weight: 700;
+  border-top: 2px solid var(--wire-strong);
+  border-bottom: none;
+  padding-top: 8px;
+}
+
+.roi-footnote {
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.roi-footnote a {
+  color: var(--note);
+  text-decoration: underline;
 }
