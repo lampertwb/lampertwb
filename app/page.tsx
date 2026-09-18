@@ -42,9 +42,9 @@ const flagshipProjects: Project[] = [
     results:
       "The agent **dedupes against everything it's already seen (~365 confirmed dedupes/skips logged so far)** and delivers a daily digest to Slack. ATS Navigator separates what's actually fixable (resume-parser formatting, missing keywords) from what's a fixed structural risk score I can't change — **so I know which fights are worth fighting.**",
     images: [
+      "/project-media/job-search-pipeline-run.png",
       "/project-media/ats-navigator-analysis-1.png",
       "/project-media/ats-navigator-analysis-2.png",
-      "/project-media/job-search-pipeline-run.png",
     ],
     badge: "explain",
     badgeLabel: "Explain it",
