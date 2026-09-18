@@ -51,23 +51,6 @@ const flagshipProjects: Project[] = [
     cost: "$17/mo shared*",
   },
   {
-    eyebrow: "Claude Skill — methodology",
-    category: "Claude Skill",
-    name: "Five-Doc Framework",
-    stackLine: "PRD → System Design → UI/UX → Feature Breakdown → Master Prompt",
-    description:
-      "A mandatory five-document planning sequence, self-authored, that lets less-technical builders ship working Claude agents without skipping the thinking.",
-    problem:
-      "Less-technical builders — and AI-assisted builders in general — tend to jump straight into code or configuration, then discover mid-build that **no one ever defined what success looks like or how the pieces are supposed to connect**.",
-    solution:
-      "Authored a mandatory five-document planning sequence — PRD, System Design, UI/UX Wireframe, Feature Breakdown, and a Master Prompt — that has to be written and reviewed, **in that order, before any building starts**. Each document has required sections; the PRD alone forces an explicit What, Why, Who, success criteria, and out-of-scope list before anything else happens.",
-    results:
-      "Lets someone without a deep technical background **ship a working Claude agent without skipping the thinking** that usually only happens inside an experienced engineer's head.",
-    badge: "explain",
-    badgeLabel: "Explain it",
-    cost: "$17/mo shared*",
-  },
-  {
     eyebrow: "Python — built at BILL",
     category: "Python",
     name: "Route Detective",
@@ -85,6 +68,43 @@ const flagshipProjects: Project[] = [
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "N/A — employer-covered",
+  },
+];
+
+const frameworkProjects: Project[] = [
+  {
+    eyebrow: "Claude Skill — methodology",
+    category: "Claude Skill",
+    name: "Five-Doc Framework",
+    stackLine: "PRD → System Design → UI/UX → Feature Breakdown → Master Prompt",
+    description:
+      "A mandatory five-document planning sequence, self-authored, that lets less-technical builders ship working Claude agents without skipping the thinking.",
+    problem:
+      "Less-technical builders — and AI-assisted builders in general — tend to jump straight into code or configuration, then discover mid-build that **no one ever defined what success looks like or how the pieces are supposed to connect**.",
+    solution:
+      "Authored a mandatory five-document planning sequence — PRD, System Design, UI/UX Wireframe, Feature Breakdown, and a Master Prompt — that has to be written and reviewed, **in that order, before any building starts**. Each document has required sections; the PRD alone forces an explicit What, Why, Who, success criteria, and out-of-scope list before anything else happens.",
+    results:
+      "Lets someone without a deep technical background **ship a working Claude agent without skipping the thinking** that usually only happens inside an experienced engineer's head.",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "$17/mo shared*",
+  },
+  {
+    eyebrow: "Strategy Framework — self-authored, inspired by Jeff Winter's transformation thinking",
+    category: "Framework",
+    name: "Trifecta of Transformation",
+    stackLine: "Technology ⟷ Process ⟷ People",
+    description:
+      "A three-pillar model for what actually has to move together for a GTM transformation to stick — not just the tool swap most teams default to.",
+    problem:
+      "Most GTM transformation efforts default to a tools conversation — buy the new platform, migrate the data, call it done. **That's one pillar out of three**, and it's the one most likely to fail on its own: a new system with no process discipline behind it, or no organizational buy-in around it, just becomes a more expensive version of the old mess.",
+    solution:
+      "Built a three-pillar framework — **Technology** (infrastructure, integrations, automation, and the data hygiene/integrity/governance that makes all three trustworthy), **Process** (the hand-offs, enablement, and customer-journey mapping that determine whether a system actually gets used correctly), and **People** (leadership alignment, cross-functional collaboration, and treating RevOps as its own strategic function rather than a tactical branch of Sales or Service) — as a working checklist for whether a transformation is actually complete, not just technically shipped. [DRAFT — Wendy to confirm the Automation sub-point's description once verified against the source diagram.]",
+    results:
+      "Used as the lens behind every project on this page — the technically hardest build still fails as a transformation if the process around it doesn't change or the org isn't structured to sustain it.",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "N/A — strategy framework, not software",
   },
 ];
 
@@ -179,13 +199,13 @@ const otherProjects: Project[] = [
   {
     category: "n8n Automation",
     eyebrow: "n8n Automation — built at BILL",
-    name: '"The Check"',
+    name: "Enablement Deck Automation",
     description:
       "Extended a colleague's form-to-slide-deck automation with AI-enhanced content.",
     problem:
       "A colleague at BILL had already automated turning a form submission into a slide deck, but the output was still a plain, unpolished deck that needed manual editing before it was presentation-ready.",
     solution:
-      "Extended that n8n workflow, called \"The Check,\" adding **AI-enhanced content generation** so the deck comes out with real, tailored content instead of a bare template.",
+      "Extended that n8n workflow, adding **AI-enhanced content generation** so the deck comes out with real, tailored content instead of a bare template.",
     results:
       "The same automation now produces a presentation-ready deck instead of a draft that still needed manual polish — employer-covered, so it runs at no personal cost.",
     badge: "explain",
@@ -273,6 +293,23 @@ const skills = [
   "…and more",
 ];
 
+type Feature = {
+  publication: string;
+  title: string;
+  url: string;
+  blurb: string;
+};
+
+const featuredIn: Feature[] = [
+  {
+    publication: "Sweep — REVolutions series",
+    title: "REVolutions: Wendy Lampert",
+    url: "https://www.sweep.io/blog/revolutions-wendy-lampert",
+    blurb:
+      "Interview on moving from Hospitality & Tourism Management into RevOps, and the lessons that carried over.",
+  },
+];
+
 function MedalIcon() {
   return (
     <svg
@@ -330,6 +367,8 @@ function categorySlug(category?: string): string {
       return "web";
     case "Claude Skill":
       return "skill";
+    case "Framework":
+      return "framework";
     default:
       return "default";
   }
@@ -441,6 +480,13 @@ export default function Home() {
 
         <section className="mb-10">
           <div className="wire p-7">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+              <img
+                src="/wendy-about-photo.jpg"
+                alt="Wendy Lampert at her desk, mid-build"
+                className="about-photo"
+              />
+              <div>
             <h2 className="mb-3 text-2xl font-semibold leading-tight">Running Revenue to Coding It</h2>
             <p className="mb-3 text-[15px] leading-relaxed">
               I run revenue operations for GTM teams — most recently BILL&apos;s Enterprise
@@ -459,9 +505,9 @@ export default function Home() {
               sales. At Apex Fintech, I defined the GTM strategy and cut a bloated, redundant tech
               stack down to five integrations, saving over $300K. At BILL, what looked like a
               lead-routing problem was really a data-integrity problem — I rebuilt the pipeline to
-              automatically route 7.5 million records into the right queues, cutting ticket
-              volume 37%, and collaborated with Enablement to build an AI workflow — &quot;The
-              Check,&quot; one of the projects below — that saves the team 10+ hours a week.
+              automatically route 7.5 million records into the right queues, cutting ticket volume
+              37%, and collaborated with Enablement to build an AI workflow — one of the projects
+              below — that saves the team 10+ hours a week.
             </p>
             <p className="text-[15px] leading-relaxed">
               That combination — real operating scars, plus real engineering discipline — is what
@@ -475,6 +521,8 @@ export default function Home() {
               built on my own to learn something the hard way — hands-on, line by line — instead
               of vibe-coding past the parts most people skip.
             </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -620,7 +668,7 @@ export default function Home() {
                         <td className="num">$116</td>
                       </tr>
                       <tr>
-                        <td>&quot;The Check&quot;</td>
+                        <td>Enablement Deck Automation</td>
                         <td>SDR base, $31/hr</td>
                         <td>~3 (est.)</td>
                         <td className="num">$93</td>
@@ -705,7 +753,46 @@ export default function Home() {
         </section>
 
         <section className="mb-12">
-          <h2 className="section-title">02 — Everything else</h2>
+          <h2 className="section-title">02 — Frameworks &amp; Strategy</h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {frameworkProjects.map((project) => {
+              const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
+              const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
+              return (
+                <div key={project.name} className="wire card">
+                  <div className="card-hero">
+                    {heroImage ? (
+                      <button
+                        type="button"
+                        className="card-hero-image-btn"
+                        onClick={() => setLightboxSrc(heroImage)}
+                      >
+                        <img src={heroImage} alt={`${project.name} preview`} />
+                      </button>
+                    ) : (
+                      <div className="card-hero-placeholder" data-cat={categorySlug(project.category)}>
+                        <span className="card-hero-label">{categoryLabel(project.category)}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="card-body">
+                    <span className="eyebrow">{project.eyebrow}</span>
+                    <h4>{project.name}</h4>
+                    <p className="desc">{project.description}</p>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
+                      <span className="cost-tag">{project.cost}</span>
+                    </div>
+                    {renderProjectExtras(project, extraImages)}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="section-title">03 — Technical Builds</h2>
           <div className="mb-4 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
@@ -756,8 +843,29 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="mb-12">
+          <h2 className="section-title">04 — Features</h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {featuredIn.map((feature) => (
+              <div key={feature.url} className="wire p-6">
+                <span className="eyebrow">{feature.publication}</span>
+                <h4 className="mb-2 mt-1 text-[16px] font-semibold">{feature.title}</h4>
+                <p className="desc">{feature.blurb}</p>
+                <a
+                  className="feature-link"
+                  href={feature.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read the full interview &#8594;
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section>
-          <h2 className="section-title">03 — Skills &amp; tools</h2>
+          <h2 className="section-title">05 — Skills &amp; tools</h2>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
               <span key={skill} className="tag">

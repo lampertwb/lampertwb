@@ -226,6 +226,22 @@ body {
   text-decoration: underline;
 }
 
+.feature-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--note);
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.feature-link:hover {
+  text-decoration: underline;
+}
+
 .long-description {
   font-size: 13px;
   line-height: 1.6;
@@ -343,6 +359,26 @@ body {
 
 .card-hero-placeholder[data-cat="skill"] {
   background-color: #3f7a6b;
+}
+
+.card-hero-placeholder[data-cat="framework"] {
+  background-color: #9c7a2e;
+}
+
+.about-photo {
+  width: 132px;
+  height: 132px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--wire-strong);
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .about-photo {
+    width: 168px;
+    height: 168px;
+  }
 }
 
 .card-hero-label {
