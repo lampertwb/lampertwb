@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type Badge = "try" | "show" | "explain";
 
@@ -462,6 +463,9 @@ export default function Home() {
           </div>
           <nav className="mono flex gap-4 text-[13px] text-[var(--muted)]">
             <span>Projects</span>
+            <Link href="/python-projects" className="hover:underline">
+              Python
+            </Link>
             <span>Skills</span>
             <span>Contact</span>
           </nav>
