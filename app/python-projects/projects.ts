@@ -78,9 +78,9 @@ export const projects: TrackerProject[] = [
     category: "web",
     status: "complete",
     demo: "weather",
-    facts: ["3 JSON endpoints", "5 weather stations, 1781 to 2022", "Flask + pandas"],
+    facts: ["3 ways to ask", "5 weather stations, 1781 to 2022", "Flask + pandas"],
     description:
-      "A Flask API that serves daily mean-temperature readings for European weather stations, with a station index page and three JSON endpoints.",
+      "A web service that answers weather questions from real European climate records: the temperature on any day, a whole year at a station, or a station's full history. Built with Flask and pandas.",
     problem:
       "Raw climate data arrives as one text file per weather station, with a metadata header block and temperatures stored in tenths of a degree, so no other program can use it until someone parses it and puts a clean interface on top.",
     solution:

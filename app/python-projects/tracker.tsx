@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { projects, type TrackerProject } from "./projects";
-import { EmailShowcase, WeatherShowcase } from "./showcase";
+import { EmailShowcase } from "./showcase";
+import { WeatherShowcase } from "./weather-showcase";
 
 type Filter = "all" | "complete" | "pending";
 
