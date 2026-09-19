@@ -2,8 +2,15 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-19 — App 5 (Weather Forecast Dashboard) screenshot on tracker card
+
+- App 5's "Up next" card on `/python-projects` now shows a real screenshot instead of the colored placeholder tile. The screenshot is of the Streamlit + Plotly forecast dashboard as it currently runs (place = Tirana, 2 forecast days, Temperature chart), saved as `public/project-media/weather-dashboard/weather-forecast-dashboard.png`.
+- This is a stand-in visual until the script is finalized. App 5 stays `status: "pending"`; it is not marked Complete and has no write-up yet.
+- Code: `TrackerProject` gained an optional `image: { src, alt }` field (`projects.ts`); `PendingCard` in `tracker.tsx` renders it when present and falls back to the placeholder tile otherwise; `.card-hero-shot` in `globals.css` crops the portrait screenshot into the 16:9 tile, anchored on the chart (`object-position: center 82%`). Any pending app can now take a real screenshot the same way.
+- Logged for later: a "Try it out" link on this card (see Open / not yet built).
+
 ## 2026-09-19 — Python projects tracker page (`/python-projects`), wide layout, live demos
-first pass committed as `b310801`; nav, wide layout and demos below are uncommitted
+commits `b310801` (first pass), `11b8768` (nav, wide layout, demos), `ef20079` (Weather demo replaced with annotated screenshots)
 
 - New route `app/python-projects/` (`page.tsx`, `tracker.tsx`, `projects.ts`, `showcase.tsx` (email demo), `weather-showcase.tsx`, `demo-dialog.tsx`) tracking all 20 apps from the Udemy course "Python Mega Course: Build 20 Real-World Apps and AI Agents" (Ardit Sulce). App numbers and section ranges follow the course's *current* curriculum.
 - Layout: sticky left sidebar with check-mark status markers (filled green = Complete, hollow = Pending; mobile collapses to a "Jump to an app" dropdown), All / Complete / Pending filter chips, progress bar. Finished apps are "Built" showcase cards (live demo left, description + fact tags + collapsed write-up right); pending apps are "Up next" cards in a 3-column grid with the site's colored placeholder tiles.
@@ -72,4 +79,5 @@ commit `5a9b83a`
 - Real photo for the About section — undecided.
 - BILL-internal framework/philosophy jargon from her resume — currently omitted from public copy, not explicitly confirmed either way.
 - Python Udemy Course and Python Project of the Day — to be pushed to GitHub and linked from the site. Course material located (News_API in `Python_import/News_API`, Weather API in `python-projects/app6-weather-api`); tracker page built (see 2026-09-19); still to do: GitHub push.
+- **"Try it out" link on App 5 (Weather Forecast Dashboard):** once the script is finalized, add a "Try it out" link on the App 5 card that opens the running app. Needs: (1) the finished script, (2) a public host for the Streamlit app (e.g. Streamlit Community Cloud) since the portfolio site is Next.js and cannot run it, (3) a `tryItOutUrl?: string` field on `TrackerProject` and a button on the card that renders only when set. Then swap the stand-in screenshot for a final one and mark App 5 Complete with problem/solution/results. Consider the same link for other apps that end up hosted.
 - System/workflow diagrams (Miro-style) as a replacement for the 11 category-placeholder tiles — deferred.

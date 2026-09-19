@@ -135,9 +135,14 @@ function PendingCard({ project }: { project: TrackerProject }) {
   return (
     <article id={project.slug} className="wire card tracker-card">
       <div className="card-hero">
-        <div className="card-hero-placeholder" data-cat={project.category}>
-          <span className="card-hero-label">{project.kind}</span>
-        </div>
+        {project.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className="card-hero-shot" src={project.image.src} alt={project.image.alt} loading="lazy" />
+        ) : (
+          <div className="card-hero-placeholder" data-cat={project.category}>
+            <span className="card-hero-label">{project.kind}</span>
+          </div>
+        )}
       </div>
       <div className="card-body">
         <div className="eyebrow">

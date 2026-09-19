@@ -18,6 +18,8 @@ export type TrackerProject = {
   iteration?: string;
   // Interactive showcase shown in place of the placeholder tile on finished apps.
   demo?: "email" | "weather";
+  // Real screenshot shown in place of the colored placeholder tile (used while an app is still pending).
+  image?: { src: string; alt: string };
   // Short scannable facts shown as tags under the description.
   facts?: string[];
 };
@@ -96,6 +98,10 @@ export const projects: TrackerProject[] = [
     sections: "Sections 27–28",
     category: "python",
     status: "pending",
+    image: {
+      src: "/project-media/weather-dashboard/weather-forecast-dashboard.png",
+      alt: "The Weather Forecast dashboard: a place box set to Tirana, a forecast-days slider set to 2, a data-type dropdown set to Temperature, and a line chart of the temperature for the next 2 days.",
+    },
     description:
       "An interactive weather dashboard: data and charts first, then filtering and new features.",
   },
