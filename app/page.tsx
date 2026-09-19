@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import SiteNav from "./site-nav";
 
 type Badge = "try" | "show" | "explain";
 
@@ -457,22 +457,15 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b border-[var(--wire-strong)] bg-[var(--background)]">
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-6 py-4 sm:px-10">
+        <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-3 px-6 py-4 sm:px-10 lg:px-14">
           <div className="mono text-[15px] font-semibold tracking-wide">
             WENDY LAMPERT <span className="text-[var(--muted)]">/ portfolio</span>
           </div>
-          <nav className="mono flex gap-4 text-[13px] text-[var(--muted)]">
-            <span>Projects</span>
-            <Link href="/python-projects" className="hover:underline">
-              Python
-            </Link>
-            <span>Skills</span>
-            <span>Contact</span>
-          </nav>
+          <SiteNav />
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-6 py-12 sm:px-10">
+      <main className="mx-auto max-w-[1360px] px-6 py-12 sm:px-10 lg:px-14">
         <section className="mb-10">
           <div className="wire p-7">
             <h1 className="mb-2 text-3xl font-semibold leading-tight">Wendy Lampert</h1>
@@ -492,6 +485,7 @@ export default function Home() {
               />
               <div>
             <h2 className="mb-3 text-2xl font-semibold leading-tight">Running Revenue to Coding It</h2>
+            <div className="lg:columns-2 lg:gap-12">
             <p className="mb-3 text-[15px] leading-relaxed">
               I run revenue operations for GTM teams — most recently BILL&apos;s Enterprise
               segment, directing process alignment across 14 sales teams spanning direct B2B,
@@ -525,6 +519,7 @@ export default function Home() {
               built on my own to learn something the hard way — hands-on, line by line — instead
               of vibe-coding past the parts most people skip.
             </p>
+            </div>
               </div>
             </div>
           </div>
@@ -705,7 +700,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section id="projects" className="mb-12">
           <h2 className="section-title">01 — Flagship</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {flagshipProjects.map((project) => {
@@ -810,7 +805,7 @@ export default function Home() {
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {visibleProjects.map((project) => {
               const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
               const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
@@ -868,7 +863,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section>
+        <section id="skills">
           <h2 className="section-title">05 — Skills &amp; tools</h2>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
@@ -880,8 +875,8 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="mt-8 border-t border-[var(--wire-strong)] px-6 py-8 sm:px-10">
-        <div className="mono mx-auto max-w-3xl text-[12px] text-[var(--muted)]">
+      <footer id="contact" className="mt-8 border-t border-[var(--wire-strong)] px-6 py-8 sm:px-10 lg:px-14">
+        <div className="mono mx-auto max-w-[1360px] text-[12px] text-[var(--muted)]">
           [ email / LinkedIn / resume link ]
         </div>
       </footer>

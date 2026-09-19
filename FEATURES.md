@@ -2,17 +2,17 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
-## 2026-09-19 — Python projects tracker page (`/python-projects`)
-uncommitted
+## 2026-09-19 — Python projects tracker page (`/python-projects`), wide layout, live demos
+first pass committed as `b310801`; nav, wide layout and demos below are uncommitted
 
-- New route `app/python-projects/` (`page.tsx`, `tracker.tsx`, `projects.ts`) tracking all 20 apps from the Udemy course "Python Mega Course: Build 20 Real-World Apps and AI Agents" (Ardit Sulce). App numbers and section ranges follow the course's *current* curriculum.
-- Sticky left sidebar with a status dot per app (mobile: collapses into a "Jump to an app" dropdown), All / Complete / Pending filter chips, and a progress bar ("2 of 20 apps complete").
-- Reuses the existing design system: `.wire` cards, `.card-hero` placeholder tiles (python / agent / automation / web), `.badge` status pills, and the Problem / Solution / Results case-study blocks.
-- Complete: App 3 (Email News Digest, the News_API project) and App 4 (Weather Data API), both with case-study write-ups (venv/migration debugging intentionally left out of the copy). Apps 1, 2, 5-20 are Pending placeholders.
-- To mark an app done: in `projects.ts` set `status: "complete"` and add `problem` / `solution` / `results`.
-- Home page header nav now has a "Python" link to `/python-projects` (`app/page.tsx`).
-- Status markers: 20px circles in the sidebar, filled green with a check mark for Complete, hollow for Pending; Complete names are bold green and the card badge reads "✓ Complete".
-- Case studies support an optional `iteration` field (rendered as an amber "Iteration" block after Results). App 3 uses it for the 2-years-later Claude iteration (URL-query filtering, HTML email, cron); the Problem/Solution/Results text focuses on what the project does and what the course teaches.
+- New route `app/python-projects/` (`page.tsx`, `tracker.tsx`, `projects.ts`, `showcase.tsx`, `weather-core.ts`) tracking all 20 apps from the Udemy course "Python Mega Course: Build 20 Real-World Apps and AI Agents" (Ardit Sulce). App numbers and section ranges follow the course's *current* curriculum.
+- Layout: sticky left sidebar with check-mark status markers (filled green = Complete, hollow = Pending; mobile collapses to a "Jump to an app" dropdown), All / Complete / Pending filter chips, progress bar. Finished apps are "Built" showcase cards (live demo left, description + fact tags + collapsed write-up right); pending apps are "Up next" cards in a 3-column grid with the site's colored placeholder tiles.
+- Complete: App 3 (Email News Digest, the News_API project) and App 4 (Weather Data API). To mark another app done: set `status: "complete"` in `projects.ts`, add `problem` / `solution` / `results` (+ optional `iteration`, `facts`, `demo`).
+- Email demo (App 3): card shows a live scaled preview of the real digest; click opens a modal styled like an email client (subject, sender, all 10 stories scrollable, "What to notice" notes). Source is the real .eml body, saved as `public/project-media/news-digest-sample.html` (Gmail address is not in the body and is not shown). Story images are hotlinked from the publishers, as in the original email.
+- Weather demo (App 4): click opens an endpoint explorer (station, one date / one year / all dates) that answers in the browser from compact station files in `public/project-media/weather/`, plus a daily-temperature chart for the yearly endpoint. `weather-core.ts` ports the three routes of `python-projects/app6-weather-api/main.py`; its output was checked against the real Flask app on 165 requests (single dates, years, whole files, and the 500 cases) and matched byte for byte.
+- Site-wide: containers widened from 768px to 1360px on the home page and the tracker; home About section is two columns on large screens; Technical Builds grid is 3 columns on large screens.
+- Nav (`app/site-nav.tsx`): Projects, Python, Skills and Contact are all real links (section anchors `#projects`, `#skills`, `#contact` plus the `/python-projects` route) on both pages. The Contact target is still the footer placeholder.
+- Case studies support an optional `iteration` field (amber "Iteration" block after Results). App 3's copy focuses on what the project does and what the course teaches.
 - Numbering note: the repo folder `python-projects/app6-weather-api` and commit d2a3039 use the older course numbering (app 6); the current course lists Weather API as App 4.
 
 ## 2026-09-18 — ROI rework, full case studies, image-first redesign, About section

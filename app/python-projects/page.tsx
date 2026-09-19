@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteNav from "../site-nav";
 import Tracker from "./tracker";
 import { courseTitle, projects } from "./projects";
 
@@ -17,19 +18,15 @@ export default function PythonProjectsPage() {
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b border-[var(--wire-strong)] bg-[var(--background)]">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 py-4 sm:px-10">
-          <div className="mono text-[15px] font-semibold tracking-wide">
+        <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-3 px-6 py-4 sm:px-10 lg:px-14">
+          <Link href="/" className="mono text-[15px] font-semibold tracking-wide">
             WENDY LAMPERT <span className="text-[var(--muted)]">/ python projects</span>
-          </div>
-          <nav className="mono flex gap-4 text-[13px] text-[var(--muted)]">
-            <Link href="/" className="hover:underline">
-              ← Portfolio
-            </Link>
-          </nav>
+          </Link>
+          <SiteNav current="python" />
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-6 py-12 sm:px-10">
+      <main className="mx-auto max-w-[1360px] px-6 py-12 sm:px-10 lg:px-14">
         <section className="mb-10">
           <div className="wire p-7">
             <h1 className="mb-2 text-3xl font-semibold leading-tight">

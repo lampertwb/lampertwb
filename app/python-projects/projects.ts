@@ -16,6 +16,10 @@ export type TrackerProject = {
   solution?: string;
   results?: string;
   iteration?: string;
+  // Interactive showcase shown in place of the placeholder tile on finished apps.
+  demo?: "email" | "weather";
+  // Short scannable facts shown as tags under the description.
+  facts?: string[];
 };
 
 // Source of truth: the Python Mega Course: Build 20 Real-World Apps and AI Agents (Udemy, Ardit Sulce).
@@ -52,6 +56,8 @@ export const projects: TrackerProject[] = [
     sections: "Sections 22–23",
     category: "automation",
     status: "complete",
+    demo: "email",
+    facts: ["10 stories per email", "English-only, trusted news domains", "Runs daily at 7 AM"],
     description:
       "A Python script that pulls the previous day's AI headlines from NewsAPI, builds an email digest, and sends it to my inbox automatically every morning.",
     problem:
@@ -71,6 +77,8 @@ export const projects: TrackerProject[] = [
     sections: "Sections 24–26",
     category: "web",
     status: "complete",
+    demo: "weather",
+    facts: ["3 JSON endpoints", "5 weather stations, 1781 to 2022", "Flask + pandas"],
     description:
       "A Flask API that serves daily mean-temperature readings for European weather stations, with a station index page and three JSON endpoints.",
     problem:
