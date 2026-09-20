@@ -83,7 +83,7 @@ const flagshipProjects: Project[] = [
     problem:
       "Most “AI task managers” are really just a prompt wrapped around a to-do list. They can suggest an action, but they can’t actually take one.",
     solution:
-      "Built a tool-calling agent in Python with LangChain on Gemini 2.5 Flash and gave it three real tools, **add_task, show_tasks, and remove_task, wired directly into the Todoist API**, so the model decides which one a plain-English request needs and calls it. I built it while working through the LangChain lessons in the Python Mega Course, then extended it well past the lesson.",
+      "Built a tool-calling agent in Python with LangChain on Gemini 2.5 Flash and gave it three real tools, **add_task, show_tasks, and remove_task, wired directly into the Todoist API**, so the model decides which one a plain-English request needs and calls it. It keeps the conversation history, so it remembers earlier requests in the same session. I built it while working through the LangChain lessons in the Python Mega Course, then rebuilt it on LangChain v1 when the course’s pattern went out of date and added removal on my own.",
     results:
       "**In the demo, four plain-English requests produce four real changes in Todoist: two tasks added and two removed**, including a casually phrased one (“What about buy bananas? I got those there too!”) that never uses the word remove. Under the hood, “remove” checks the task off in Todoist by its exact name, and the agent says so if no task matches.",
     video: "/project-media/langchain-agent/langchain-todo-agent-demo.mp4",
