@@ -2,6 +2,13 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-20 — Two new Features cards + Expense Tracker (Reimbursement) build card
+
+- 04 Features now has three cards. `Feature` in `app/page.tsx` gained an optional `url` (no link = text-only card) and a per-card `linkLabel` (the button used to be hard-coded "Read the full interview"). Cards key on `title`.
+- New: **INFUSE Academy, "Sales Funnel in B2B Marketing"** links to the live course page (https://academy.infuse.com/course/sales-funnel; Wendy's original link was dead, this one was found on the INFUSE courses page). She is listed there as a featured practitioner, so the copy says "featured practitioner", not instructor, and leaves out her employer/title as listed on that page. INFUSE's promo graphic (other people's photos) was not reproduced.
+- New: **The Revenue Operators podcast** links to her August 2024 LinkedIn post (tracking parameters trimmed) that shares a clip on the 2-deep bench. She is still looking for the original video file; if she finds it, replace the LinkedIn link or add a second link.
+- 03 Technical Builds: new **Expense Tracker (Reimbursement)** card (category Python, badge "Explain it"). Python + tkinter desktop app built in 2024 by vibe coding with ChatGPT; screenshot at `public/project-media/reimbursement/expense-tracker.png` (her cropped screenshot; the card number in it is test data). The case study tells the lessons story in her words (infinite loops of fixing one thing and breaking another; the importance of truly learning and knowing the code). It says nothing about whether the app runs today; she plans to try to get it working again. Source is in `~/Python_import/Reimbursement/` and is not published.
+
 ## 2026-09-20 — App 12 (LangChain AI agent) complete: demo video, write-up, Flagship card
 
 - Captioned demo video (`public/project-media/langchain-agent/langchain-todo-agent-demo.mp4`, plus an unused `.srt` copy of the captions) of the Todoist agent: four plain-English requests, two tasks added and two removed. Captions are burned into the video; intro and outro cards explain "left = Todoist, right = the AI agent." The computer-username path in the console was blurred before publishing.

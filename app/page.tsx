@@ -283,6 +283,23 @@ const otherProjects: Project[] = [
     badgeLabel: "Explain it",
     cost: "$0/mo",
   },
+  {
+    category: "Python",
+    eyebrow: "Python — desktop app",
+    name: "Expense Tracker (Reimbursement)",
+    description:
+      "Desktop expense tracker for work reimbursements — Python + tkinter, saving to a spreadsheet-friendly file. My first AI-assisted build, from 2024.",
+    problem:
+      "A reimbursement report is only as good as the data going into it — dates, amounts, categories, and payment types typed by hand into a spreadsheet are easy to get inconsistent.",
+    solution:
+      "Built a small desktop app in Python with tkinter: an Add/Edit Expense window (date, amount, category, payment method, source) with a category drop-down — Car, Lodging, Flight, Meals and Beverages, Shopping, Miscellaneous — plus **date (MM/DD/YYYY) and amount validation** and Load / Save / Edit buttons that read and write the expense report as a file that opens straight in Excel. **I built it in 2024 by \"vibe coding\" with ChatGPT** — describing what I wanted and iterating on what came back.",
+    results:
+      "The real result was the lesson. **Vibe coding got me to a first working version fast, but then came infinite loops of updating one thing and breaking another** — because I couldn't yet read the code well enough to steer it. It taught me how to really use AI to assist with code, and it reinforced **the importance of truly learning, understanding, and knowing the code, and not just relying on it.** It's why the Python work on this page is written and understood by me, with AI as a guide rather than the author. I plan to come back and get this one running again.",
+    images: ["/project-media/reimbursement/expense-tracker.png"],
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "$0/mo",
+  },
 ];
 
 const skills = [
@@ -304,7 +321,9 @@ const skills = [
 type Feature = {
   publication: string;
   title: string;
-  url: string;
+  // Optional: a feature without a link renders as text only.
+  url?: string;
+  linkLabel?: string;
   blurb: string;
 };
 
@@ -315,6 +334,23 @@ const featuredIn: Feature[] = [
     url: "https://www.sweep.io/blog/revolutions-wendy-lampert",
     blurb:
       "Interview on moving from Hospitality & Tourism Management into RevOps, and the lessons that carried over.",
+    linkLabel: "Read the full interview",
+  },
+  {
+    publication: "INFUSE Academy — B2B marketing course",
+    title: "Sales Funnel in B2B Marketing",
+    url: "https://academy.infuse.com/course/sales-funnel",
+    blurb:
+      "Featured practitioner in INFUSE Academy's free certification course on the B2B sales funnel, the Dark Funnel, and alternative buyer-journey models. 4 lessons, 47 minutes.",
+    linkLabel: "View the course",
+  },
+  {
+    publication: "The Revenue Operators — podcast",
+    title: "Guest appearance on The Revenue Operators",
+    url: "https://www.linkedin.com/posts/lampertwb_revops-activity-7229619079563620353-g5UL",
+    blurb:
+      "Guest on The Revenue Operators podcast. My LinkedIn post (August 2024) shares a clip from the conversation on building a 2-deep bench.",
+    linkLabel: "Watch the clip on LinkedIn",
   },
 ];
 
@@ -862,18 +898,20 @@ export default function Home() {
           <h2 className="section-title">04 — Features</h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {featuredIn.map((feature) => (
-              <div key={feature.url} className="wire p-6">
+              <div key={feature.title} className="wire p-6">
                 <span className="eyebrow">{feature.publication}</span>
                 <h4 className="mb-2 mt-1 text-[16px] font-semibold">{feature.title}</h4>
                 <p className="desc">{feature.blurb}</p>
-                <a
-                  className="feature-link"
-                  href={feature.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Read the full interview &#8594;
-                </a>
+                {feature.url && (
+                  <a
+                    className="feature-link"
+                    href={feature.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {feature.linkLabel ?? "Read more"} &#8594;
+                  </a>
+                )}
               </div>
             ))}
           </div>
