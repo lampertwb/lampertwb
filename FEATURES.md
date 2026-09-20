@@ -2,6 +2,13 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-20 — Podcast highlight clip on the Revenue Operators Features card (uncommitted)
+
+- The Revenue Operators card in 04 Features now shows a 91-second captioned highlight clip next to the text (click to play, sound on). Clip: `public/project-media/revenue-operators/podcast-highlight.mp4` (8.3 MB, 720p) with poster `podcast-highlight-poster.jpg`. It is cut from a new edit of the raw July 2024 recording (both speakers, burned-in captions) and ordered Problem, Situation, Answer: (1) the problem, no clear path or sense of identity when roles are blurred ("is this what I do?"); (2) the situation, back in 2016 when she did both sales ops and RevOps before the titles existed; (3) the answer, RevOps should define and design go-to-market while the other ops maintain it. Swapped in for a 2-deep-bench clip because that topic is already public in the LinkedIn post. It contains no show name and no employer-proprietary names. Captions were rebuilt for the clip itself (not cut from the full episode) so no caption bleeds across a cut.
+- Code: `Feature` in `app/page.tsx` gained optional `video: { src, poster, alt }` and `fullEpisodeUrl`. A card with a `video` spans both grid columns (`.feature-with-video`, `.feature-video`, `.feature-text` in `globals.css`). `fullEpisodeUrl` adds a "Watch the full episode" link and renders only when set, so there is no dead link before the episode is uploaded.
+- Full episode is not hosted in the repo (about 830 MB; GitHub rejects files over 100 MB). Plan: upload to YouTube, then paste the link into `fullEpisodeUrl` (a commented-out line is already in the card).
+- Show name settled: the show is "The Revenue Operators". The full-episode edit (v2, on the Desktop) uses that name in the title card and Garrath's lower-third, and the spoken "No Name Podcast" intro line was cut.
+
 ## 2026-09-20 — Two new Features cards + Expense Tracker (Reimbursement) build card
 
 - 04 Features now has three cards. `Feature` in `app/page.tsx` gained an optional `url` (no link = text-only card) and a per-card `linkLabel` (the button used to be hard-coded "Read the full interview"). Cards key on `title`.

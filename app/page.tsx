@@ -325,6 +325,10 @@ type Feature = {
   url?: string;
   linkLabel?: string;
   blurb: string;
+  // Optional: a short highlight clip shown beside the text (click to play, sound on).
+  video?: { src: string; poster: string; alt: string };
+  // Optional: link to the full episode. Leave it undefined until the episode is live, so the card never shows a dead link.
+  fullEpisodeUrl?: string;
 };
 
 const featuredIn: Feature[] = [
@@ -349,8 +353,14 @@ const featuredIn: Feature[] = [
     title: "Guest appearance on The Revenue Operators",
     url: "https://www.linkedin.com/posts/lampertwb_revops-activity-7229619079563620353-g5UL",
     blurb:
-      "Guest on The Revenue Operators podcast. My LinkedIn post (August 2024) shares a clip from the conversation on building a 2-deep bench.",
+      "Guest on The Revenue Operators podcast. This 91-second highlight opens on the problem, that with job titles blurred professionals have no clear path or sense of identity. It then goes back to 2016, when I lived the split between sales ops and RevOps before those titles existed, and lands on why RevOps should define and design go-to-market while the other ops functions maintain it. My LinkedIn post (August 2024) shares a clip from the same conversation.",
     linkLabel: "Watch the clip on LinkedIn",
+    video: {
+      src: "/project-media/revenue-operators/podcast-highlight.mp4",
+      poster: "/project-media/revenue-operators/podcast-highlight-poster.jpg",
+      alt: "91-second highlight from Wendy Lampert's guest appearance on The Revenue Operators podcast, with captions",
+    },
+    // fullEpisodeUrl: "https://www.youtube.com/watch?v=VIDEO_ID", // paste the YouTube link here once the full episode is uploaded
   },
 ];
 
@@ -897,23 +907,61 @@ export default function Home() {
         <section className="mb-12">
           <h2 className="section-title">04 — Features</h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {featuredIn.map((feature) => (
-              <div key={feature.title} className="wire p-6">
-                <span className="eyebrow">{feature.publication}</span>
-                <h4 className="mb-2 mt-1 text-[16px] font-semibold">{feature.title}</h4>
-                <p className="desc">{feature.blurb}</p>
-                {feature.url && (
-                  <a
-                    className="feature-link"
-                    href={feature.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {feature.linkLabel ?? "Read more"} &#8594;
-                  </a>
-                )}
-              </div>
-            ))}
+            {featuredIn.map((feature) => {
+              const text = (
+                <>
+                  <span className="eyebrow">{feature.publication}</span>
+                  <h4 className="mb-2 mt-1 text-[16px] font-semibold">{feature.title}</h4>
+                  <p className="desc">{feature.blurb}</p>
+                  {(feature.fullEpisodeUrl || feature.url) && (
+                    <div className="flex flex-wrap gap-x-5">
+                      {feature.fullEpisodeUrl && (
+                        <a
+                          className="feature-link"
+                          href={feature.fullEpisodeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Watch the full episode &#8594;
+                        </a>
+                      )}
+                      {feature.url && (
+                        <a
+                          className="feature-link"
+                          href={feature.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {feature.linkLabel ?? "Read more"} &#8594;
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </>
+              );
+              if (feature.video) {
+                return (
+                  <div key={feature.title} className="wire feature-with-video sm:col-span-2">
+                    <video
+                      className="feature-video"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster={feature.video.poster}
+                      aria-label={feature.video.alt}
+                    >
+                      <source src={feature.video.src} type="video/mp4" />
+                    </video>
+                    <div className="feature-text">{text}</div>
+                  </div>
+                );
+              }
+              return (
+                <div key={feature.title} className="wire p-6">
+                  {text}
+                </div>
+              );
+            })}
           </div>
         </section>
 

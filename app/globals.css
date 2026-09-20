@@ -242,6 +242,33 @@ body {
   text-decoration: underline;
 }
 
+/* Feature card with a highlight clip: video on top (mobile) or on the left (wide screens), text beside it. */
+.feature-with-video {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.feature-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0f172a;
+}
+
+.feature-text {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .feature-with-video {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
 .long-description {
   font-size: 13px;
   line-height: 1.6;
