@@ -2,6 +2,11 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-20 — Two INFUSE B2B Expert Roundup cards in 04 Features (uncommitted)
+
+- Added two Features cards, placed before the Revenue Operators card: "Top RevOps Trends to Watch in 2023" (https://infuse.com/insight/top-revops-trends-to-watch/) and "What Is the Link Between RevOps and Client Experience?" (https://infuse.com/insight/b2b-expert-roundup-what-is-the-link-between-revops-and-client-experience/). Each shows a short verbatim quote from her contribution, checked against the live INFUSE pages (the bio on both links to her LinkedIn, so identity is confirmed). Text-only cards, no code changes.
+- Not added: Jen Bergren's weekly newsletter mentions (#67, #103, #104) point at her LinkedIn posts, so they are mentions, not features. A "Top RevOps Trends to Watch in 2022" INFUSE roundup may also quote her; it could not be opened to check. A Zapier survey she took part in has not been found published.
+
 ## 2026-09-20 — Podcast highlight clip on the Revenue Operators Features card (uncommitted)
 
 - The Revenue Operators card in 04 Features now shows a 91-second captioned highlight clip next to the text (click to play, sound on). Clip: `public/project-media/revenue-operators/podcast-highlight.mp4` (8.3 MB, 720p) with poster `podcast-highlight-poster.jpg`. It is cut from a new edit of the raw July 2024 recording (both speakers, burned-in captions) and ordered Problem, Situation, Answer: (1) the problem, no clear path or sense of identity when roles are blurred ("is this what I do?"); (2) the situation, back in 2016 when she did both sales ops and RevOps before the titles existed; (3) the answer, RevOps should define and design go-to-market while the other ops maintain it. Swapped in for a 2-deep-bench clip because that topic is already public in the LinkedIn post. It contains no show name and no employer-proprietary names. Captions were rebuilt for the clip itself (not cut from the full episode) so no caption bleeds across a cut.

@@ -349,6 +349,22 @@ const featuredIn: Feature[] = [
     linkLabel: "View the course",
   },
   {
+    publication: "INFUSE — B2B Expert Roundup",
+    title: "Top RevOps Trends to Watch in 2023",
+    url: "https://infuse.com/insight/top-revops-trends-to-watch/",
+    blurb:
+      "Contributing expert in INFUSE's roundup of RevOps predictions. “I believe we will continue to see a need for a more generalist type RevOp professional in the smaller and larger businesses, while in mid-size companies, a more specialized skill-set in operational professionals across the team.”",
+    linkLabel: "Read the roundup",
+  },
+  {
+    publication: "INFUSE — B2B Expert Roundup",
+    title: "What Is the Link Between RevOps and Client Experience?",
+    url: "https://infuse.com/insight/b2b-expert-roundup-what-is-the-link-between-revops-and-client-experience/",
+    blurb:
+      "Contributing expert in INFUSE's roundup on RevOps and client experience. “I believe that the hand-offs throughout an entire process are the most pivotal for a successful client experience.”",
+    linkLabel: "Read the roundup",
+  },
+  {
     publication: "The Revenue Operators — podcast",
     title: "Guest appearance on The Revenue Operators",
     blurb:
