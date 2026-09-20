@@ -242,6 +242,36 @@ body {
   text-decoration: underline;
 }
 
+/* Pull-quote from her own contribution to a multi-expert roundup. */
+.feature-quote-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 12px 0 4px;
+}
+
+.feature-avatar {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  border: 2px solid var(--wire-strong);
+  object-fit: cover;
+}
+
+.feature-quote {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border-left: 4px solid var(--award);
+  background: var(--award-bg);
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--foreground);
+}
+
 /* Feature card with a highlight clip: video on top (mobile) or on the left (wide screens), text beside it. */
 .feature-with-video {
   display: grid;

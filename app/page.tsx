@@ -324,7 +324,11 @@ type Feature = {
   // Optional: a feature without a link renders as text only.
   url?: string;
   linkLabel?: string;
-  blurb: string;
+  blurb?: string;
+  // Optional: a pull-quote from her own contribution, shown highlighted so visitors do not have to open the link.
+  quote?: string;
+  // Optional: small round photo shown beside the pull-quote (attribution style).
+  avatar?: { src: string; alt: string };
   // Optional: a short highlight clip shown beside the text (click to play, sound on).
   video?: { src: string; poster: string; alt: string };
   // Optional: link to the full episode. Leave it undefined until the episode is live, so the card never shows a dead link.
@@ -352,17 +356,20 @@ const featuredIn: Feature[] = [
     publication: "INFUSE — B2B Expert Roundup",
     title: "Top RevOps Trends to Watch in 2023",
     url: "https://infuse.com/insight/top-revops-trends-to-watch/",
-    blurb:
-      "Contributing expert in INFUSE's roundup of RevOps predictions. “I believe we will continue to see a need for a more generalist type RevOp professional in the smaller and larger businesses, while in mid-size companies, a more specialized skill-set in operational professionals across the team.”",
-    linkLabel: "Read the roundup",
+    blurb: "Contributing expert.",
+    quote:
+      "“I believe we will also find an increase in AI System automation implementation adding to the current tech stacks already in place with a heavy focus on Reverse ETLs.”",
+    avatar: { src: "/project-media/features/wendy-infuse-headshot.jpg", alt: "Wendy Lampert" },
+    linkLabel: "Read the full roundup",
   },
   {
     publication: "INFUSE — B2B Expert Roundup",
     title: "What Is the Link Between RevOps and Client Experience?",
     url: "https://infuse.com/insight/b2b-expert-roundup-what-is-the-link-between-revops-and-client-experience/",
-    blurb:
-      "Contributing expert in INFUSE's roundup on RevOps and client experience. “I believe that the hand-offs throughout an entire process are the most pivotal for a successful client experience.”",
-    linkLabel: "Read the roundup",
+    blurb: "Contributing expert.",
+    quote:
+      "“I believe that the hand-offs throughout an entire process are the most pivotal for a successful client experience.”",
+    linkLabel: "Read the full roundup",
   },
   {
     publication: "The Revenue Operators — podcast",
@@ -926,7 +933,22 @@ export default function Home() {
                 <>
                   <span className="eyebrow">{feature.publication}</span>
                   <h4 className="mb-2 mt-1 text-[16px] font-semibold">{feature.title}</h4>
-                  <p className="desc">{feature.blurb}</p>
+                  {feature.blurb && <p className="desc">{feature.blurb}</p>}
+                  {feature.quote && (
+                    <div className="feature-quote-row">
+                      {feature.avatar && (
+                        <img
+                          className="feature-avatar"
+                          src={feature.avatar.src}
+                          alt={feature.avatar.alt}
+                          width={64}
+                          height={64}
+                          loading="lazy"
+                        />
+                      )}
+                      <blockquote className="feature-quote">{feature.quote}</blockquote>
+                    </div>
+                  )}
                   {(feature.fullEpisodeUrl || feature.url) && (
                     <div className="flex flex-wrap gap-x-5">
                       {feature.fullEpisodeUrl && (
