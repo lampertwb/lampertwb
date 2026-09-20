@@ -1,0 +1,62 @@
+1
+00:00:00,000 --> 00:00:05,950
+An AI agent that manages my to-do list. LEFT: Todoist (the to-do list). RIGHT: the AI agent (where I type).
+
+2
+00:00:06,000 --> 00:00:09,450
+A to-do list that an AI can edit
+LEFT: Todoist, a to-do app with 5 tasks.  RIGHT: the code running the AI agent; I chat with it in the box at the bottom.
+
+3
+00:00:09,500 --> 00:00:19,250
+Request 1: I type a plain-English sentence
+“Hi! Can you please add make tomato sauce to my to-do list?”
+
+4
+00:00:19,300 --> 00:00:21,950
+Done: “make tomato sauce” appears in the list
+The agent replied “I’ve added…” and updated the real to-do list. No clicking in Todoist.
+
+5
+00:00:22,000 --> 00:00:27,950
+Request 2: same idea, a new task
+“Can you please add fix car”
+
+6
+00:00:28,000 --> 00:00:29,950
+Done: “fix car” is added
+Two new tasks so far, both created just by typing.
+
+7
+00:00:30,000 --> 00:00:42,450
+Request 3: now I ask it to remove a task
+“Awesome! Now can you please remove buy an apple? I went to the grocery store yesterday.”  Even with the extra chatter, it works out which task I mean.
+
+8
+00:00:42,500 --> 00:00:43,950
+Done: “buy an apple” is gone
+The agent found the right task in the list and removed it.
+
+9
+00:00:44,000 --> 00:00:51,950
+Request 4: one more, phrased casually
+“What about buy bananas? I got those there too!”  I never say “remove” this time, and the agent still gets it.
+
+10
+00:00:52,000 --> 00:01:03,950
+Done: “buy bananas” is gone too
+4 typed sentences = 4 real changes.  Final list: get a new tire, buy icecream, buy a new camera, make tomato sauce, fix car.
+
+11
+00:01:04,000 --> 00:01:20,350
+The AI is handed 3 tools to choose from
+The highlighted line of code lists them: add_task, show_tasks, remove_task. For each sentence I type, the AI picks the tool that fits.
+
+12
+00:01:20,400 --> 00:01:22,195
+AI that takes action, not just answers
+Plain English in, real changes out.
+
+13
+00:01:22,245 --> 00:01:27,145
+4 requests in plain English. 4 real changes in Todoist.
