@@ -20,6 +20,8 @@ export type TrackerProject = {
   demo?: "email" | "weather";
   // Real screenshot shown in place of the colored placeholder tile (used while an app is still pending).
   image?: { src: string; alt: string };
+  // Captioned screen recording shown in place of the placeholder tile on a finished app.
+  video?: { src: string; alt: string };
   // Short scannable facts shown as tags under the description.
   facts?: string[];
 };
@@ -176,8 +178,14 @@ export const projects: TrackerProject[] = [
     kind: "AI Agent",
     sections: "Section 41",
     category: "agent",
-    status: "pending",
-    description: "An AI agent built in Python with LangChain v1.",
+    status: "complete",
+    video: {
+      src: "/project-media/langchain-agent/langchain-todo-agent-demo.mp4",
+      alt: "A captioned screen recording of an AI agent managing a Todoist to-do list. Four plain-English requests are typed into the agent on the right, and the to-do list on the left updates after each one: two tasks are added and two are removed.",
+    },
+    facts: ["Chat in plain English", "Add, show, and remove tasks", "LangChain v1 + Gemini 2.5 Flash"],
+    description:
+      "An AI agent built in Python with LangChain v1 that manages a real Todoist to-do list. I type a request in plain English, and the agent picks the right tool (add, show, or remove a task) and updates the list.",
   },
   {
     number: 13,

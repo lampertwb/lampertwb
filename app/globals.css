@@ -708,6 +708,15 @@ body {
   }
 }
 
+/* Captioned demo video on a finished app card (keeps the full frame, no cropping). */
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0f172a;
+  border: 1.5px solid var(--wire-strong);
+}
+
 .showcase-text {
   padding: 24px;
   display: flex;

@@ -66,6 +66,18 @@ function NavList({ items }: { items: TrackerProject[] }) {
 function Showcase({ project }: { project: TrackerProject }) {
   if (project.demo === "email") return <EmailShowcase />;
   if (project.demo === "weather") return <WeatherShowcase />;
+  if (project.video) {
+    return (
+      <video
+        className="demo-video"
+        controls
+        playsInline
+        preload="metadata"
+        aria-label={project.video.alt}
+        src={project.video.src}
+      />
+    );
+  }
   return (
     <div className="card-hero">
       <div className="card-hero-placeholder" data-cat={project.category}>
@@ -76,6 +88,7 @@ function Showcase({ project }: { project: TrackerProject }) {
 }
 
 function ShowcaseCard({ project }: { project: TrackerProject }) {
+  const hasWriteup = Boolean(project.problem || project.solution || project.results || project.iteration);
   return (
     <article id={project.slug} className="wire tracker-showcase">
       <div className="showcase-visual">
@@ -97,6 +110,7 @@ function ShowcaseCard({ project }: { project: TrackerProject }) {
             ))}
           </div>
         )}
+        {hasWriteup && (
         <details className="writeup">
           <summary className="read-more-btn">Read the write-up</summary>
           <div className="long-description">
@@ -126,6 +140,7 @@ function ShowcaseCard({ project }: { project: TrackerProject }) {
             )}
           </div>
         </details>
+        )}
       </div>
     </article>
   );
