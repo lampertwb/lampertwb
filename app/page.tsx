@@ -351,16 +351,14 @@ const featuredIn: Feature[] = [
   {
     publication: "The Revenue Operators — podcast",
     title: "Guest appearance on The Revenue Operators",
-    url: "https://www.linkedin.com/posts/lampertwb_revops-activity-7229619079563620353-g5UL",
     blurb:
-      "Guest on The Revenue Operators podcast. This 91-second highlight opens on the problem, that with job titles blurred professionals have no clear path or sense of identity. It then goes back to 2016, when I lived the split between sales ops and RevOps before those titles existed, and lands on why RevOps should define and design go-to-market while the other ops functions maintain it. My LinkedIn post (August 2024) shares a clip from the same conversation.",
-    linkLabel: "Watch the clip on LinkedIn",
+      "Guest on The Revenue Operators podcast. This 91-second highlight opens on the problem, that with job titles blurred professionals have no clear path or sense of identity. It then goes back to 2016, when I lived the split between sales ops and RevOps before those titles existed, and lands on why RevOps should define and design go-to-market while the other ops functions maintain it.",
     video: {
       src: "/project-media/revenue-operators/podcast-highlight.mp4",
       poster: "/project-media/revenue-operators/podcast-highlight-poster.jpg",
       alt: "91-second highlight from Wendy Lampert's guest appearance on The Revenue Operators podcast, with captions",
     },
-    // fullEpisodeUrl: "https://www.youtube.com/watch?v=VIDEO_ID", // paste the YouTube link here once the full episode is uploaded
+    fullEpisodeUrl: "https://youtu.be/vndNmGUrdfI",
   },
 ];
 
