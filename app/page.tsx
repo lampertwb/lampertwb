@@ -21,6 +21,9 @@ type Project = {
   solution?: string;
   results?: string;
   images?: string[];
+  // Captioned screen recording shown in the card hero instead of a still image.
+  video?: string;
+  videoAlt?: string;
   awardBanner?: string;
   awardNote?: string;
   badge: Badge;
@@ -69,6 +72,26 @@ const flagshipProjects: Project[] = [
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "N/A — employer-covered",
+  },
+  {
+    eyebrow: "Python + LangChain — AI agent",
+    category: "Python",
+    name: "Todoist AI Agent",
+    stackLine: "LangChain v1 create_agent → Gemini 2.5 Flash → add_task / show_tasks / remove_task → Todoist API",
+    description:
+      "A real tool-calling agent, not a prompt chain: I type a request in plain English, and it picks the right tool and changes my actual Todoist list.",
+    problem:
+      "Most “AI task managers” are really just a prompt wrapped around a to-do list. They can suggest an action, but they can’t actually take one.",
+    solution:
+      "Built a tool-calling agent in Python with LangChain on Gemini 2.5 Flash and gave it three real tools, **add_task, show_tasks, and remove_task, wired directly into the Todoist API**, so the model decides which one a plain-English request needs and calls it. I built it while working through the LangChain lessons in the Python Mega Course, then extended it well past the lesson.",
+    results:
+      "**In the demo, four plain-English requests produce four real changes in Todoist: two tasks added and two removed**, including a casually phrased one (“What about buy bananas? I got those there too!”) that never uses the word remove. Under the hood, “remove” checks the task off in Todoist by its exact name, and the agent says so if no task matches.",
+    video: "/project-media/langchain-agent/langchain-todo-agent-demo.mp4",
+    videoAlt:
+      "A captioned screen recording of an AI agent managing a Todoist to-do list. Four plain-English requests are typed into the agent on the right, and the to-do list on the left updates after each one: two tasks are added and two are removed.",
+    badge: "show",
+    badgeLabel: "Show it",
+    cost: "$0/mo (free tier)",
   },
 ];
 
@@ -259,22 +282,6 @@ const otherProjects: Project[] = [
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "$0/mo",
-  },
-  {
-    category: "Python",
-    eyebrow: "Python",
-    name: "Todoist AI Agent",
-    description:
-      "Real tool-calling agent (not a prompt chain) — adds/shows tasks from language.",
-    problem:
-      "Most \"AI task managers\" are really just a prompt wrapped around a to-do list — they can suggest an action but can't actually take one.",
-    solution:
-      "Built a real tool-calling agent — LangChain's OpenAI-tools-agent pattern on Gemini 2.5 Flash — with two actual tools, add_task and show_tasks, **wired directly into the Todoist API**, plus conversational memory so it tracks context across a session instead of treating each message as a cold start.",
-    results:
-      "Ask it to add a task or show your list in plain language, and **it actually calls the Todoist API and does it** — not a suggestion, a completed action.",
-    badge: "explain",
-    badgeLabel: "Explain it",
-    cost: "$0/mo (free tier)",
   },
 ];
 
@@ -708,8 +715,17 @@ export default function Home() {
               const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
               return (
                 <div key={project.name} className="wire flagship-card">
-                  <div className="card-hero">
-                    {heroImage ? (
+                  <div className={project.video ? "card-hero card-hero-video" : "card-hero"}>
+                    {project.video ? (
+                      <video
+                        className="demo-video"
+                        controls
+                        playsInline
+                        preload="metadata"
+                        aria-label={project.videoAlt}
+                        src={project.video}
+                      />
+                    ) : heroImage ? (
                       <button
                         type="button"
                         className="card-hero-image-btn"

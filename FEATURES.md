@@ -2,6 +2,14 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-20 — App 12 (LangChain AI agent) complete: demo video, write-up, Flagship card
+
+- Captioned demo video (`public/project-media/langchain-agent/langchain-todo-agent-demo.mp4`, plus an unused `.srt` copy of the captions) of the Todoist agent: four plain-English requests, two tasks added and two removed. Captions are burned into the video; intro and outro cards explain "left = Todoist, right = the AI agent." The computer-username path in the console was blurred before publishing.
+- `/python-projects`: App 12 is now `status: "complete"` (3 of 20 complete) with a video in place of the placeholder tile and a full Problem / Solution / Results / Iteration write-up. Code: optional `video: { src, alt }` on `TrackerProject`; `Showcase` in `tracker.tsx` renders it; the "Read the write-up" toggle now only renders when an app has write-up text; `.demo-video` in `globals.css`.
+- Home page: the Todoist AI Agent card was promoted from 03 Technical Builds to 01 Flagship (moved, not duplicated) so visitors who never open the Python tab still see it. Its copy was rewritten to match the current build (three tools on LangChain v1, was two tools on the older OpenAI-tools pattern). `Project` gained optional `video` / `videoAlt`; the flagship hero renders the video when present; `.card-hero-video` shows the full frame instead of a 16:9 crop.
+- Copy history: the old card first appeared in `5c16ab3` (2026-09-16); its case study was written in `73a7bcf` (2026-09-18) against the older two-tool version.
+- Not verified: whether the current main.py still keeps conversation history. The old copy claimed "conversational memory"; the new copy does not mention it. Add it back only after checking the code.
+
 ## 2026-09-19 — App 5 (Weather Forecast Dashboard) screenshot on tracker card
 
 - App 5's "Up next" card on `/python-projects` now shows a real screenshot instead of the colored placeholder tile. The screenshot is of the Streamlit + Plotly forecast dashboard as it currently runs (place = Tirana, 2 forecast days, Temperature chart), saved as `public/project-media/weather-dashboard/weather-forecast-dashboard.png`.

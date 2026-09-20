@@ -708,6 +708,12 @@ body {
   }
 }
 
+/* Flagship card hero that holds a captioned video: show the whole frame instead of a 16:9 crop. */
+.card-hero.card-hero-video {
+  aspect-ratio: auto;
+  background: #0f172a;
+}
+
 /* Captioned demo video on a finished app card (keeps the full frame, no cropping). */
 .demo-video {
   display: block;

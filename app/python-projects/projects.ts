@@ -186,6 +186,14 @@ export const projects: TrackerProject[] = [
     facts: ["Chat in plain English", "Add, show, and remove tasks", "LangChain v1 + Gemini 2.5 Flash"],
     description:
       "An AI agent built in Python with LangChain v1 that manages a real Todoist to-do list. I type a request in plain English, and the agent picks the right tool (add, show, or remove a task) and updates the list.",
+    problem:
+      "A language model on its own can only talk. Ask a chatbot to add something to your to-do list and, at best, it hands you text to copy over yourself. Getting real work done means the model has to be able to act inside another app.",
+    solution:
+      "The course’s LangChain V1 section teaches how to build an AI agent in Python. **The core idea is to hand a language model a set of tools, which are ordinary Python functions described in plain English, and let the model choose which tool a request needs.** I applied it to Todoist with three tools, add_task, show_tasks, and remove_task, running on Gemini 2.5 Flash and calling the Todoist API directly.",
+    results:
+      "**In the demo, four plain-English requests produce four real changes in Todoist: two tasks added, then two removed.** One request is deliberately casual (“What about buy bananas? I got those there too!”) and never uses the word remove, and the agent still picks the right tool and clears the task. Under the hood, remove_task checks the task off in Todoist by its exact name, and reports back if no task matches.",
+    iteration:
+      "My first version used LangChain’s older OpenAI-tools agent pattern and could add and show tasks. **When LangChain v1 replaced that pattern, the logic went out of date, so I rebuilt the agent on v1’s create_agent** and worked through the change with Claude as a coaching partner rather than pasting in a rewrite. Then I added a third tool, remove_task, so the agent can add a task, list them, and clean them up. Keeping an agent working as the framework underneath it changes turned out to be as much of the job as building it.",
   },
   {
     number: 13,
