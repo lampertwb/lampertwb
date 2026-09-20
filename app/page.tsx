@@ -21,6 +21,8 @@ type Project = {
   solution?: string;
   results?: string;
   images?: string[];
+  // "contain" shows a diagram whole (full width, natural height) instead of cropping it to 16:9.
+  imageFit?: "contain";
   // Captioned screen recording shown in the card hero instead of a still image.
   video?: string;
   videoAlt?: string;
@@ -126,6 +128,8 @@ const frameworkProjects: Project[] = [
       "Built a three-pillar framework — **Technology** (infrastructure, integrations, automation, and the data hygiene/integrity/governance that makes all three trustworthy), **Process** (the hand-offs, enablement, and customer-journey mapping that determine whether a system actually gets used correctly), and **People** (leadership alignment, cross-functional collaboration, and treating RevOps as its own strategic function rather than a tactical branch of Sales or Service) — as a working checklist for whether a transformation is actually complete, not just technically shipped. [DRAFT — Wendy to confirm the Automation sub-point's description once verified against the source diagram.]",
     results:
       "Used as the lens behind every project on this page — the technically hardest build still fails as a transformation if the process around it doesn't change or the org isn't structured to sustain it.",
+    images: ["/project-media/trifecta/trifecta-of-transformation.png"],
+    imageFit: "contain",
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "N/A — strategy framework, not software",
@@ -300,6 +304,18 @@ const otherProjects: Project[] = [
     badgeLabel: "Explain it",
     cost: "$0/mo",
   },
+  {
+    category: "Python",
+    eyebrow: "Python — desktop app",
+    name: "Iron Chef (Recipe Importer)",
+    description:
+      "A small desktop app that turns a recipe copied from a web page into a saved Word document: paste it into a form, click Save.",
+    solution:
+      "Built a desktop app in Python with PyQt5. A form takes a recipe's name, source, cooking time, nutrition facts, ingredients and instructions, most of it copied straight from a web page. **One click on Save Recipe writes it out as a formatted Word document** (using python-docx) in a `new_recipes` folder and shows a pop-up confirming it was saved.",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "$0/mo",
+  },
 ];
 
 const skills = [
@@ -327,8 +343,10 @@ type Feature = {
   blurb?: string;
   // Optional: a pull-quote from her own contribution, shown highlighted so visitors do not have to open the link.
   quote?: string;
-  // Optional: small round photo shown beside the pull-quote (attribution style).
-  avatar?: { src: string; alt: string };
+  // Optional: a square photo filling the left side of the card (top of the card on small screens).
+  photo?: { src: string; alt: string };
+  // Optional: span both grid columns (text-only cards). Cards with a photo or video always do.
+  wide?: boolean;
   // Optional: a short highlight clip shown beside the text (click to play, sound on).
   video?: { src: string; poster: string; alt: string };
   // Optional: link to the full episode. Leave it undefined until the episode is live, so the card never shows a dead link.
@@ -359,7 +377,7 @@ const featuredIn: Feature[] = [
     blurb: "Contributing expert.",
     quote:
       "“I believe we will also find an increase in AI System automation implementation adding to the current tech stacks already in place with a heavy focus on Reverse ETLs.”",
-    avatar: { src: "/project-media/features/wendy-infuse-headshot.jpg", alt: "Wendy Lampert" },
+    photo: { src: "/project-media/features/wendy-infuse-headshot.jpg", alt: "Wendy Lampert" },
     linkLabel: "Read the full roundup",
   },
   {
@@ -369,6 +387,7 @@ const featuredIn: Feature[] = [
     blurb: "Contributing expert.",
     quote:
       "“I believe that the hand-offs throughout an entire process are the most pivotal for a successful client experience.”",
+    wide: true,
     linkLabel: "Read the full roundup",
   },
   {
@@ -842,7 +861,7 @@ export default function Home() {
               const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
               return (
                 <div key={project.name} className="wire card">
-                  <div className="card-hero">
+                  <div className={project.imageFit === "contain" ? "card-hero card-hero-contain" : "card-hero"}>
                     {heroImage ? (
                       <button
                         type="button"
@@ -888,14 +907,23 @@ export default function Home() {
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 [grid-auto-flow:dense]">
             {visibleProjects.map((project) => {
               const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
               const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
               return (
-                <div key={project.name} className="wire card">
-                  <div className="card-hero">
-                    {heroImage ? (
+                <div key={project.name} className={`wire card${project.video ? " sm:col-span-2" : ""}`}>
+                  <div className={project.video ? "card-hero card-hero-video" : "card-hero"}>
+                    {project.video ? (
+                      <video
+                        className="demo-video"
+                        controls
+                        playsInline
+                        preload="metadata"
+                        aria-label={project.videoAlt}
+                        src={project.video}
+                      />
+                    ) : heroImage ? (
                       <button
                         type="button"
                         className="card-hero-image-btn"
@@ -934,21 +962,7 @@ export default function Home() {
                   <span className="eyebrow">{feature.publication}</span>
                   <h4 className="mb-2 mt-1 text-[16px] font-semibold">{feature.title}</h4>
                   {feature.blurb && <p className="desc">{feature.blurb}</p>}
-                  {feature.quote && (
-                    <div className="feature-quote-row">
-                      {feature.avatar && (
-                        <img
-                          className="feature-avatar"
-                          src={feature.avatar.src}
-                          alt={feature.avatar.alt}
-                          width={64}
-                          height={64}
-                          loading="lazy"
-                        />
-                      )}
-                      <blockquote className="feature-quote">{feature.quote}</blockquote>
-                    </div>
-                  )}
+                  {feature.quote && <blockquote className="feature-quote">{feature.quote}</blockquote>}
                   {(feature.fullEpisodeUrl || feature.url) && (
                     <div className="flex flex-wrap gap-x-5">
                       {feature.fullEpisodeUrl && (
@@ -975,6 +989,23 @@ export default function Home() {
                   )}
                 </>
               );
+              if (feature.photo) {
+                return (
+                  <div key={feature.title} className="wire feature-with-photo sm:col-span-2">
+                    <div className="feature-photo-wrap">
+                      <img
+                        className="feature-photo"
+                        src={feature.photo.src}
+                        alt={feature.photo.alt}
+                        width={480}
+                        height={480}
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="feature-text">{text}</div>
+                  </div>
+                );
+              }
               if (feature.video) {
                 return (
                   <div key={feature.title} className="wire feature-with-video sm:col-span-2">
@@ -993,7 +1024,7 @@ export default function Home() {
                 );
               }
               return (
-                <div key={feature.title} className="wire p-6">
+                <div key={feature.title} className={`wire p-6${feature.wide ? " sm:col-span-2" : ""}`}>
                   {text}
                 </div>
               );
