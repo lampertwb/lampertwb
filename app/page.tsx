@@ -281,13 +281,13 @@ const otherProjects: Project[] = [
     category: "Python",
     eyebrow: "Python",
     name: "Syncly",
-    description: "OAuth calendar sync, idempotent — checks before inserting.",
+    description: "Python calendar sync: my consulting schedule and personal life in one calendar.",
     problem:
-      "Keeping a work calendar and a personal calendar in sync by hand means constantly re-checking what's already been copied over, and it's easy to double-book or miss something.",
+      "During a consulting engagement, my work meetings lived in one calendar and everything else in another. Knowing what my day actually looked like meant checking two places, and it was easy to double-book myself because I couldn't see both sides at once. I do my best work when my whole schedule is visible in one place, and that setup didn't give me that.",
     solution:
-      "Built an OAuth2-authenticated Python script against the Google Calendar API that pulls events from a source calendar and inserts them into a target calendar — **checking the target for existing event IDs first, so re-running it never creates duplicates**.",
+      "Built an OAuth2-authenticated Python script against the Google Calendar API that reads events from my consulting calendar and inserts them into my personal calendar, so **everything shows up in the one place I already look**. It's one-way (it only reads from the consulting calendar and only writes to my personal one), works over a rolling window from yesterday through the next 30 days, and checks the target calendar before inserting each event.",
     results:
-      "**Idempotent by design**: run it once a day or ten times a day, the result is the same — every event from the source calendar exists exactly once in the target calendar.",
+      "I ran it regularly, and it did the job: **my consulting meetings and personal commitments finally sat side by side in one calendar**, so I could see conflicts up front instead of discovering them later. It runs locally, so it costs nothing to operate.",
     images: ["/project-media/syncly/syncly-first-run-demo.png"],
     badge: "explain",
     badgeLabel: "Explain it",
