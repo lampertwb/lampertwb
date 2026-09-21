@@ -580,25 +580,14 @@ export default function Home() {
             <h2 className="mb-3 text-2xl font-semibold leading-tight">Running Revenue to Coding It</h2>
             <div className="lg:columns-2 lg:gap-12">
             <p className="mb-3 text-[15px] leading-relaxed">
-              I run revenue operations for GTM teams — most recently BILL&apos;s Enterprise
-              segment, directing process alignment across 14 sales teams spanning direct B2B,
-              B2B2B, and partnership channel motions, through a company-wide shift from
-              product-specific to platform-wide GTM. Increasingly, my job isn&apos;t just
-              designing the process — it&apos;s building the software that runs it, in Python,
-              Claude, and n8n, and it&apos;s the work I want to do full time. Every real engineer
-              sketches the pseudocode before touching the actual code; that same discipline is
-              what process design taught me first.
-            </p>
-            <p className="mb-3 text-[15px] leading-relaxed">
-              Before I started shipping code, I was already the person companies called in to fix
-              scale problems. I took a $20M resort sales site to $60M in two years — from the
-              bottom of the company to third overall, and the top-performing site for in-house
-              sales. At Apex Fintech, I defined the GTM strategy and cut a bloated, redundant tech
-              stack down to five integrations, saving over $300K. At BILL, what looked like a
-              lead-routing problem was really a data-integrity problem — I rebuilt the pipeline to
-              automatically route 7.5 million records into the right queues, cutting ticket volume
-              37%, and collaborated with Enablement to build an AI workflow — one of the projects
-              below — that saves the team 10+ hours a week.
+              I am a GTM Engineer who bridges deep operational experience with hands-on software development. 
+              Having solved high-stakes scale problems, like tripling revenue at a $20M site, cutting $300K 
+              in SaaS bloat at Apex Fintech, and structuring BILL’s 7.5-million-record pipeline into self-service 
+              sales queues to protect data integrity. I bring the discipline of architecture and process design 
+              directly into code. I build production-grade automations using Python, n8n, and LLMs, treating AI 
+              as a partner for reasoning and debugging rather than a black-box shortcut. Every system I build 
+              reflects real operating scars: designed with rigorous pseudocode first, tested edge to edge, and 
+              engineered to solve root data and scale bottlenecks.
             </p>
             <p className="text-[15px] leading-relaxed">
               That combination — real operating scars, plus real engineering discipline — is what
