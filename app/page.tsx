@@ -596,7 +596,7 @@ export default function Home() {
             <p className="mb-3 text-[15px] leading-relaxed">
               Having solved high-stakes scale problems, I bring the discipline of process design and input it
               directly into code. I build production-grade automations and software using Python, n8n, and LLMs
-              with a keene focus architecturally, treating AI as a partner for reasoning and debugging 
+              with a keen focus architecturally, treating AI as a partner for reasoning and debugging 
               rather than a black-box shortcut. 
             </p>
             <p className="mb-3 text-[15px] leading-relaxed">
@@ -612,11 +612,11 @@ export default function Home() {
               writing the whole thing while I stay in the dark about how it works. Never wondering
               if it's architecturally sound, in compliance, secure, or even the right best tool for the job.
               </p>
-              <p className="mb-3 text-[15px] leading-relaxed">
+            <p className="  text-[15px] leading-relaxed">
               And it&apos;s not the only tool I use. Claude is a hammer, not an entire toolbox - the right choice
               for some problems, the wrong one for others, and knowing the difference is half the job.
-</p>
-  <p className="mb-3">
+            </p>
+            <p className="  text-[15px] leading-relaxed">
               Every project on this page is either a real problem I hit doing the work, or one I
               built on my own to learn something the hard way, hands-on, line by line,  instead
               of vibe-coding past the parts most people skip. There is one exception which taught 
