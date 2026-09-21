@@ -28,6 +28,8 @@ type Project = {
   videoAlt?: string;
   // Text-only card: skips the hero block (no image, video, or striped placeholder). Remove once media exists.
   noHero?: boolean;
+  // Optional: link to the live project. Renders as a "Visit the live site" link on the card.
+  liveUrl?: string;
   awardBanner?: string;
   awardNote?: string;
   badge: Badge;
@@ -160,6 +162,7 @@ const otherProjects: Project[] = [
       "Built a candidate-intake site and a LinkedIn company presence to give the venture a real front door, with a completed brand mark — **\"Precisely Placed,\" a bullseye logo** — finalized after evaluating four design concepts and choosing one direction.",
     results:
       "A functioning intake site and a defined brand identity in place — early-stage and not yet in market, but with the foundational pieces (site, brand, positioning) built rather than still undecided.",
+    liveUrl: "https://revops-recruit.vercel.app/",
     badge: "try",
     badgeLabel: "Try it — live link",
     cost: "$0/mo",
@@ -507,6 +510,16 @@ export default function Home() {
     const hasCaseStudy = project.problem || project.solution || project.results;
     return (
       <>
+        {project.liveUrl && (
+          <a
+            className="feature-link"
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit the live site ↗
+          </a>
+        )}
         {extraImages.length > 0 && (
           <div className="project-image-row">
             {extraImages.map((src, i) => (
