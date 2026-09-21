@@ -26,6 +26,8 @@ type Project = {
   // Captioned screen recording shown in the card hero instead of a still image.
   video?: string;
   videoAlt?: string;
+  // Text-only card: skips the hero block (no image, video, or striped placeholder). Remove once media exists.
+  noHero?: boolean;
   awardBanner?: string;
   awardNote?: string;
   badge: Badge;
@@ -228,14 +230,17 @@ const otherProjects: Project[] = [
     category: "n8n Automation",
     eyebrow: "n8n Automation — built at BILL",
     name: "Enablement Deck Automation",
+    stackLine:
+      "Form → Google Sheet (Apps Script) → n8n + AI text enhancement → master Google Slides deck → each business unit's deck",
     description:
-      "Extended a colleague's form-to-slide-deck automation with AI-enhanced content.",
+      "Extended a colleague's form-to-Google-Slides automation with an n8n step that uses AI to enhance what people enter.",
     problem:
-      "A colleague at BILL had already automated turning a form submission into a slide deck, but the output was still a plain, unpolished deck that needed manual editing before it was presentation-ready.",
+      "A colleague at BILL had built a form that fed a Google Sheet through Apps Script, which triggered a master Google Slides deck and pushed it out to each business unit's own deck. It worked, but the slide text was whatever people typed into the form.",
     solution:
-      "Extended that n8n workflow, adding **AI-enhanced content generation** so the deck comes out with real, tailored content instead of a bare template.",
+      "It started when I saw her question go unanswered in a channel and asked if she still needed help. She had the vision; I had the tools and wanted the practice. Once the form data landed in the spreadsheet, **I used n8n and AI to enhance what people had entered, then replaced the text on the appropriate slide in the master deck.**",
     results:
-      "The same automation now produces a presentation-ready deck instead of a draft that still needed manual polish — employer-covered, so it runs at no personal cost.",
+      "Because this was built inside BILL, I can't share screenshots or a recording. What I can share is the lesson: **the barrier to helping someone with AI automation is low enough that “I saw your message and wanted to try” is a legitimate way in.** No project plan or 10,000 hours as an SME, just curiosity and a willingness to dig in.",
+    noHero: true,
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "N/A — employer-covered",
@@ -907,6 +912,7 @@ export default function Home() {
               const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
               return (
                 <div key={project.name} className={`wire card${project.video ? " sm:col-span-2" : ""}`}>
+                  {!project.noHero && (
                   <div className={project.video ? "card-hero card-hero-video" : "card-hero"}>
                     {project.video ? (
                       <video
@@ -931,6 +937,7 @@ export default function Home() {
                       </div>
                     )}
                   </div>
+                  )}
                   <div className="card-body">
                     <span className="eyebrow">{project.eyebrow}</span>
                     <h4>{project.name}</h4>
