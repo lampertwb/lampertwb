@@ -162,6 +162,7 @@ const otherProjects: Project[] = [
       "Built a candidate-intake site and a LinkedIn company presence to give the venture a real front door, with a completed brand mark — **\"Precisely Placed,\" a bullseye logo** — finalized after evaluating four design concepts and choosing one direction.",
     results:
       "A functioning intake site and a defined brand identity in place — early-stage and not yet in market, but with the foundational pieces (site, brand, positioning) built rather than still undecided.",
+    images: ["/project-media/revops-recruit/revops-recruit-home.jpg"],
     liveUrl: "https://revops-recruit.vercel.app/",
     badge: "try",
     badgeLabel: "Try it — live link",
