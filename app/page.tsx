@@ -592,12 +592,12 @@ export default function Home() {
             <p className="mb-3 text-[15px] leading-relaxed">
               I am a GTM Engineer who spent the last decade in Sales & Revenue Operations, bridging deep 
               operational experience with hands-on software development. 
-
+              </p>
               Having solved high-stakes scale problems, I bring the discipline of process design and input it
               directly into code. I build production-grade automations and software using Python, n8n, and LLMs
               with a keene focus architecturally, treating AI as a partner for reasoning and debugging 
               rather than a black-box shortcut. 
-              
+              </p>
               Every system I build reflects real operating scars: designed with rigorous pseudocode (step-by-step
               plain English process outline) first, tested end to end, and engineered to solve root data 
               and scale bottlenecks.
@@ -609,10 +609,10 @@ export default function Home() {
               troubleshoot when something breaks, working through a decision out loud, never
               writing the whole thing while I stay in the dark about how it works. Never wondering
               if it's architecturally sound, in compliance, secure, or even the right best tool for the job.
-              
+              </p>
               And it&apos;s not the only tool I use. Claude is a hammer, not an entire toolbox - the right choice
               for some problems, the wrong one for others, and knowing the difference is half the job.
-
+              </p>
               Every project on this page is either a real problem I hit doing the work, or one I
               built on my own to learn something the hard way, hands-on, line by line,  instead
               of vibe-coding past the parts most people skip. There is one exception which taught 
