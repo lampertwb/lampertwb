@@ -592,7 +592,7 @@ export default function Home() {
             <div className="lg:columns-2 lg:gap-12">
             <p className="mb-3 text-[15px] leading-relaxed">
               I am a GTM Engineer who spent the last decade in Sales & Revenue Operations, bridging deep 
-              operational experience with hands-on software development. 
+              operational experience with hands-on backend software development. 
               </p>
             <p className="mb-3 text-[15px] leading-relaxed">
               Having solved high-stakes scale problems, I bring the discipline of process design and input it
