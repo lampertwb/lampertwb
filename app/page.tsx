@@ -288,10 +288,7 @@ const otherProjects: Project[] = [
       "Built an OAuth2-authenticated Python script against the Google Calendar API that pulls events from a source calendar and inserts them into a target calendar — **checking the target for existing event IDs first, so re-running it never creates duplicates**.",
     results:
       "**Idempotent by design**: run it once a day or ten times a day, the result is the same — every event from the source calendar exists exactly once in the target calendar.",
-    images: [
-      "/project-media/syncly/syncly-first-run-demo.png",
-      "/project-media/syncly/syncly-import-demo.png",
-    ],
+    images: ["/project-media/syncly/syncly-first-run-demo.png"],
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "$0/mo",
