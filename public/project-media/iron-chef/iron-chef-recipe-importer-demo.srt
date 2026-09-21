@@ -1,0 +1,36 @@
+1
+00:00:00,400 --> 00:00:05,900
+This is Iron Chef, a small app I built in Python. I copy a recipe from a web page, paste it into my own form, and one click saves it as a Word document.
+
+2
+00:00:06,400 --> 00:00:11,200
+On the left, the app I built: an empty form. On the right, a recipe web page I'll copy from.
+
+3
+00:00:11,600 --> 00:00:17,200
+First, the basics. I type in the recipe's name, where it came from, and how long it takes.
+
+4
+00:00:17,600 --> 00:00:23,200
+Next, the nutrition facts. I copy them from the web page and paste them into the form.
+
+5
+00:00:23,600 --> 00:00:28,200
+Then the ingredients, copied over the same way.
+
+6
+00:00:28,600 --> 00:00:32,700
+And the five cooking steps go into the Instructions box.
+
+7
+00:00:33,100 --> 00:00:39,700
+Now, the one click: Save Recipe. A pop-up confirms it worked, and a new file appears in the project.
+
+8
+00:00:40,100 --> 00:00:50,700
+Here's that file. The recipe is now a Word document, with its title, source, cook time, nutrition facts, ingredients, and directions.
+
+9
+00:00:51,100 --> 00:00:58,000
+Six details from a web page, one click, one saved document. That's the whole app.
+

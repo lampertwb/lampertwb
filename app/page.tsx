@@ -312,8 +312,13 @@ const otherProjects: Project[] = [
       "A small desktop app that turns a recipe copied from a web page into a saved Word document: paste it into a form, click Save.",
     solution:
       "Built a desktop app in Python with PyQt5. A form takes a recipe's name, source, cooking time, nutrition facts, ingredients and instructions, most of it copied straight from a web page. **One click on Save Recipe writes it out as a formatted Word document** (using python-docx) in a `new_recipes` folder and shows a pop-up confirming it was saved.",
-    badge: "explain",
-    badgeLabel: "Explain it",
+    results:
+      "**In the demo, one recipe goes from a web page to a saved Word document in a single click.** I paste in the name, source, cooking time, nutrition facts, ingredients and instructions for a peanut butter cookie recipe, click Save Recipe, and the finished document appears in the project folder with the title, source, cooking time, nutrition facts, ingredients and directions laid out on the page.",
+    video: "/project-media/iron-chef/iron-chef-recipe-importer-demo.mp4",
+    videoAlt:
+      "A captioned screen recording of a Python desktop app called Iron Chef. A recipe is copied from a web page and pasted into the app's form in six steps, Save Recipe is clicked, a pop-up confirms it saved, and the recipe opens as a formatted Word document.",
+    badge: "show",
+    badgeLabel: "Show it",
     cost: "$0/mo",
   },
 ];
