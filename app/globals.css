@@ -401,6 +401,22 @@ body {
   background: #fff;
 }
 
+/* Equal-size image sequence (e.g. Job Search Pipeline): all images in array order, side by side. */
+.card-hero.card-hero-row {
+  aspect-ratio: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  background: var(--surface);
+}
+
+.card-hero-row .project-image-row {
+  gap: 6px;
+}
+
+.card-hero-row .project-image {
+  margin: 0;
+}
+
 .card-hero-contain .card-hero-image-btn {
   height: auto;
 }

@@ -23,6 +23,8 @@ type Project = {
   images?: string[];
   // "contain" shows a diagram whole (full width, natural height) instead of cropping it to 16:9.
   imageFit?: "contain";
+  // "row" shows all images as one equal-size sequence (in array order) instead of a big hero + smaller extras below.
+  imageLayout?: "row";
   // Captioned screen recording shown in the card hero instead of a still image.
   video?: string;
   videoAlt?: string;
@@ -56,6 +58,7 @@ const flagshipProjects: Project[] = [
       "/project-media/ats-navigator-analysis-1.png",
       "/project-media/ats-navigator-analysis-2.png",
     ],
+    imageLayout: "row",
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "$17/mo shared*",
@@ -825,11 +828,16 @@ export default function Home() {
           <h2 className="section-title">01 — Flagship</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {flagshipProjects.map((project) => {
+              const isRowLayout = project.imageLayout === "row";
               const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
-              const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
+              const extraImages = isRowLayout
+                ? []
+                : project.images && project.images.length > 1
+                ? project.images.slice(1)
+                : [];
               return (
                 <div key={project.name} className="wire flagship-card">
-                  <div className={project.video ? "card-hero card-hero-video" : "card-hero"}>
+                  <div className={project.video ? "card-hero card-hero-video" : isRowLayout ? "card-hero card-hero-row" : "card-hero"}>
                     {project.video ? (
                       <video
                         className="demo-video"
@@ -839,6 +847,19 @@ export default function Home() {
                         aria-label={project.videoAlt}
                         src={project.video}
                       />
+                    ) : isRowLayout && project.images && project.images.length > 0 ? (
+                      <div className="project-image-row">
+                        {project.images.map((src, i) => (
+                          <button
+                            key={src}
+                            type="button"
+                            className="project-image"
+                            onClick={() => setLightboxSrc(src)}
+                          >
+                            <img src={src} alt={`${project.name} screenshot ${i + 1}`} />
+                          </button>
+                        ))}
+                      </div>
                     ) : heroImage ? (
                       <button
                         type="button"
