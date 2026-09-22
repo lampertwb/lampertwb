@@ -619,7 +619,7 @@ export default function Home() {
               plain English process outline) first, tested end to end, and engineered to solve root data 
               and scale bottlenecks.
             </p>
-            <p className="  text-[15px] leading-relaxed">
+            <p className="mb-3 text-[15px] leading-relaxed">
               That combination (real operating scars, plus real engineering discipline) is what
               I actually bring to GTM Engineering. I lean on Claude to think through problems with
               me, not to think for me: pointing me to the right documentation, helping me
