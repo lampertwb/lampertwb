@@ -73,6 +73,7 @@ const flagshipProjects: Project[] = [
       "Four attempts failed (n8n, Glean, Claude Cowork, LeanData's native AI) before I designed a custom Python application on the Gemini API. The core engineering challenge was context: **the full routing graph runs ~400KB, too large for any model to reason over** per-record. I built a compression approach that extracts only the nodes a given lead actually traversed, **cutting the payload to under 1KB** with no loss of investigative accuracy — then ran it at zero-temperature **so the same inputs always produce the same structured verdict.** Route Detective triangulates what actually happened, what should have happened per the Rules of Engagement, and what the rep expected to happen.",
     results:
       "**Classifies exactly where those three diverge into five root-cause buckets, distinguishing a real misroute from routing that was \"working as designed.\"** Completed July 2026; testing already confirms correct classification against real anonymized data. Together with a companion field-level change I shipped, **it targets a 30-40% reduction in \"why did I get this lead?\" tickets and roughly 20 hours/month of manual log-tracing eliminated.**",
+    images: ["/project-media/route-detective/route-detective-mockup.png"],
     awardBanner: "Intelligent GTM Orchestration Award — Nominated Finalist",
     awardNote: "*Awards Pending",
     badge: "explain",
@@ -115,6 +116,8 @@ const frameworkProjects: Project[] = [
       "Authored a mandatory five-document planning sequence — PRD, System Design, UI/UX Wireframe, Feature Breakdown, and a Master Prompt — that has to be written and reviewed, **in that order, before any building starts**. Each document has required sections; the PRD alone forces an explicit What, Why, Who, success criteria, and out-of-scope list before anything else happens.",
     results:
       "Lets someone without a deep technical background **ship a working Claude agent without skipping the thinking** that usually only happens inside an experienced engineer's head.",
+    images: ["/project-media/five-doc-framework/five-doc-framework-overview.png"],
+    imageFit: "contain",
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "$17/mo shared*",
