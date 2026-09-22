@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SiteNav from "./site-nav";
 
 type Badge = "try" | "show" | "explain";
@@ -222,21 +222,6 @@ const otherProjects: Project[] = [
     cost: "$17/mo shared*",
   },
   {
-    category: "Claude Artifact",
-    eyebrow: "Claude Artifact",
-    name: "Job Application Dashboard",
-    description: "Persistent React dashboard tracking every application in the search.",
-    problem:
-      "Applications pile up fast once a job search is actually running, and a spreadsheet doesn't hold status, notes, and next-steps well across dozens of active applications.",
-    solution:
-      "Built a persistent React dashboard, as a Claude Artifact, that tracks every application in the search — status, dates, and next steps — fed by the same job search system as the Job Search Pipeline and ATS Navigator.",
-    results:
-      "One place to see the full state of the search at a glance, instead of reconstructing it from memory or a scattered spreadsheet.",
-    badge: "show",
-    badgeLabel: "Show it",
-    cost: "$17/mo shared*",
-  },
-  {
     category: "n8n Automation",
     eyebrow: "n8n Automation — built at BILL",
     name: "Enablement Deck Automation",
@@ -271,21 +256,6 @@ const otherProjects: Project[] = [
     badge: "show",
     badgeLabel: "Show it",
     cost: "$0–low/mo (free tiers)",
-  },
-  {
-    category: "Python",
-    eyebrow: "Python",
-    name: "Executive Comms Coach",
-    description: "Gradio + LangChain + Gemini — restructures a brain-dump into a BLUF doc.",
-    problem:
-      "Turning a messy brain-dump of thoughts into something an executive audience will actually read takes real communications skill — most people either over-structure it into a rigid template or leave it unstructured.",
-    solution:
-      "Built a LangChain + Gradio app on Gemini 2.5 Flash that takes a raw brain-dump and restructures it around BLUF principles — a concise core message, background context, 3-5 supporting key points, and clear next steps — **without forcing a rigid academic structure onto content that doesn't need it**. It also returns a coach's note explaining why it chose that structure for that audience.",
-    results:
-      "Turns an unstructured brain-dump into a formatted, audience-aware communication in one pass, with **the reasoning behind the structure made visible rather than hidden**.",
-    badge: "show",
-    badgeLabel: "Show it",
-    cost: "$0/mo (free tier)",
   },
   {
     category: "Python",
@@ -499,6 +469,49 @@ export default function Home() {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [roiExpanded, setRoiExpanded] = useState(false);
 
+  // On-page anchor links (nav's Projects / Skills / Contact) jump to the
+  // target immediately, but project screenshots and demo videos further
+  // down are still loading at that point. As they finish loading and the
+  // page grows, whatever we jumped to slides further down than where we
+  // landed. Re-run the jump a few times shortly after, so it settles on
+  // the right spot instead of stranding you wherever the page happened to
+  // be at click time.
+  useEffect(() => {
+    const runSettlePass = (id: string) => {
+      const scrollNow = () => {
+        document.getElementById(id)?.scrollIntoView({ block: "start" });
+      };
+      scrollNow();
+      const timers = [150, 400, 900, 1600].map((delay) =>
+        window.setTimeout(scrollNow, delay)
+      );
+      return () => timers.forEach((t) => window.clearTimeout(t));
+    };
+
+    let cleanupPass: (() => void) | undefined;
+
+    if (window.location.hash) {
+      cleanupPass = runSettlePass(window.location.hash.slice(1));
+    }
+
+    const onClick = (e: MouseEvent) => {
+      const link = (e.target as HTMLElement)?.closest(
+        "a[href*='#']"
+      ) as HTMLAnchorElement | null;
+      if (!link) return;
+      const url = new URL(link.href, window.location.href);
+      if (url.pathname !== window.location.pathname || !url.hash) return;
+      cleanupPass?.();
+      cleanupPass = runSettlePass(url.hash.slice(1));
+    };
+    document.addEventListener("click", onClick);
+
+    return () => {
+      cleanupPass?.();
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
+
   const visibleProjects =
     activeFilter === "All"
       ? otherProjects
@@ -668,9 +681,9 @@ export default function Home() {
                 Estimated ROI, as built
               </div>
               <div className="flex flex-wrap items-baseline gap-3">
-                <span className="mono text-[28px] font-semibold">~$2,850/mo</span>
+                <span className="mono text-[28px] font-semibold">~$2,563/mo</span>
                 <span className="text-[13.5px] text-[var(--muted)]">
-                  in time value across 10 of 13 projects — measured for Route Detective (20
+                  in time value across 8 of 13 projects — measured for Route Detective (20
                   hrs/month, targeting a 30-40% reduction in &quot;why did I get this
                   lead?&quot; tickets) and the Job Search Pipeline (15+ hrs/month);
                   reasonably estimated for the rest, using real market medians (BLS,
@@ -755,18 +768,6 @@ export default function Home() {
                         <td className="num">$990</td>
                       </tr>
                       <tr>
-                        <td>Executive Comms Coach</td>
-                        <td>Comms Manager, $52/hr</td>
-                        <td>~3 (est.)</td>
-                        <td className="num">$157</td>
-                      </tr>
-                      <tr>
-                        <td>Job Application Dashboard</td>
-                        <td>Director of RevOps, $66/hr</td>
-                        <td>~2 (est.)</td>
-                        <td className="num">$130</td>
-                      </tr>
-                      <tr>
                         <td>Aeroscout</td>
                         <td>Director of RevOps, $66/hr</td>
                         <td>~2 (est.)</td>
@@ -804,7 +805,7 @@ export default function Home() {
                       </tr>
                       <tr className="roi-total">
                         <td colSpan={3}>Total</td>
-                        <td className="num">~$2,850</td>
+                        <td className="num">~$2,563</td>
                       </tr>
                     </tbody>
                   </table>
@@ -846,6 +847,7 @@ export default function Home() {
                         preload="metadata"
                         aria-label={project.videoAlt}
                         src={project.video}
+                        style={{ aspectRatio: "1512 / 1182" }}
                       />
                     ) : isRowLayout && project.images && project.images.length > 0 ? (
                       <div className="project-image-row">
@@ -972,6 +974,7 @@ export default function Home() {
                         preload="metadata"
                         aria-label={project.videoAlt}
                         src={project.video}
+                        style={{ aspectRatio: "1920 / 1080" }}
                       />
                     ) : heroImage ? (
                       <button
@@ -1095,9 +1098,27 @@ export default function Home() {
         </section>
       </main>
 
-      <footer id="contact" className="mt-8 border-t border-[var(--wire-strong)] px-6 py-8 sm:px-10 lg:px-14">
-        <div className="mono mx-auto max-w-[1360px] text-[12px] text-[var(--muted)]">
-          [ email / LinkedIn / resume link ]
+      <footer id="contact" className="contact-footer mt-8 px-6 py-16 sm:px-10 sm:py-20 lg:px-14">
+        <div className="mx-auto max-w-[1360px]">
+          <div className="contact-eyebrow">Get in touch</div>
+          <h2 className="mb-3 text-4xl font-semibold leading-tight">Contact</h2>
+          <p className="contact-body mb-7 max-w-[520px] text-[15.5px] leading-relaxed">
+            Open to conversations about GTM engineering, RevOps, and roles where
+            building real tools is part of the job.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a href="mailto:lampertwb@gmail.com" className="contact-link">
+              lampertwb@gmail.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/lampertwb/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-link"
+            >
+              linkedin.com/in/lampertwb
+            </a>
+          </div>
         </div>
       </footer>
 
