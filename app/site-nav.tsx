@@ -3,14 +3,13 @@ import Link from "next/link";
 type NavItem = {
   label: string;
   href: string;
-  key: "projects" | "python" | "skills" | "contact";
+  key: "projects" | "python" | "contact";
 };
 
 // Every item is a real link: on-page sections use hash links, the tracker is its own route.
 const items: NavItem[] = [
   { label: "Projects", href: "/#projects", key: "projects" },
   { label: "Python", href: "/python-projects", key: "python" },
-  { label: "Skills", href: "/#skills", key: "skills" },
   { label: "Contact", href: "/#contact", key: "contact" },
 ];
 
