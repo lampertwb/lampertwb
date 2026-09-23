@@ -2,6 +2,48 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-23 — Corrected FIRST Framework attribution
+
+- Wendy confirmed only Red Egg (data diworsification) and the AGPDCC-through-an-investment-portfolio-lens application (Risk-Tier Portfolio Lens) are her own original thinking. FIRST is a publicly known rubric she applies, not something she authored — same non-proprietary status the earlier IP-rules memory noted. Removed "self-authored" from its eyebrow and softened "Built a five-criteria rubric" -> "Applies a five-criteria rubric" in its copy. No named external source to credit (not attributed to one specific author), so no credit line added — just no more authorship claim.
+
+## 2026-09-23 — Added Grocery Scanner case study (4th flagship)
+
+- Added a 4th Technical Case Study: Grocery Scanner, a Claude scheduled agent that scrapes weekly grocery flyers, cross-references her Alexa Shopping List, and tracks staple-item pricing week over week to flag genuine deals. Built during a stretch of real income uncertainty (30% RIF at her company, unknown if she'd be included).
+- Original 5-stage flow diagram (Weekly Trigger -> Scrape Flyers -> Match to List -> Price History -> Deal Alert), same style as the Frameworks diagrams. No screenshot/video exists for this one.
+- Cost tagged "7/mo shared*" (same Claude-subscription pool as the other agent projects) — not added to the ROI table since there's no stated hours/dollars figure for this one yet.
+
+## 2026-09-23 — Reordered Frameworks & Strategy to lead with diworsification
+
+- Reordered frameworkProjects to tell a straight-through story: Red Egg Philosophy (the data-diworsification lens that gates everything else) -> FIRST (score one initiative) -> Risk-Tier Portfolio Lens (check the whole portfolio's balance, both axes) -> Process Evolution Framework (sequence execution once something's chosen) -> Trifecta of Transformation (confirm the transformation actually landed) -> Five-Doc Framework (the specific build methodology). Previously Five-Doc and Trifecta led, ahead of the diworsification frameworks they conceptually follow.
+
+## 2026-09-23 — Frameworks carousel, Easter-egg Red Egg visual, AGPDCC moved to Risk-Tier
+
+- Frameworks & Strategy converted from a static 2-column grid to a single-card carousel, reusing the exact Technical Case Studies pattern (side arrows, dot row, "X of N" counter, "Next framework" button).
+- Red Egg visual redone again: left panel is now Easter-egg-style patterned eggs (stripes, bands, dots, splotches, zigzags) in mixed colors, several carrying red as one of multiple pattern colors so it never reads as a single obvious signal on its own. Right panel unchanged (grayscale + one clean red egg).
+- AGPDCC moved off the Red Egg card entirely — Red Egg is now purely about the data layer (too much undifferentiated data buries the field that answers the question). AGPDCC (and its Jeff Winter credit) moved to Risk-Tier Portfolio Lens instead, per Wendy: AGPDCC is a second diworsification axis (AI capability-type mix), not a data concept.
+- Risk-Tier Portfolio Lens visual rebuilt as a two-donut "401(k) portfolio allocation summary" — one donut for risk-tier mix (Low-Risk/Medium-Risk/Moonshot), one for AGPDCC capability-type mix (Analyze/Generate/Predict/Detect/Control/Connect) — styled like a real account-statement allocation summary. Card copy rewritten to cover both axes.
+
+## 2026-09-23 — Red Egg Philosophy corrected: data diworsification + Jeff Winter AGPDCC credit; Risk-Tier card added
+
+- Red Egg Philosophy was substantively wrong in two rounds of prior drafts (framed as budget/funding conviction). Corrected per Wendy: diworsification is fundamentally a **data** problem — too much undifferentiated data buries the signal an AI needs, same as too many colors bury the one egg that matters. Card copy (problem/solution/results, one-liners, eyebrow, description) fully rewritten around this.
+- Visual rebuilt as a two-panel side-by-side comparison ("every field a different signal" — 12 distinctly colored eggs, hard to find the target — vs. "everything else stripped out" — grayscale eggs + one red, instantly visible), replacing the single-image grayscale version, which Wendy flagged as not landing the point on its own.
+- Added a visible "AGPDCC taxonomy by Jeff Winter" credit line to the Red Egg card — Wendy applied Jeff Winter's AGPDCC taxonomy (Analyze, Generate, Predict, Detect, Control, Connect) to check AI-tool-portfolio balance (e.g., can't have all Generative tools and no Analytical), same visible-credit pattern as Trifecta of Transformation and Process Evolution Framework.
+- Added a Jeff Winter credit line to the previously-uncredited Process Evolution Framework card ("Framework originated by Jeff Winter"), and softened "Built a six-stage model" → "Applied a six-stage model" in its copy.
+- Added a 6th Frameworks & Strategy card: Risk-Tier Portfolio Lens (self-authored, Low-Risk / Medium-Risk / Moonshot), resolving the empty-cell layout issue from the earlier 5-card grid. Original 3-tier visual.
+
+## 2026-09-23 — ROI headline raised, Red Egg visual redone as color-pop
+
+- Enablement Deck Automation ROI confirmed at 10+ hrs/week (stated, per Wendy's SAR doc) instead of the earlier ~3 hrs/month estimate. Table row, total, and headline all updated: ~$2.5K/mo → ~$3.8K/mo.
+- Red Egg visual redone: first pass (cream eggs, one red, on white) didn't land. Rebuilt as a "color pop" photo effect — grayscale eggs on a near-black background with one saturated red egg — to directly visualize Wendy's point that a single clear signal is instantly findable where many similar-but-different options are not.
+
+## 2026-09-23 — Three new Frameworks & Strategy cards: Red Egg, FIRST, Process Evolution
+
+- Added three original "Frameworks & Strategy" cards, built from Wendy's resume language (FIRST framework, Red Egg investment philosophy, 6-stage Process Evolution Framework) — all her own original thinking, wholly original copy and visuals, zero reuse of any BILL-specific wording, numbers, or imagery.
+- The Red Egg Philosophy: diworsification-avoidance framing (one high-conviction bet vs. a dozen underfunded look-alikes), original basket-of-eggs graphic.
+- The FIRST Framework: Feasibility / Investment / Risk-Reward / Strategic Priority / Timeframe scoring rubric, original scorecard graphic.
+- Process Evolution Framework: Understand → Standardize → Optimize → Digitize → Automate → Integrate, original 6-stage pipeline graphic.
+- Frameworks & Strategy grid now has 5 cards total (was 2) — the 5th leaves one empty grid cell; flagged to Wendy in case she wants a 6th card or a different layout.
+
 ## 2026-09-23 — Trifecta diagram refresh
 
 - Re-exported the Trifecta of Transformation diagram from Wendy's deck (slide 6) on a white background, with her fixes: Automation now has its own description, "Communication" and "perspective" typos fixed. Removed the [DRAFT] note from the case study.

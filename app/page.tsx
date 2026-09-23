@@ -127,33 +127,143 @@ const flagshipProjects: Project[] = [
     badgeLabel: "Show it",
     cost: "$0/mo (free tier)",
   },
-];
-
-const frameworkProjects: Project[] = [
   {
-    eyebrow: "Claude Skill — methodology",
-    category: "Claude Skill",
-    name: "Five-Doc Framework",
+    eyebrow: "Claude Scheduled Agent — grocery price tracking",
+    category: "Claude Agent",
+    name: "Grocery Scanner",
     problemShort:
-      "AI-assisted builders jump straight into building, then find out mid-build that no one defined success or how the pieces connect.",
+      "A 30% RIF was on the table and I didn't know if I'd be in it — the kind of uncertainty where a lower grocery bill actually matters, but comparing flyers against what I buy, by hand, every week, wasn't happening.",
     solutionShort:
-      "A self-authored, mandatory five-document sequence (PRD, System Design, UI/UX, Feature Breakdown, Master Prompt), written in order before any building starts.",
+      "A Claude scheduled agent that scrapes the weekly flyers for my regular stores, checks them against my Alexa Shopping List, and tracks price history on staples so it can tell a real deal from a normal sale.",
     resultShort:
-      "Less-technical builders ship working Claude agents without skipping the thinking an experienced engineer does in their head.",
-    stackLine: "PRD → System Design → UI/UX → Feature Breakdown → Master Prompt",
+      "Runs on its own every week — I get flagged when something on my actual list is genuinely cheap, instead of scanning flyers myself and guessing.",
+    stackLine: "Weekly schedule → flyer scrape → Alexa Shopping List match → price-history check → deal alert",
     description:
-      "A mandatory five-document planning sequence, self-authored, that lets less-technical builders ship working Claude agents without skipping the thinking.",
+      "A Claude scheduled agent that scrapes weekly grocery flyers, checks them against my Alexa Shopping List, and tracks staple-item pricing week over week to flag genuine deals — built during a stretch of real income uncertainty.",
     problem:
-      "Less-technical builders — and AI-assisted builders in general — tend to jump straight into code or configuration, then discover mid-build that **no one ever defined what success looks like or how the pieces are supposed to connect**.",
+      "My company announced a **30% reduction in force**, and I had no way of knowing whether I'd be in that group. That's the kind of uncertainty where a lower grocery bill actually matters — but comparing flyers against what I actually buy, every week, by hand, wasn't something I was going to keep doing.",
     solution:
-      "Authored a mandatory five-document planning sequence — PRD, System Design, UI/UX Wireframe, Feature Breakdown, and a Master Prompt — that has to be written and reviewed, **in that order, before any building starts**. Each document has required sections; the PRD alone forces an explicit What, Why, Who, success criteria, and out-of-scope list before anything else happens.",
+      "A Claude scheduled agent that runs on its own every week: it **scrapes the flyers for my regular stores**, cross-references them against my **Alexa Shopping List** so it's only looking at what I actually buy, and keeps a **running price history on staple items** so it can tell a real deal from a store's normal in-and-out pricing. When something clears that bar, it notifies me — I don't have to go looking.",
     results:
-      "Lets someone without a deep technical background **ship a working Claude agent without skipping the thinking** that usually only happens inside an experienced engineer's head.",
-    images: ["/project-media/five-doc-framework/five-doc-framework-overview.png"],
+      "Runs unattended on the same schedule every week. I get flagged when something on my actual list is genuinely cheap, instead of scanning flyers myself and guessing whether a \"sale\" price is any better than what I paid last month.",
+    images: ["/project-media/grocery-scanner/grocery-scanner.png"],
     imageFit: "contain",
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "$17/mo shared*",
+  },
+];
+
+const frameworkProjects: Project[] = [
+  {
+    eyebrow: "Strategy Framework — self-authored investment philosophy",
+    category: "Framework",
+    name: "The Red Egg Philosophy",
+    problemShort:
+      "Feed an AI too much undifferentiated data and it can't find the field that actually answers the question — more inputs don't mean a better answer.",
+    solutionShort:
+      "A diworsification-avoidance lens borrowed from investing: curate a dataset down to what earns its place, the way a red egg is only obvious once the noise is stripped away.",
+    resultShort:
+      "The filter applied to a dataset before it's trusted: is this curated enough to find the signal, or just padded enough to look thorough?",
+    stackLine: "Too much data, no signal ⟷ curated data, obvious signal",
+    description:
+      "A diworsification-avoidance lens for data: curating a dataset down to the fields that actually earn their place, instead of trusting an AI to find the signal in everything left in.",
+    problem:
+      "Diworsification is investor Peter Lynch's term for diversifying a portfolio so far that no single holding can move the needle. **The same failure shows up in data: feed a model too much undifferentiated data and it can't find the field that actually answers the question.** More inputs don't mean a better answer — they mean the signal is buried under noise the model has to sort through first.",
+    solution:
+      "Named for a basket of eggs with one painted red: **a single clean color reads instantly against a plain background, and disappears the moment a dozen other patterns compete for attention.** Data works exactly the same way — a dataset stripped to the fields that actually earn their place makes the answer obvious, where a dataset with everything left in buries it. The discipline is the same one Lynch applied to stock picking, applied one layer down: **before asking an AI to find the right answer, ask whether the data even gives it a fair shot.**",
+    results:
+      "Used as the filter behind any dataset, **before FIRST or Process Evolution ever get applied to a specific initiative:** is what's here curated enough to find the signal, or just padded enough to look thorough?",
+    images: ["/project-media/red-egg/red-egg.png"],
+    imageFit: "contain",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "N/A — strategy framework, not software",
+  },
+  {
+    eyebrow: "Strategy Framework — publicly known rubric, applied to AI/automation bets",
+    category: "Framework",
+    name: "The FIRST Framework",
+    problemShort:
+      "Without a shared rubric, whichever initiative got pitched most recently or most loudly tends to win the budget conversation, whether or not it's actually the best bet.",
+    solutionShort:
+      "A five-criteria scorecard — Feasibility, Investment, Risk/Reward, Strategic Priority, Timeframe — for scoring any initiative on the same axes before it gets funded.",
+    resultShort:
+      "Turns a prioritization debate into a comparison of five specific factors instead of five competing narratives.",
+    stackLine: "Feasibility → Investment → Risk/Reward → Strategic Priority → Timeframe",
+    description:
+      "A five-criteria scoring rubric — Feasibility, Investment, Risk/Reward, Strategic Priority, Timeframe — for deciding which AI or automation initiatives actually get funded.",
+    problem:
+      "Once a shortlist of candidate initiatives exists, the next failure mode is scoring them on gut feel. **Whichever idea got pitched most recently, or most loudly, tends to win the budget conversation** regardless of whether it's actually the strongest bet.",
+    solution:
+      "Applies a five-criteria rubric — **Feasibility** (can this actually be built with the data, systems, and skills on hand right now), **Investment** (what it costs in engineering time, tooling spend, and org attention to stand up), **Risk/Reward** (what breaks if it fails, versus what it's worth if it works), **Strategic Priority** (does it move a goal leadership already committed to, or just feel productive), and **Timeframe** (a quick win to build momentum, or a multi-quarter bet) — to score any initiative on the same axes before it gets funded.",
+    results:
+      "Turns a prioritization debate into a **comparison of five specific factors instead of five competing narratives**, and makes it possible to explain, after the fact, why an initiative got funded (or didn't) to anyone who asks.",
+    images: ["/project-media/first-framework/first-framework.png"],
+    imageFit: "contain",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "N/A — strategy framework, not software",
+  },
+  {
+    eyebrow: "Strategy Framework — self-authored, applies Jeff Winter's AGPDCC taxonomy",
+    category: "Framework",
+    name: "Risk-Tier Portfolio Lens",
+    credit: {
+      text: "AGPDCC taxonomy by",
+      linkText: "Jeff Winter",
+      url: "https://www.linkedin.com/in/jeffreyrwinter/",
+    },
+    problemShort:
+      "A roadmap that's all safe bets never produces a breakthrough — and a roadmap that's all Generative AI with no Analytical is just as lopsided as one that's all moonshots.",
+    solutionShort:
+      "A two-axis lens for reading a whole portfolio: the mix of risk tiers (Low-Risk, Medium-Risk, Moonshot), and — borrowing Jeff Winter's AGPDCC taxonomy — the mix of AI capability types (Analyze, Generate, Predict, Detect, Control, Connect).",
+    resultShort:
+      "Catches an unbalanced portfolio before it ships, on either axis: too many safe wins or too many moonshots, too many Generative tools or too few Analytical ones.",
+    stackLine: "Low-Risk ⟷ Medium-Risk ⟷ Moonshot   |   Analyze · Generate · Predict · Detect · Control · Connect",
+    description:
+      "A two-axis portfolio lens — risk tier, and Jeff Winter's AGPDCC taxonomy of AI capability types — for checking the balance of an entire AI or automation portfolio, not just scoring one initiative in isolation.",
+    problem:
+      "FIRST scores whether a single initiative is worth funding. It doesn't answer a different question: **across everything funded, is the portfolio actually balanced** — or is it entirely safe, incremental wins with no shot at a real breakthrough, or entirely ambitious bets with nothing certain to ship this quarter? The same imbalance shows up on a second axis, too: a stack of nothing but Generative AI tools, with no Analytical, Predictive, or Detective capability anywhere in it, is diworsified the same way a portfolio of ten look-alike micro-caps is.",
+    solution:
+      "A two-axis lens for reading a whole roadmap at once, the way a 401(k) statement reads a retirement account from more than one angle. The first axis is risk: **Low-Risk** (predictable, near-certain ROI, ships fast), **Medium-Risk** (real business impact, manageable complexity and uncertainty), and **Moonshot** (industry-level disruption, high risk/high reward, genuinely uncertain). The second axis borrows Jeff Winter's **AGPDCC taxonomy — Analyze, Generate, Predict, Detect, Control, Connect** — as a capability-type check: you cannot have too many Generative AI tools and none of the Analytical, any more than a diversified retirement account can be all one holding. Neither axis asks whether any one tier or type is good or bad — both ask whether **the mix matches what the organization can actually tolerate and needs to prove.**",
+    results:
+      "Used after FIRST and Red Egg have already picked the individual bets — the **last gut check on the shape of the whole portfolio**, on both axes, not any one line in it.",
+    images: ["/project-media/risk-tier-lens/risk-tier-lens.png"],
+    imageFit: "contain",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "N/A — strategy framework, not software",
+  },
+  {
+    eyebrow: "Strategy Framework — applied from Jeff Winter's Process Evolution Framework",
+    category: "Framework",
+    name: "Process Evolution Framework",
+    credit: {
+      text: "Framework originated by",
+      linkText: "Jeff Winter",
+      url: "https://www.jeffwinterinsights.com/insights/the-process-evolution-framework",
+    },
+    problemShort:
+      "The instinct with a new AI tool is to point it at the messiest manual process in the building. Automating a broken process just makes the mess move faster.",
+    solutionShort:
+      "Applied a six-stage maturity model — Understand, Standardize, Optimize, Digitize, Automate, Integrate — where automation is stage four and five, not stage one.",
+    resultShort:
+      "The sequencing discipline behind moving from scattered, ad hoc pilots to a genuinely integrated, automated system.",
+    stackLine: "Understand → Standardize → Optimize → Digitize → Automate → Integrate",
+    description:
+      "A six-stage maturity model — Understand, Standardize, Optimize, Digitize, Automate, Integrate — applied to sequence an organization's move from scattered AI pilots to a genuinely automated, integrated system.",
+    problem:
+      "The instinct with a new AI capability is to point it at the messiest, most manual process in the building and call that transformation. **Automating a broken process just makes the mess move faster** — it doesn't fix it.",
+    solution:
+      "Applied a six-stage model — **Understand, Standardize, Optimize, Digitize, Automate, Integrate** — that treats automation as the fourth and fifth stages, not the first. **The first three stages are deliberately non-technical**: understand what the process actually is today, standardize it so it runs the same way twice, and optimize it before a single line of code gets written. Only then does it get digitized, automated, and finally integrated into the surrounding systems.",
+    results:
+      "The sequencing discipline behind moving an organization from **scattered, ad hoc pilots to a genuinely automated, integrated system** — each stage is a checkpoint, not a step to skip on the way to the exciting part.",
+    images: ["/project-media/process-evolution/process-evolution-framework.png"],
+    imageFit: "contain",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "N/A — strategy framework, not software",
   },
   {
     eyebrow: "Strategy Framework — self-authored, inspired by Jeff Winter's transformation thinking",
@@ -184,6 +294,31 @@ const frameworkProjects: Project[] = [
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "N/A — strategy framework, not software",
+  },
+  {
+    eyebrow: "Claude Skill — methodology",
+    category: "Claude Skill",
+    name: "Five-Doc Framework",
+    problemShort:
+      "AI-assisted builders jump straight into building, then find out mid-build that no one defined success or how the pieces connect.",
+    solutionShort:
+      "A self-authored, mandatory five-document sequence (PRD, System Design, UI/UX, Feature Breakdown, Master Prompt), written in order before any building starts.",
+    resultShort:
+      "Less-technical builders ship working Claude agents without skipping the thinking an experienced engineer does in their head.",
+    stackLine: "PRD → System Design → UI/UX → Feature Breakdown → Master Prompt",
+    description:
+      "A mandatory five-document planning sequence, self-authored, that lets less-technical builders ship working Claude agents without skipping the thinking.",
+    problem:
+      "Less-technical builders — and AI-assisted builders in general — tend to jump straight into code or configuration, then discover mid-build that **no one ever defined what success looks like or how the pieces are supposed to connect**.",
+    solution:
+      "Authored a mandatory five-document planning sequence — PRD, System Design, UI/UX Wireframe, Feature Breakdown, and a Master Prompt — that has to be written and reviewed, **in that order, before any building starts**. Each document has required sections; the PRD alone forces an explicit What, Why, Who, success criteria, and out-of-scope list before anything else happens.",
+    results:
+      "Lets someone without a deep technical background **ship a working Claude agent without skipping the thinking** that usually only happens inside an experienced engineer's head.",
+    images: ["/project-media/five-doc-framework/five-doc-framework-overview.png"],
+    imageFit: "contain",
+    badge: "explain",
+    badgeLabel: "Explain it",
+    cost: "$17/mo shared*",
   },
 ];
 
@@ -566,6 +701,7 @@ export default function Home() {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [roiExpanded, setRoiExpanded] = useState(false);
   const [activeCase, setActiveCase] = useState(0);
+  const [activeFramework, setActiveFramework] = useState(0);
 
   // Switch case study; if the reader has scrolled past the top of the section,
   // bring them back to the start of the new one so they begin at its title.
@@ -573,6 +709,16 @@ export default function Home() {
     const n = flagshipProjects.length;
     setActiveCase(((i % n) + n) % n);
     const el = document.getElementById("projects");
+    if (el && el.getBoundingClientRect().top < 0) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  // Same pattern as goToCase, for the Frameworks & Strategy carousel.
+  const goToFramework = (i: number) => {
+    const n = frameworkProjects.length;
+    setActiveFramework(((i % n) + n) % n);
+    const el = document.getElementById("frameworks");
     if (el && el.getBoundingClientRect().top < 0) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -787,12 +933,13 @@ export default function Home() {
               project on this page.
             </div>
             <div className="roi-subhead">
-              What I get back: <span className="mono">~$2.5K/mo</span> in time saved.
+              What I get back: <span className="mono">~$3.8K/mo</span> in time saved.
             </div>
             <p className="mt-3 text-[17px] leading-relaxed text-[var(--muted)]">
               One Claude subscription; everything else is free or open source. Time saved is
-              measured for Route Detective and the Job Search Pipeline, estimated for six more,
-              and priced at market medians (BLS, Glassdoor) for whoever normally does that work.
+              measured for Route Detective, the Job Search Pipeline, and the Enablement Deck
+              Automation, estimated for five more, and priced at market medians (BLS,
+              Glassdoor) for whoever normally does that work.
             </p>
             <button
               type="button"
@@ -898,8 +1045,8 @@ export default function Home() {
                       <tr>
                         <td>Enablement Deck Automation</td>
                         <td>SDR base, $31/hr</td>
-                        <td>~3 (est.)</td>
-                        <td className="num">$93</td>
+                        <td>~43 (stated, 10+ hrs/wk)</td>
+                        <td className="num">$1,343</td>
                       </tr>
                       <tr>
                         <td>Syncly</td>
@@ -909,14 +1056,14 @@ export default function Home() {
                       </tr>
                       <tr className="roi-total">
                         <td colSpan={3}>Total</td>
-                        <td className="num">~$2,566</td>
+                        <td className="num">~$3,816</td>
                       </tr>
                     </tbody>
                   </table>
                   <p className="roi-footnote">
-                    Route Detective and Job Search Pipeline hours are stated in their case
-                    studies; every other hours figure is my own reasonable estimate, not
-                    measured. Not included: TOFU Lead-Routing Pipeline (its ROI is
+                    Route Detective, Job Search Pipeline, and Enablement Deck Automation hours are
+                    stated (Enablement at 10+ hrs/week, converted to a monthly figure); every
+                    other hours figure is my own reasonable estimate, not measured. Not included: TOFU Lead-Routing Pipeline (its ROI is
                     tool-cost avoidance — running on free/low-cost tiers instead of a paid
                     enrichment + orchestration stack — not hours, and I don&apos;t have
                     reliable figures for what was actually running to price that out yet),
@@ -1075,13 +1222,31 @@ export default function Home() {
           })()}
         </section>
 
-        <section className="mb-12">
+        <section id="frameworks" className="mb-12">
           <h2 className="section-title"><span className="section-num">02</span>Frameworks &amp; Strategy</h2>
-          <div className="frameworks-grid grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {frameworkProjects.map((project) => {
-              const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
-              const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
-              return (
+          {(() => {
+            const project = frameworkProjects[activeFramework];
+            const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
+            const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
+            const nextFramework = frameworkProjects[(activeFramework + 1) % frameworkProjects.length];
+            return (
+              <div className="case-carousel frameworks-grid">
+                <button
+                  type="button"
+                  className="case-arrow case-arrow-side case-arrow-prev"
+                  aria-label="Previous framework"
+                  onClick={() => goToFramework(activeFramework - 1)}
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  className="case-arrow case-arrow-side case-arrow-next"
+                  aria-label="Next framework"
+                  onClick={() => goToFramework(activeFramework + 1)}
+                >
+                  →
+                </button>
                 <div key={project.name} className="wire card">
                   <div className={project.imageFit === "contain" ? "card-hero card-hero-contain" : "card-hero"}>
                     {heroImage ? (
@@ -1108,11 +1273,53 @@ export default function Home() {
                       <span className="cost-tag">{project.cost}</span>
                     </div>
                     {renderProjectExtras(project, extraImages)}
+                    <button
+                      type="button"
+                      className="case-next-btn"
+                      onClick={() => goToFramework(activeFramework + 1)}
+                    >
+                      {activeFramework === frameworkProjects.length - 1 ? "Back to the first framework" : "Next framework"}:{" "}
+                      <strong>{nextFramework.name}</strong> →
+                    </button>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+                <div className="case-dots-row">
+                  <button
+                    type="button"
+                    className="case-arrow case-arrow-inline"
+                    aria-label="Previous framework"
+                    onClick={() => goToFramework(activeFramework - 1)}
+                  >
+                    ←
+                  </button>
+                  <div className="case-dots" role="tablist" aria-label="Frameworks and strategy">
+                    {frameworkProjects.map((p, i) => (
+                      <button
+                        key={p.name}
+                        type="button"
+                        role="tab"
+                        aria-selected={i === activeFramework}
+                        aria-label={`Framework ${i + 1}: ${p.name}`}
+                        className="case-dot"
+                        onClick={() => goToFramework(i)}
+                      />
+                    ))}
+                  </div>
+                  <span className="mono case-count">
+                    {activeFramework + 1} of {frameworkProjects.length}
+                  </span>
+                  <button
+                    type="button"
+                    className="case-arrow case-arrow-inline"
+                    aria-label="Next framework"
+                    onClick={() => goToFramework(activeFramework + 1)}
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+            );
+          })()}
         </section>
 
         <section className="mb-12">
