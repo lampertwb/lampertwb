@@ -284,21 +284,21 @@ const otherProjects: Project[] = [
     eyebrow: "n8n Automation — built at BILL",
     name: "Enablement Deck Automation",
     problemShort:
-      "A colleague's form-to-Slides automation at BILL worked, but the slides only said whatever people typed into the form.",
+      "Enablement took every form entry and did the rest by hand: writing tailored messaging slide by slide, then copying from the master deck into each business unit's deck.",
     solutionShort:
       "I saw her unanswered question in a channel and offered to help, then added an n8n step that uses AI to improve each entry before it lands on the master deck.",
     resultShort:
-      "Built inside BILL, so no screenshots. The lesson: \"I saw your message and wanted to try\" is a legitimate way into AI automation.",
+      "The tailored messaging and business-unit deck updates now happen automatically instead of slide by slide, copy-paste by copy-paste.",
     stackLine:
       "Form → Google Sheet (Apps Script) → n8n + AI text enhancement → master Google Slides deck → each business unit's deck",
     description:
       "Extended a colleague's form-to-Google-Slides automation with an n8n step that uses AI to enhance what people enter.",
     problem:
-      "A colleague at BILL had built a form that fed a Google Sheet through Apps Script, which triggered a master Google Slides deck and pushed it out to each business unit's own deck. It worked, but the slide text was whatever people typed into the form.",
+      "Before any automation, Enablement took each form entry and did everything by hand: writing the tailored messaging slide by slide, then copying and pasting from the master deck into every business unit deck that needed it. A colleague at BILL had built a form that fed a Google Sheet through Apps Script, which triggered a master Google Slides deck and pushed it out to each business unit's own deck. It worked, but the slide text was whatever people typed into the form.",
     solution:
       "It started when I saw her question go unanswered in a channel and asked if she still needed help. She had the vision; I had the tools and wanted the practice. Once the form data landed in the spreadsheet, **I used n8n and AI to enhance what people had entered, then replaced the text on the appropriate slide in the master deck.**",
     results:
-      "Because this was built inside BILL, I can't share screenshots or a recording. What I can share is the lesson: **the barrier to helping someone with AI automation is low enough that “I saw your message and wanted to try” is a legitimate way in.** No project plan or 10,000 hours as an SME, just curiosity and a willingness to dig in.",
+      "**The tailored messaging and the business-unit deck updates now happen automatically instead of by hand.** Because this was built inside BILL, I can't share screenshots or a recording. What I can share is the lesson: **the barrier to helping someone with AI automation is low enough that “I saw your message and wanted to try” is a legitimate way in.** No project plan or 10,000 hours as an SME, just curiosity and a willingness to dig in.",
     noHero: true,
     badge: "explain",
     badgeLabel: "Explain it",
@@ -376,16 +376,20 @@ const otherProjects: Project[] = [
     category: "Python",
     eyebrow: "Python — desktop app",
     name: "Iron Chef (Recipe Importer)",
+    problemShort:
+      "My recipes are scattered across Paprika 3, AnyImport, HelloFresh, websites, and saved reels and TikToks, and most recipe apps charge a fee.",
     solutionShort:
       "A Python (PyQt5) desktop app: paste a recipe from a web page into a form, and one click saves it as a formatted Word document.",
     resultShort:
-      "In the demo, a recipe goes from a web page to a saved Word document in one click.",
+      "In the demo, a recipe goes from a web page to a saved Word document in one click. A first step: imports are manual for now, with reels, TikToks, and recipe sites as the long-term goal.",
     description:
       "A small desktop app that turns a recipe copied from a web page into a saved Word document: paste it into a form, click Save.",
+    problem:
+      "My recipes live everywhere: Paprika 3, AnyImport, HelloFresh, recipe websites, and saved Facebook and Instagram reels and TikToks. Most recipe apps charge a fee, and none of them let me pull everything into one place and organize it like my own recipe book. **Having my own app means one free, central home for every recipe I want to keep.**",
     solution:
       "Built a desktop app in Python with PyQt5. A form takes a recipe's name, source, cooking time, nutrition facts, ingredients and instructions, most of it copied straight from a web page. **One click on Save Recipe writes it out as a formatted Word document** (using python-docx) in a `new_recipes` folder and shows a pop-up confirming it was saved.",
     results:
-      "**In the demo, one recipe goes from a web page to a saved Word document in a single click.** I paste in the name, source, cooking time, nutrition facts, ingredients and instructions for a peanut butter cookie recipe, click Save Recipe, and the finished document appears in the project folder with the title, source, cooking time, nutrition facts, ingredients and directions laid out on the page.",
+      "**In the demo, one recipe goes from a web page to a saved Word document in a single click.** I paste in the name, source, cooking time, nutrition facts, ingredients and instructions for a peanut butter cookie recipe, click Save Recipe, and the finished document appears in the project folder with the title, source, cooking time, nutrition facts, ingredients and directions laid out on the page. **It was never finished: so far it only imports recipes pasted in by hand.** The long-term plan is importing straight from Facebook and Instagram reels, TikToks, and recipe sites into one organized, free recipe book.",
     video: "/project-media/iron-chef/iron-chef-recipe-importer-demo.mp4",
     videoAlt:
       "A captioned screen recording of a Python desktop app called Iron Chef. A recipe is copied from a web page and pasted into the app's form in six steps, Save Recipe is clicked, a pop-up confirms it saved, and the recipe opens as a formatted Word document.",
@@ -1057,7 +1061,7 @@ export default function Home() {
 
         <section className="mb-12">
           <h2 className="section-title"><span className="section-num">02</span>Frameworks &amp; Strategy</h2>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="frameworks-grid grid grid-cols-1 gap-3 sm:grid-cols-2">
             {frameworkProjects.map((project) => {
               const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
               const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];

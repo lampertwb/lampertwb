@@ -2,6 +2,14 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-23 — Iron Chef problem, Enablement outcome, equal framework images, bigger photo
+
+- Iron Chef: added Problem (recipes scattered across Paprika 3, AnyImport, HelloFresh, sites, reels/TikToks; most apps charge a fee) and noted it was never finished (manual import only; social/site import is the long-term goal).
+- Enablement Deck Automation: added the manual "before" state and the outcome (tailored messaging + business-unit deck updates now automatic), ahead of the existing lesson.
+- Frameworks & Strategy: both diagram cards now use the same 16:10 image box (whole diagram shown).
+- Hero photo enlarged (260px desktop / 180px mobile).
+- Open: Trifecta image repeats the Infrastructure text under Automation; waiting on Wendy's Automation description.
+
 ## 2026-09-23 — Problem / Solution / Result on every card
 
 - Added `problemShort` / `solutionShort` / `resultShort` one-liners for all Frameworks & Strategy and Other Technical Builds projects, rendered as a compact color-coded stack under the description (`renderPsrCompact`). Full case study still behind "Read the full case study".

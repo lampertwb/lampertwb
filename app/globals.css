@@ -1854,3 +1854,37 @@ footer[id] {
 .card-body .psr-compact {
   flex: 1;
 }
+
+/* Frameworks: both diagram cards get the same image box, whole diagram visible */
+.frameworks-grid .card-hero {
+  aspect-ratio: 16 / 10;
+  background: #fff;
+}
+
+.frameworks-grid .card-hero {
+  overflow: hidden;
+}
+
+.frameworks-grid .card-hero .card-hero-image-btn {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.frameworks-grid .card-hero .card-hero-image-btn img {
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Bigger hero photo */
+.hero-photo {
+  width: 180px;
+  height: 180px;
+}
+
+@media (min-width: 768px) {
+  .hero-photo {
+    width: 260px;
+    height: 260px;
+  }
+}
