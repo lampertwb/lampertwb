@@ -2,6 +2,10 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-23 — Trifecta diagram refresh
+
+- Re-exported the Trifecta of Transformation diagram from Wendy's deck (slide 6) on a white background, with her fixes: Automation now has its own description, "Communication" and "perspective" typos fixed. Removed the [DRAFT] note from the case study.
+
 ## 2026-09-23 — Iron Chef problem, Enablement outcome, equal framework images, bigger photo
 
 - Iron Chef: added Problem (recipes scattered across Paprika 3, AnyImport, HelloFresh, sites, reels/TikToks; most apps charge a fee) and noted it was never finished (manual import only; social/site import is the long-term goal).
