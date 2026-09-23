@@ -8,7 +8,7 @@ type NavItem = {
 
 // Every item is a real link: on-page sections use hash links, the tracker is its own route.
 const items: NavItem[] = [
-  { label: "Projects", href: "/#projects", key: "projects" },
+  { label: "Case Studies", href: "/#projects", key: "projects" },
   { label: "Python", href: "/python-projects", key: "python" },
   { label: "Contact", href: "/#contact", key: "contact" },
 ];

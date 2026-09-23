@@ -603,100 +603,57 @@ export default function Home() {
       </header>
 
       <main className="mx-auto max-w-[1360px] px-6 py-12 sm:px-10 lg:px-14">
-        <section className="mb-10">
-          <div className="wire p-7">
-            <h1 className="mb-2 text-3xl font-semibold leading-tight">Wendy Lampert</h1>
-            <p className="text-[var(--muted)]">
-              RevOps depth, shipped in code.
-            </p>
-          </div>
+        <section className="hero mb-8">
+          <div className="mono hero-eyebrow">Wendy Lampert · GTM Engineer</div>
+          <h1 className="hero-title">RevOps depth, shipped in code.</h1>
+          <p className="hero-sub">
+            A decade running Sales &amp; Revenue Operations. Now I build the systems myself.
+          </p>
+          <ul className="hero-beliefs">
+            <li>
+              <strong>Process first, code second.</strong> Every build starts as a
+              plain-English outline before a line of code.
+            </li>
+            <li>
+              <strong>I don&apos;t outsource, I offload.</strong> Claude helps me think
+              through problems. It doesn&apos;t think for me.
+            </li>
+            <li>
+              <strong>A hammer, not a toolbox.</strong> Knowing when AI is the wrong tool
+              is half the job.
+            </li>
+            <li>
+              <strong>Built from real problems.</strong> Something I hit doing the work, or
+              built the hard way to learn it.
+            </li>
+          </ul>
         </section>
 
-        <section className="mb-10">
-          <div className="wire p-7">
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-              <img
-                src="/wendy-about-photo.jpg"
-                alt="Wendy Lampert at her desk, mid-build"
-                className="about-photo"
-              />
-              <div>
-            <h2 className="mb-3 text-2xl font-semibold leading-tight">Running Revenue to Coding It</h2>
-            <div className="lg:columns-2 lg:gap-12">
-            <p className="mb-3 text-[15px] leading-relaxed">
-              I am a GTM Engineer who spent the last decade in Sales & Revenue Operations, bridging deep 
-              operational experience with hands-on backend software development. 
-              </p>
-            <p className="mb-3 text-[15px] leading-relaxed">
-              Having solved high-stakes scale problems, I bring the discipline of process design and input it
-              directly into code. I build production-grade automations and software using Python, n8n, and LLMs
-              with a keen focus architecturally, treating AI as a partner for reasoning and debugging 
-              rather than a black-box shortcut. 
-            </p>
-            <p className="mb-3 text-[15px] leading-relaxed">
-              Every system I build reflects real operating scars: designed with rigorous pseudocode (step-by-step
-              plain English process outline) first, tested end to end, and engineered to solve root data 
-              and scale bottlenecks.
-            </p>
-            <p className="mb-3 text-[15px] leading-relaxed">
-              That combination (real operating scars, plus real engineering discipline) is what
-              I actually bring to GTM Engineering. I lean on Claude to think through problems with
-              me, not to think for me: pointing me to the right documentation, helping me
-              troubleshoot when something breaks, working through a decision out loud, never
-              writing the whole thing while I stay in the dark about how it works. Never wondering
-              if it's architecturally sound, in compliance, secure, or even the right best tool for the job.
-</p>
-            <p className="mb-3 text-[15px] leading-relaxed">
-              And it&apos;s not the only tool I use. Claude is a hammer, not an entire toolbox - the right choice
-              for some problems, the wrong one for others, and knowing the difference is half the job.
-</p>
-            <p className="mb-3 text-[15px] leading-relaxed">
-              Every project on this page is either a real problem I hit doing the work, or one I
-              built on my own to learn something the hard way, hands-on, line by line,  instead
-              of vibe-coding past the parts most people skip. There is one exception which taught 
-              me the importance of why Vibe Coding is not the right approach.
-            </p>
+        <section className="mb-12">
+          <div className="wire roi-box p-6 sm:p-7">
+            <div className="mono mb-2 text-[11px] uppercase tracking-wide text-[var(--note)]">
+              What I spend vs. what it&apos;s worth
             </div>
-              </div>
+            <div className="roi-headline">
+              <span className="mono">~$2.5K/mo</span> in time saved, from{" "}
+              <span className="mono">$17/mo</span> in tools
             </div>
-          </div>
-        </section>
-
-        <section className="mb-10">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="wire p-6">
-              <div className="mono mb-2 text-[11px] uppercase tracking-wide text-[var(--note)]">
-                Built lean, on purpose
-              </div>
-              <div className="flex flex-wrap items-baseline gap-3">
-                <span className="mono text-[28px] font-semibold">$17/mo</span>
-                <span className="text-[13.5px] text-[var(--muted)]">
-                  real total tool spend across every personal project here — one Claude
-                  subscription, everything else free/open source
-                </span>
-              </div>
-            </div>
-            <div className="wire p-6">
-              <div className="mono mb-2 text-[11px] uppercase tracking-wide text-[var(--note)]">
-                Estimated ROI, as built
-              </div>
-              <div className="flex flex-wrap items-baseline gap-3">
-                <span className="mono text-[28px] font-semibold">~$2,563/mo</span>
-                <span className="text-[13.5px] text-[var(--muted)]">
-                  in time value across 8 of 13 projects — measured for Route Detective (20
-                  hrs/month, targeting a 30-40% reduction in &quot;why did I get this
-                  lead?&quot; tickets) and the Job Search Pipeline (15+ hrs/month);
-                  reasonably estimated for the rest, using real market medians (BLS,
-                  Glassdoor) for whichever role each tool actually serves.
-                </span>
-              </div>
-              <button
-                type="button"
-                className="read-more-btn mt-2"
-                onClick={() => setRoiExpanded((v) => !v)}
-              >
-                {roiExpanded ? "Hide the math ↑" : "See the math ↓"}
-              </button>
+            <p className="mt-3 max-w-[900px] text-[14px] leading-relaxed text-[var(--muted)]">
+              <strong className="text-[var(--foreground)]">I spend $17/mo</strong>, my real
+              total tool cost across every project here: one Claude subscription, everything
+              else free or open source.{" "}
+              <strong className="text-[var(--foreground)]">What I get back</strong> is time
+              value across 8 projects, measured for Route Detective and the Job Search
+              Pipeline and estimated for the rest, priced at market medians (BLS, Glassdoor)
+              for whoever normally does that work.
+            </p>
+            <button
+              type="button"
+              className="read-more-btn mt-2"
+              onClick={() => setRoiExpanded((v) => !v)}
+            >
+              {roiExpanded ? "Hide the math ↑" : "See the math ↓"}
+            </button>
               {roiExpanded && (
                 <div className="long-description">
                   <p>
@@ -805,7 +762,7 @@ export default function Home() {
                       </tr>
                       <tr className="roi-total">
                         <td colSpan={3}>Total</td>
-                        <td className="num">~$2,563</td>
+                        <td className="num">~$2,566</td>
                       </tr>
                     </tbody>
                   </table>
@@ -821,12 +778,11 @@ export default function Home() {
                   </p>
                 </div>
               )}
-            </div>
           </div>
         </section>
 
         <section id="projects" className="mb-12">
-          <h2 className="section-title">01 — Flagship</h2>
+          <h2 className="section-title"><span className="section-num">01</span>Case Studies</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {flagshipProjects.map((project) => {
               const isRowLayout = project.imageLayout === "row";
@@ -905,7 +861,7 @@ export default function Home() {
         </section>
 
         <section className="mb-12">
-          <h2 className="section-title">02 — Frameworks &amp; Strategy</h2>
+          <h2 className="section-title"><span className="section-num">02</span>Frameworks &amp; Strategy</h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {frameworkProjects.map((project) => {
               const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
@@ -944,7 +900,7 @@ export default function Home() {
         </section>
 
         <section className="mb-12">
-          <h2 className="section-title">03 — Technical Builds</h2>
+          <h2 className="section-title"><span className="section-num">03</span>Technical Builds</h2>
           <div className="mb-4 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
@@ -1007,8 +963,50 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="about" className="mb-12">
+          <h2 className="section-title"><span className="section-num">04</span>About me</h2>
+          <div className="wire p-7">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+              <img
+                src="/wendy-about-photo.jpg"
+                alt="Wendy Lampert at her desk, mid-build"
+                className="about-photo"
+              />
+              <div>
+                <h3 className="mb-3 text-2xl font-semibold leading-tight">Running Revenue to Coding It</h3>
+                <div className="lg:columns-2 lg:gap-12">
+                  <p className="mb-3 text-[15px] leading-relaxed">
+                    I am a GTM Engineer who spent the last decade in Sales &amp; Revenue
+                    Operations, bridging deep operational experience with hands-on backend
+                    software development.
+                  </p>
+                  <p className="mb-3 text-[15px] leading-relaxed">
+                    Having solved high-stakes scale problems, I bring the discipline of process
+                    design directly into code. I build production-grade automations and software
+                    using Python, n8n, and LLMs: designed with pseudocode first, tested end to
+                    end, and engineered to solve root data and scale bottlenecks.
+                  </p>
+                  <p className="mb-3 text-[15px] leading-relaxed">
+                    I lean on Claude to think through problems with me, not to think for me:
+                    pointing me to the right documentation, helping me troubleshoot, working
+                    through a decision out loud. Never shipping something I don&apos;t understand,
+                    or wondering whether it&apos;s architecturally sound, secure, or even the right
+                    tool for the job.
+                  </p>
+                  <p className="mb-3 text-[15px] leading-relaxed">
+                    Every project on this page is either a real problem I hit doing the work, or
+                    one I built on my own to learn something the hard way, line by line, instead
+                    of vibe-coding past the parts most people skip. There is one exception, and it
+                    taught me exactly why vibe coding is not the right approach.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mb-12">
-          <h2 className="section-title">04 — Features</h2>
+          <h2 className="section-title"><span className="section-num">05</span>Features</h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {featuredIn.map((feature) => {
               const text = (
@@ -1087,7 +1085,7 @@ export default function Home() {
         </section>
 
         <section id="skills">
-          <h2 className="section-title">05 — Skills &amp; tools</h2>
+          <h2 className="section-title"><span className="section-num">06</span>Skills &amp; Tools</h2>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
               <span key={skill} className="tag">

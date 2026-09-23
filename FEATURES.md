@@ -2,6 +2,15 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-23 — Peer feedback round 1: hero framing, combined ROI, skimmable headings
+
+- Hero rebuilt to answer "what am I looking at, why care": eyebrow (Wendy Lampert · GTM Engineer), tagline "RevOps depth, shipped in code." as the H1, one-line subhead, and four "how I work" belief bullets (process first; I don't outsource, I offload; a hammer, not a toolbox; built from real problems).
+- About section ("Running Revenue to Coding It" heading kept) moved below Technical Builds as "04 — About me" and trimmed from six paragraphs to four; the hammer/offload lines now live in the hero bullets.
+- ROI: the two $ boxes merged into one ("~$2.5K/mo in time saved, from $17/mo in tools") with explicit "I spend / What I get back" labels so it no longer reads like a pricing table. Table total corrected to ~$2,566 (the rounded rows never summed to the old $2,563).
+- "Flagship" renamed "Case Studies" (nav link too; anchor stays #projects). Sections renumbered 01–06.
+- Section headings enlarged: 28px sans title with a small mono number, replacing 13px uppercase mono.
+- Not yet done (staged next): Problem / Solution / Result one-liners visible on cards without clicking.
+
 ## 2026-09-20 — Trifecta of Transformation diagram on its Frameworks card (uncommitted)
 
 - The Trifecta of Transformation card (02 Frameworks) now shows Wendy's framework diagram (Technology / Process / People around RevOps, with the nine sub-topics) instead of the placeholder tile. Image: `public/project-media/trifecta/trifecta-of-transformation.png` (1244 x 804, 320 KB, flattened onto white from her transparent PNG). Click opens the lightbox like the other card images.

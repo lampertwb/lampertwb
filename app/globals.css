@@ -200,13 +200,79 @@ body {
 }
 
 .section-title {
+  font-family: var(--font-plex-sans), sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--foreground);
+  margin: 0 0 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.section-num {
   font-family: var(--font-plex-mono), monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--note);
+  letter-spacing: 0.06em;
+}
+
+/* Hero: tagline-first framing + "how I work" beliefs */
+.hero-eyebrow {
   font-size: 13px;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--note);
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: clamp(34px, 5vw, 54px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.5;
   color: var(--muted);
-  margin: 0 0 14px;
+  margin: 0 0 22px;
+  max-width: 760px;
+}
+
+.hero-beliefs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-beliefs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero-beliefs li {
+  border-left: 3px solid var(--note);
+  background: var(--surface);
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 0 8px 8px 0;
+}
+
+.roi-headline {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .read-more-btn {
