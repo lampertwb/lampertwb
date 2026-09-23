@@ -684,6 +684,15 @@ export default function Home() {
             ))}
           </div>
         )}
+        {project.credit && (
+          <p className="case-study-credit">
+            {project.credit.text}{" "}
+            <a href={project.credit.url} target="_blank" rel="noopener noreferrer">
+              {project.credit.linkText}
+            </a>
+            .
+          </p>
+        )}
         {hasCaseStudy && (
           <>
             <button
@@ -712,15 +721,6 @@ export default function Home() {
                     <div className="case-study-label">Results</div>
                     <p>{renderWithBold(project.results)}</p>
                   </div>
-                )}
-                {project.credit && (
-                  <p className="case-study-credit">
-                    {project.credit.text}{" "}
-                    <a href={project.credit.url} target="_blank" rel="noopener noreferrer">
-                      {project.credit.linkText}
-                    </a>
-                    .
-                  </p>
                 )}
               </div>
             )}
