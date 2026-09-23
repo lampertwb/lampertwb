@@ -1888,3 +1888,15 @@ footer[id] {
     height: 260px;
   }
 }
+
+.case-study-credit {
+  margin: 4px 0 0;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.case-study-credit a {
+  color: var(--note);
+  text-decoration: underline;
+}

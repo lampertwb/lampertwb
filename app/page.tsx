@@ -24,6 +24,8 @@ type Project = {
   problemShort?: string;
   solutionShort?: string;
   resultShort?: string;
+  // Optional credit line shown at the end of the full case study.
+  credit?: { text: string; linkText: string; url: string };
   images?: string[];
   // "contain" shows a diagram whole (full width, natural height) instead of cropping it to 16:9.
   imageFit?: "contain";
@@ -157,6 +159,11 @@ const frameworkProjects: Project[] = [
     eyebrow: "Strategy Framework — self-authored, inspired by Jeff Winter's transformation thinking",
     category: "Framework",
     name: "Trifecta of Transformation",
+    credit: {
+      text: "Inspired by the transformation thinking of",
+      linkText: "Jeff Winter",
+      url: "https://www.linkedin.com/in/jeffreyrwinter/",
+    },
     problemShort:
       "Most GTM transformations stop at the tool swap. A new platform without process or buy-in is just a more expensive version of the old mess.",
     solutionShort:
@@ -705,6 +712,15 @@ export default function Home() {
                     <div className="case-study-label">Results</div>
                     <p>{renderWithBold(project.results)}</p>
                   </div>
+                )}
+                {project.credit && (
+                  <p className="case-study-credit">
+                    {project.credit.text}{" "}
+                    <a href={project.credit.url} target="_blank" rel="noopener noreferrer">
+                      {project.credit.linkText}
+                    </a>
+                    .
+                  </p>
                 )}
               </div>
             )}
