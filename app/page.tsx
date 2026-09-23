@@ -492,6 +492,17 @@ export default function Home() {
   const [roiExpanded, setRoiExpanded] = useState(false);
   const [activeCase, setActiveCase] = useState(0);
 
+  // Switch case study; if the reader has scrolled past the top of the section,
+  // bring them back to the start of the new one so they begin at its title.
+  const goToCase = (i: number) => {
+    const n = flagshipProjects.length;
+    setActiveCase(((i % n) + n) % n);
+    const el = document.getElementById("projects");
+    if (el && el.getBoundingClientRect().top < 0) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   // On-page anchor links (nav's Projects / Skills / Contact) jump to the
   // target immediately, but project screenshots and demo videos further
   // down are still loading at that point. As they finish loading and the
@@ -627,11 +638,20 @@ export default function Home() {
 
       <main className="mx-auto max-w-[1360px] px-6 py-12 sm:px-10 lg:px-14">
         <section className="hero mb-8">
-          <div className="mono hero-eyebrow">Wendy Lampert · GTM Engineer</div>
+          <div className="hero-top">
+            <img
+              src="/wendy-about-photo.jpg"
+              alt="Wendy Lampert at her desk, mid-build"
+              className="hero-photo"
+            />
+            <div className="hero-text">
+          <p className="hero-intro">Hi, I&apos;m Wendy Lampert, GTM Engineer.</p>
           <h1 className="hero-title">RevOps depth, shipped in code.</h1>
           <p className="hero-sub">
             I spent a decade inside the revenue problems. Now I write the code that fixes them.
           </p>
+            </div>
+          </div>
           <ul className="hero-beliefs">
             <li>
               <strong>Process first, code second.</strong> Every build starts as a
@@ -805,46 +825,6 @@ export default function Home() {
 
         <section id="projects" className="mb-12">
           <h2 className="section-title"><span className="section-num">01</span>Technical Case Studies</h2>
-          <div className="case-tabs">
-            <div className="case-tab-list" role="tablist" aria-label="Technical case studies">
-              {flagshipProjects.map((p, i) => (
-                <button
-                  key={p.name}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === activeCase}
-                  className="case-tab"
-                  onClick={() => setActiveCase(i)}
-                >
-                  <span className="mono case-tab-num">{String(i + 1).padStart(2, "0")}</span>
-                  {p.name}
-                </button>
-              ))}
-            </div>
-            <div className="case-nav">
-              <button
-                type="button"
-                className="case-arrow"
-                aria-label="Previous case study"
-                onClick={() =>
-                  setActiveCase((i) => (i - 1 + flagshipProjects.length) % flagshipProjects.length)
-                }
-              >
-                ←
-              </button>
-              <span className="mono case-count">
-                {activeCase + 1} / {flagshipProjects.length}
-              </span>
-              <button
-                type="button"
-                className="case-arrow"
-                aria-label="Next case study"
-                onClick={() => setActiveCase((i) => (i + 1) % flagshipProjects.length)}
-              >
-                →
-              </button>
-            </div>
-          </div>
           {(() => {
             const project = flagshipProjects[activeCase];
             const isRowLayout = project.imageLayout === "row";
@@ -854,7 +834,25 @@ export default function Home() {
               ["Solution", project.solutionShort],
               ["Result", project.resultShort],
             ];
+            const nextProject = flagshipProjects[(activeCase + 1) % flagshipProjects.length];
             return (
+              <div className="case-carousel">
+              <button
+                type="button"
+                className="case-arrow case-arrow-side case-arrow-prev"
+                aria-label="Previous case study"
+                onClick={() => goToCase(activeCase - 1)}
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                className="case-arrow case-arrow-side case-arrow-next"
+                aria-label="Next case study"
+                onClick={() => goToCase(activeCase + 1)}
+              >
+                →
+              </button>
               <div key={project.name} className="wire flagship-card case-slide">
                 <div className="case-slide-top">
                   <div className="case-slide-intro">
@@ -924,6 +922,49 @@ export default function Home() {
                   )}
                 </div>
                 <div className="case-slide-more">{renderProjectExtras(project, [])}</div>
+                <button
+                  type="button"
+                  className="case-next-btn"
+                  onClick={() => goToCase(activeCase + 1)}
+                >
+                  {activeCase === flagshipProjects.length - 1 ? "Back to the first case study" : "Next case study"}:{" "}
+                  <strong>{nextProject.name}</strong> →
+                </button>
+              </div>
+              <div className="case-dots-row">
+                <button
+                  type="button"
+                  className="case-arrow case-arrow-inline"
+                  aria-label="Previous case study"
+                  onClick={() => goToCase(activeCase - 1)}
+                >
+                  ←
+                </button>
+                <div className="case-dots" role="tablist" aria-label="Technical case studies">
+                  {flagshipProjects.map((p, i) => (
+                    <button
+                      key={p.name}
+                      type="button"
+                      role="tab"
+                      aria-selected={i === activeCase}
+                      aria-label={`Case study ${i + 1}: ${p.name}`}
+                      className="case-dot"
+                      onClick={() => goToCase(i)}
+                    />
+                  ))}
+                </div>
+                <span className="mono case-count">
+                  {activeCase + 1} of {flagshipProjects.length}
+                </span>
+                <button
+                  type="button"
+                  className="case-arrow case-arrow-inline"
+                  aria-label="Next case study"
+                  onClick={() => goToCase(activeCase + 1)}
+                >
+                  →
+                </button>
+              </div>
               </div>
             );
           })()}
@@ -1036,11 +1077,6 @@ export default function Home() {
           <h2 className="section-title"><span className="section-num">04</span>About me</h2>
           <div className="wire p-7">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-              <img
-                src="/wendy-about-photo.jpg"
-                alt="Wendy Lampert at her desk, mid-build"
-                className="about-photo"
-              />
               <div>
                 <h3 className="mb-3 text-2xl font-semibold leading-tight">Running Revenue to Coding It</h3>
                 <div className="lg:columns-2 lg:gap-12">

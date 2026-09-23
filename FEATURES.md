@@ -2,6 +2,11 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-23 — Feedback round 3: face in the hero, clearer carousel
+
+- Hero now leads with the desk photo beside "Hi, I'm Wendy Lampert, GTM Engineer." + the tagline H1 + subhead (subhead no longer width-capped). Photo removed from About so it isn't duplicated.
+- Case-study carousel: pill tabs removed. Replaced with overlay arrows on the card's left/right edges (desktop ≥1100px), dots + "1 of 3" under the card (with inline arrows on smaller screens), and a "Next case study: <name> →" button at the end of each slide. No autoplay, on purpose. Switching scrolls back to the section top if the reader is below it.
+
 ## 2026-09-23 — Feedback round 2: case-study carousel, bigger type, $17 lead
 
 - "Flagship" is now "01 — Technical Case Studies", shown one at a time as a carousel: numbered pill tabs + prev/next arrows + "1 / 3" counter. Each slide shows intro + media side by side, then Problem / Solution / Result tiles (new `problemShort` / `solutionShort` / `resultShort` fields) visible without clicking; "Read the full case study" still expands the long version.

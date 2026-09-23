@@ -239,10 +239,9 @@ body {
 
 .hero-sub {
   font-size: 23px;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--muted);
-  margin: 0 0 22px;
-  max-width: 760px;
+  margin: 0;
 }
 
 .hero-beliefs {
@@ -1675,5 +1674,133 @@ footer[id] {
     flex-shrink: 0;
     font-size: 15px;
     padding: 8px 14px;
+  }
+}
+
+/* Hero: face + intro */
+#projects {
+  scroll-margin-top: 90px;
+}
+
+.hero-top {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+@media (min-width: 768px) {
+  .hero-top {
+    flex-direction: row;
+    align-items: center;
+    gap: 36px;
+  }
+}
+
+.hero-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid var(--wire-strong);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-photo {
+    width: 210px;
+    height: 210px;
+  }
+}
+
+.hero-intro {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--note);
+  margin: 0 0 6px;
+}
+
+/* Carousel affordances: side arrows, dots, next button */
+.case-carousel {
+  position: relative;
+}
+
+.case-arrow-side {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .case-arrow-side {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  }
+  .case-arrow-prev {
+    left: -26px;
+  }
+  .case-arrow-next {
+    right: -26px;
+  }
+  .case-arrow-inline {
+    display: none;
+  }
+}
+
+.case-dots-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.case-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.case-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid var(--wire-strong);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.case-dot[aria-selected="true"] {
+  background: var(--foreground);
+  border-color: var(--foreground);
+  width: 34px;
+}
+
+.case-next-btn {
+  align-self: flex-end;
+  margin-top: 4px;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 999px;
+  border: 2px solid var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
+  cursor: pointer;
+}
+
+.case-next-btn:hover {
+  background: var(--note);
+  border-color: var(--note);
+}
+
+@media (max-width: 639px) {
+  .case-next-btn {
+    align-self: stretch;
+    font-size: 16px;
   }
 }
