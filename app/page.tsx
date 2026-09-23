@@ -20,6 +20,10 @@ type Project = {
   problem?: string;
   solution?: string;
   results?: string;
+  // One-line summaries shown on the case-study slide without clicking.
+  problemShort?: string;
+  solutionShort?: string;
+  resultShort?: string;
   images?: string[];
   // "contain" shows a diagram whole (full width, natural height) instead of cropping it to 16:9.
   imageFit?: "contain";
@@ -44,6 +48,12 @@ const flagshipProjects: Project[] = [
     eyebrow: "Cowork Agent + Skills — pipeline",
     category: "Claude Agent",
     name: "Job Search Pipeline",
+    problemShort:
+      "Scanning niche job boards by hand is slow, and strong applications get auto-rejected before a human ever sees them.",
+    solutionShort:
+      "I ran my own job search like a GTM pipeline: an Ideal Job Profile as the ICP, and a daily agent that scores every new posting against it.",
+    resultShort:
+      "~365 repeat postings skipped automatically, a daily Slack digest, and a clear read on which ATS risks I can actually fix.",
     stackLine: "Job Search Agent (Proficiently MCP) → ATS Navigator",
     description:
       "Treated my own job search like a GTM pipeline: defined an Ideal Job Profile (my own ICP), then built an agent that qualifies every new posting against it on a daily schedule — no manual re-scanning.",
@@ -67,6 +77,12 @@ const flagshipProjects: Project[] = [
     eyebrow: "Python — built at BILL",
     category: "Python",
     name: "Route Detective",
+    problemShort:
+      "BILL's 300+ node lead-routing graph worked, but no one could explain why a lead landed where it did. Not even LeanData's own AI.",
+    solutionShort:
+      "After four other tools failed, I built a Python app on Gemini that compresses the ~400KB routing graph to under 1KB per lead, then diagnoses it.",
+    resultShort:
+      "Sorts every routing question into five root causes. Targets 30-40% fewer \"why did I get this lead?\" tickets and ~20 hrs/month of log-tracing.",
     stackLine: "Gemini API (zero-temperature) → graph compression → 5-bucket root-cause classification",
     description:
       "AI diagnostic tool that triangulates actual vs. expected lead-routing outcomes across a 300+ node routing graph — built from scratch after four other approaches failed.",
@@ -87,6 +103,12 @@ const flagshipProjects: Project[] = [
     eyebrow: "Python + LangChain — AI agent",
     category: "Python",
     name: "Todoist AI Agent",
+    problemShort:
+      "Most \"AI task managers\" are a prompt wrapped around a to-do list. They can suggest an action, but they can't take one.",
+    solutionShort:
+      "I built a real tool-calling agent in Python with LangChain that adds, shows, and removes tasks in my actual Todoist.",
+    resultShort:
+      "Four plain-English requests, four real changes in Todoist, including one that never uses the word \"remove.\"",
     stackLine: "LangChain v1 create_agent → Gemini 2.5 Flash → add_task / show_tasks / remove_task → Todoist API",
     description:
       "A real tool-calling agent, not a prompt chain: I type a request in plain English, and it picks the right tool and changes my actual Todoist list.",
@@ -468,6 +490,7 @@ export default function Home() {
   const [expanded, setExpanded] = useState<string[]>([]);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [roiExpanded, setRoiExpanded] = useState(false);
+  const [activeCase, setActiveCase] = useState(0);
 
   // On-page anchor links (nav's Projects / Skills / Contact) jump to the
   // target immediately, but project screenshots and demo videos further
@@ -561,7 +584,7 @@ export default function Home() {
               className="read-more-btn"
               onClick={() => toggleExpanded(project.name)}
             >
-              {isExpanded ? "Show less ↑" : "Read the case study ↓"}
+              {isExpanded ? "Show less ↑" : "Read the full case study ↓"}
             </button>
             {isExpanded && (
               <div className="long-description">
@@ -595,7 +618,7 @@ export default function Home() {
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b border-[var(--wire-strong)] bg-[var(--background)]">
         <div className="mx-auto flex max-w-[1360px] flex-wrap items-center justify-between gap-3 px-6 py-4 sm:px-10 lg:px-14">
-          <div className="mono text-[15px] font-semibold tracking-wide">
+          <div className="mono text-[18px] font-semibold tracking-wide">
             WENDY LAMPERT <span className="text-[var(--muted)]">/ portfolio</span>
           </div>
           <SiteNav />
@@ -607,7 +630,7 @@ export default function Home() {
           <div className="mono hero-eyebrow">Wendy Lampert · GTM Engineer</div>
           <h1 className="hero-title">RevOps depth, shipped in code.</h1>
           <p className="hero-sub">
-            A decade running Sales &amp; Revenue Operations. Now I build the systems myself.
+            I spent a decade inside the revenue problems. Now I write the code that fixes them.
           </p>
           <ul className="hero-beliefs">
             <li>
@@ -631,21 +654,20 @@ export default function Home() {
 
         <section className="mb-12">
           <div className="wire roi-box p-6 sm:p-7">
-            <div className="mono mb-2 text-[11px] uppercase tracking-wide text-[var(--note)]">
+            <div className="mono mb-2 text-[13px] uppercase tracking-wide text-[var(--note)]">
               What I spend vs. what it&apos;s worth
             </div>
             <div className="roi-headline">
-              <span className="mono">~$2.5K/mo</span> in time saved, from{" "}
-              <span className="mono">$17/mo</span> in tools
+              <span className="mono">$17/mo.</span> That&apos;s my entire tool bill for every
+              project on this page.
             </div>
-            <p className="mt-3 max-w-[900px] text-[14px] leading-relaxed text-[var(--muted)]">
-              <strong className="text-[var(--foreground)]">I spend $17/mo</strong>, my real
-              total tool cost across every project here: one Claude subscription, everything
-              else free or open source.{" "}
-              <strong className="text-[var(--foreground)]">What I get back</strong> is time
-              value across 8 projects, measured for Route Detective and the Job Search
-              Pipeline and estimated for the rest, priced at market medians (BLS, Glassdoor)
-              for whoever normally does that work.
+            <div className="roi-subhead">
+              What I get back: <span className="mono">~$2.5K/mo</span> in time saved.
+            </div>
+            <p className="mt-3 text-[17px] leading-relaxed text-[var(--muted)]">
+              One Claude subscription; everything else is free or open source. Time saved is
+              measured for Route Detective and the Job Search Pipeline, estimated for six more,
+              and priced at market medians (BLS, Glassdoor) for whoever normally does that work.
             </p>
             <button
               type="button"
@@ -782,19 +804,81 @@ export default function Home() {
         </section>
 
         <section id="projects" className="mb-12">
-          <h2 className="section-title"><span className="section-num">01</span>Case Studies</h2>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {flagshipProjects.map((project) => {
-              const isRowLayout = project.imageLayout === "row";
-              const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
-              const extraImages = isRowLayout
-                ? []
-                : project.images && project.images.length > 1
-                ? project.images.slice(1)
-                : [];
-              return (
-                <div key={project.name} className="wire flagship-card">
-                  <div className={project.video ? "card-hero card-hero-video" : isRowLayout ? "card-hero card-hero-row" : "card-hero"}>
+          <h2 className="section-title"><span className="section-num">01</span>Technical Case Studies</h2>
+          <div className="case-tabs">
+            <div className="case-tab-list" role="tablist" aria-label="Technical case studies">
+              {flagshipProjects.map((p, i) => (
+                <button
+                  key={p.name}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === activeCase}
+                  className="case-tab"
+                  onClick={() => setActiveCase(i)}
+                >
+                  <span className="mono case-tab-num">{String(i + 1).padStart(2, "0")}</span>
+                  {p.name}
+                </button>
+              ))}
+            </div>
+            <div className="case-nav">
+              <button
+                type="button"
+                className="case-arrow"
+                aria-label="Previous case study"
+                onClick={() =>
+                  setActiveCase((i) => (i - 1 + flagshipProjects.length) % flagshipProjects.length)
+                }
+              >
+                ←
+              </button>
+              <span className="mono case-count">
+                {activeCase + 1} / {flagshipProjects.length}
+              </span>
+              <button
+                type="button"
+                className="case-arrow"
+                aria-label="Next case study"
+                onClick={() => setActiveCase((i) => (i + 1) % flagshipProjects.length)}
+              >
+                →
+              </button>
+            </div>
+          </div>
+          {(() => {
+            const project = flagshipProjects[activeCase];
+            const isRowLayout = project.imageLayout === "row";
+            const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
+            const psr: [string, string | undefined][] = [
+              ["Problem", project.problemShort],
+              ["Solution", project.solutionShort],
+              ["Result", project.resultShort],
+            ];
+            return (
+              <div key={project.name} className="wire flagship-card case-slide">
+                <div className="case-slide-top">
+                  <div className="case-slide-intro">
+                    {project.awardBanner && (
+                      <div className="award-banner">
+                        <MedalIcon />
+                        <div className="award-banner-text">
+                          <span className="award-main">{project.awardBanner}</span>
+                          {project.awardNote && (
+                            <span className="award-note">{project.awardNote}</span>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                    <div className="eyebrow">{project.eyebrow}</div>
+                    <h3>{project.name}</h3>
+                    <p className="desc">{project.description}</p>
+                    <div className="stack-line">{project.stackLine}</div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
+                      <span className="cost-tag">{project.cost}</span>
+                    </div>
+                  </div>
+                  <div className="case-slide-media">
                     {project.video ? (
                       <video
                         className="demo-video"
@@ -805,7 +889,7 @@ export default function Home() {
                         src={project.video}
                         style={{ aspectRatio: "1512 / 1182" }}
                       />
-                    ) : isRowLayout && project.images && project.images.length > 0 ? (
+                    ) : isRowLayout && project.images ? (
                       <div className="project-image-row">
                         {project.images.map((src, i) => (
                           <button
@@ -826,38 +910,23 @@ export default function Home() {
                       >
                         <img src={heroImage} alt={`${project.name} preview`} />
                       </button>
-                    ) : (
-                      <div className="card-hero-placeholder" data-cat={categorySlug(project.category)}>
-                        <span className="card-hero-label">{categoryLabel(project.category)}</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="flagship-body">
-                    {project.awardBanner && (
-                      <div className="award-banner">
-                        <MedalIcon />
-                        <div className="award-banner-text">
-                          <span className="award-main">{project.awardBanner}</span>
-                          {project.awardNote && (
-                            <span className="award-note">{project.awardNote}</span>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                    <div className="eyebrow">{project.eyebrow}</div>
-                    <h3>{project.name}</h3>
-                    <div className="stack-line">{project.stackLine}</div>
-                    <p className="desc">{project.description}</p>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
-                      <span className="cost-tag">{project.cost}</span>
-                    </div>
-                    {renderProjectExtras(project, extraImages)}
+                    ) : null}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+                <div className="psr-grid">
+                  {psr.map(([label, text]) =>
+                    text ? (
+                      <div key={label} className="psr-tile" data-kind={label.toLowerCase()}>
+                        <div className="mono psr-label">{label}</div>
+                        <p>{text}</p>
+                      </div>
+                    ) : null
+                  )}
+                </div>
+                <div className="case-slide-more">{renderProjectExtras(project, [])}</div>
+              </div>
+            );
+          })()}
         </section>
 
         <section className="mb-12">
@@ -900,7 +969,7 @@ export default function Home() {
         </section>
 
         <section className="mb-12">
-          <h2 className="section-title"><span className="section-num">03</span>Technical Builds</h2>
+          <h2 className="section-title"><span className="section-num">03</span>Other Technical Builds</h2>
           <div className="mb-4 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
@@ -975,25 +1044,25 @@ export default function Home() {
               <div>
                 <h3 className="mb-3 text-2xl font-semibold leading-tight">Running Revenue to Coding It</h3>
                 <div className="lg:columns-2 lg:gap-12">
-                  <p className="mb-3 text-[15px] leading-relaxed">
+                  <p className="mb-3 text-[18px] leading-relaxed">
                     I am a GTM Engineer who spent the last decade in Sales &amp; Revenue
                     Operations, bridging deep operational experience with hands-on backend
                     software development.
                   </p>
-                  <p className="mb-3 text-[15px] leading-relaxed">
+                  <p className="mb-3 text-[18px] leading-relaxed">
                     Having solved high-stakes scale problems, I bring the discipline of process
                     design directly into code. I build production-grade automations and software
                     using Python, n8n, and LLMs: designed with pseudocode first, tested end to
                     end, and engineered to solve root data and scale bottlenecks.
                   </p>
-                  <p className="mb-3 text-[15px] leading-relaxed">
+                  <p className="mb-3 text-[18px] leading-relaxed">
                     I lean on Claude to think through problems with me, not to think for me:
                     pointing me to the right documentation, helping me troubleshoot, working
                     through a decision out loud. Never shipping something I don&apos;t understand,
                     or wondering whether it&apos;s architecturally sound, secure, or even the right
                     tool for the job.
                   </p>
-                  <p className="mb-3 text-[15px] leading-relaxed">
+                  <p className="mb-3 text-[18px] leading-relaxed">
                     Every project on this page is either a real problem I hit doing the work, or
                     one I built on my own to learn something the hard way, line by line, instead
                     of vibe-coding past the parts most people skip. There is one exception, and it
@@ -1012,7 +1081,7 @@ export default function Home() {
               const text = (
                 <>
                   <span className="eyebrow">{feature.publication}</span>
-                  <h4 className="mb-2 mt-1 text-[16px] font-semibold">{feature.title}</h4>
+                  <h4 className="mb-2 mt-1 text-[19px] font-semibold">{feature.title}</h4>
                   {feature.blurb && <p className="desc">{feature.blurb}</p>}
                   {feature.quote && <blockquote className="feature-quote">{feature.quote}</blockquote>}
                   {(feature.fullEpisodeUrl || feature.url) && (
@@ -1100,7 +1169,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1360px]">
           <div className="contact-eyebrow">Get in touch</div>
           <h2 className="mb-3 text-4xl font-semibold leading-tight">Contact</h2>
-          <p className="contact-body mb-7 max-w-[520px] text-[15.5px] leading-relaxed">
+          <p className="contact-body mb-7 max-w-[520px] text-[18.5px] leading-relaxed">
             Open to conversations about GTM engineering, RevOps, and roles where
             building real tools is part of the job.
           </p>

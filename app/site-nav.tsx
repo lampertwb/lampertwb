@@ -15,7 +15,7 @@ const items: NavItem[] = [
 
 export default function SiteNav({ current }: { current?: NavItem["key"] }) {
   return (
-    <nav aria-label="Main" className="mono flex gap-5 text-[13px]">
+    <nav aria-label="Main" className="mono flex gap-5 text-[15px]">
       {items.map((item) => (
         <Link
           key={item.key}

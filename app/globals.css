@@ -82,7 +82,7 @@ body {
 
 .card .eyebrow {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -91,12 +91,12 @@ body {
 
 .card h4 {
   margin: 0;
-  font-size: 15.5px;
+  font-size: 18.5px;
 }
 
 .card p.desc {
   margin: 0;
-  font-size: 12.5px;
+  font-size: 15px;
   color: var(--muted);
   flex: 1;
 }
@@ -116,7 +116,7 @@ body {
 
 .flagship-card .eyebrow {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -125,24 +125,24 @@ body {
 
 .flagship-card h3 {
   margin: 0;
-  font-size: 19px;
+  font-size: 23px;
 }
 
 .flagship-card .stack-line {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 12px;
+  font-size: 14.5px;
   color: var(--muted);
 }
 
 .flagship-card p.desc {
   margin: 0;
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .badge {
   align-self: flex-start;
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-weight: 600;
   padding: 3px 9px;
   border-radius: 100px;
@@ -165,14 +165,14 @@ body {
 
 .cost-tag {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--muted);
 }
 
 .chip {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 12px;
+  font-size: 14.5px;
   font-weight: 500;
   padding: 6px 12px;
   border-radius: 100px;
@@ -190,7 +190,7 @@ body {
 
 .tag {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 11.5px;
+  font-size: 14px;
   font-weight: 500;
   padding: 5px 10px;
   border: 1.5px solid var(--wire-strong);
@@ -201,7 +201,7 @@ body {
 
 .section-title {
   font-family: var(--font-plex-sans), sans-serif;
-  font-size: 28px;
+  font-size: 33.5px;
   font-weight: 700;
   line-height: 1.2;
   color: var(--foreground);
@@ -213,7 +213,7 @@ body {
 
 .section-num {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--note);
   letter-spacing: 0.06em;
@@ -221,7 +221,7 @@ body {
 
 /* Hero: tagline-first framing + "how I work" beliefs */
 .hero-eyebrow {
-  font-size: 13px;
+  font-size: 15.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -238,7 +238,7 @@ body {
 }
 
 .hero-sub {
-  font-size: 19px;
+  font-size: 23px;
   line-height: 1.5;
   color: var(--muted);
   margin: 0 0 22px;
@@ -264,20 +264,20 @@ body {
   border-left: 3px solid var(--note);
   background: var(--surface);
   padding: 12px 16px;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.5;
   border-radius: 0 8px 8px 0;
 }
 
 .roi-headline {
-  font-size: clamp(22px, 3vw, 30px);
+  font-size: clamp(26px, 3.4vw, 36px);
   font-weight: 700;
   line-height: 1.25;
 }
 
 .read-more-btn {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 11.5px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--note);
   background: none;
@@ -297,7 +297,7 @@ body {
   align-items: center;
   gap: 4px;
   font-family: var(--font-plex-mono), monospace;
-  font-size: 12px;
+  font-size: 14.5px;
   font-weight: 600;
   color: var(--note);
   text-decoration: none;
@@ -315,7 +315,7 @@ body {
 
 .contact-eyebrow {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -333,7 +333,7 @@ body {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-plex-mono), monospace;
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 600;
   padding: 11px 18px;
   border: 1.5px solid var(--background);
@@ -355,7 +355,7 @@ body {
   padding: 12px 14px;
   border-left: 4px solid var(--award);
   background: var(--award-bg);
-  font-size: 15.5px;
+  font-size: 18.5px;
   font-weight: 500;
   line-height: 1.45;
   color: var(--foreground);
@@ -425,7 +425,7 @@ body {
 }
 
 .long-description {
-  font-size: 13px;
+  font-size: 15.5px;
   line-height: 1.6;
   color: var(--foreground);
   border-top: 1.5px dashed var(--wire);
@@ -447,7 +447,7 @@ body {
 
 .case-study-label {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -604,7 +604,7 @@ body {
 
 .card-hero-label {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 11.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -660,7 +660,7 @@ body {
 }
 
 .award-banner .award-main {
-  font-size: 11.5px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -668,7 +668,7 @@ body {
 }
 
 .award-banner .award-note {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--muted);
 }
@@ -676,7 +676,7 @@ body {
 .roi-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: 14.5px;
   margin-top: 4px;
 }
 
@@ -689,7 +689,7 @@ body {
 
 .roi-table th {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -710,7 +710,7 @@ body {
 }
 
 .roi-footnote {
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--muted);
   margin-top: 10px;
@@ -725,7 +725,7 @@ body {
 
 .tracker-card h3 {
   margin: 0;
-  font-size: 15.5px;
+  font-size: 18.5px;
 }
 
 .tracker-progress {
@@ -775,7 +775,7 @@ body {
 
 .tracker-mobile-nav summary {
   cursor: pointer;
-  font-size: 12.5px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -804,7 +804,7 @@ body {
   gap: 8px;
   padding: 6px 8px;
   border-radius: 4px;
-  font-size: 12.5px;
+  font-size: 15px;
   color: var(--foreground);
   text-decoration: none;
 }
@@ -815,7 +815,7 @@ body {
 
 .tracker-nav-num {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   min-width: 1.6em;
   text-align: right;
@@ -946,7 +946,7 @@ body {
 
 .showcase-text .eyebrow {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -955,12 +955,12 @@ body {
 
 .showcase-text h3 {
   margin: 0;
-  font-size: 22px;
+  font-size: 26.5px;
 }
 
 .showcase-text p.desc {
   margin: 0;
-  font-size: 14.5px;
+  font-size: 17.5px;
   line-height: 1.55;
 }
 
@@ -1010,7 +1010,7 @@ body {
   background: var(--surface);
   border-bottom: 1.5px solid var(--wire);
   color: var(--foreground);
-  font-size: 12px;
+  font-size: 14.5px;
 }
 
 .demo-dots {
@@ -1107,14 +1107,14 @@ body {
   color: #fff;
   border: 2px solid rgba(255, 255, 255, 0.9);
   font-family: var(--font-plex-mono), monospace;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 600;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: transform 0.15s ease;
 }
 
 .demo-cta small {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
   opacity: 0.75;
 }
@@ -1171,7 +1171,7 @@ body:has(dialog[open]) {
 
 .demo-kicker {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1180,13 +1180,13 @@ body:has(dialog[open]) {
 
 .demo-title {
   margin: 2px 0 0;
-  font-size: 18px;
+  font-size: 21.5px;
   font-weight: 600;
 }
 
 .demo-close {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 12px;
+  font-size: 14.5px;
   font-weight: 600;
   padding: 7px 14px;
   border-radius: 100px;
@@ -1218,7 +1218,7 @@ body:has(dialog[open]) {
 }
 
 .demo-fineprint {
-  font-size: 11.5px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--muted);
   margin: 0;
@@ -1240,7 +1240,7 @@ body:has(dialog[open]) {
 }
 
 .email-subject {
-  font-size: 21px;
+  font-size: 25px;
   font-weight: 500;
   font-family: Arial, Helvetica, sans-serif;
   margin-bottom: 12px;
@@ -1251,7 +1251,7 @@ body:has(dialog[open]) {
   align-items: center;
   gap: 12px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15.5px;
 }
 
 .email-avatar {
@@ -1277,18 +1277,18 @@ body:has(dialog[open]) {
 .email-from-text em {
   font-style: normal;
   color: #5f6368;
-  font-size: 12px;
+  font-size: 14.5px;
   margin-left: 4px;
 }
 
 .email-to {
   color: #5f6368;
-  font-size: 12px;
+  font-size: 14.5px;
 }
 
 .email-date {
   color: #5f6368;
-  font-size: 12px;
+  font-size: 14.5px;
   white-space: nowrap;
 }
 
@@ -1327,7 +1327,7 @@ body:has(dialog[open]) {
 
 .demo-notes-title {
   font-family: var(--font-plex-mono), monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1341,7 +1341,7 @@ body:has(dialog[open]) {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  font-size: 13.5px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -1364,7 +1364,7 @@ body:has(dialog[open]) {
 .wxs-intro {
   margin: 0;
   max-width: 68ch;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
@@ -1387,7 +1387,7 @@ body:has(dialog[open]) {
   align-items: center;
   gap: 10px;
   margin: 0 0 10px;
-  font-size: 18px;
+  font-size: 21.5px;
   font-weight: 600;
 }
 
@@ -1399,14 +1399,14 @@ body:has(dialog[open]) {
   border-radius: 50%;
   background: var(--foreground);
   color: var(--background);
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   flex-shrink: 0;
 }
 
 .wxs-text {
   margin: 0 0 12px;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
@@ -1414,7 +1414,7 @@ body:has(dialog[open]) {
   display: block;
   margin: 14px 0 4px;
   font-family: var(--font-plex-mono), monospace;
-  font-size: 10.5px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1427,13 +1427,13 @@ body:has(dialog[open]) {
   border-radius: 6px;
   background: var(--tag-bg);
   font-family: var(--font-plex-mono), monospace;
-  font-size: 12.5px;
+  font-size: 15px;
   overflow-wrap: anywhere;
 }
 
 .wxs-note {
   margin: 14px 0 0;
-  font-size: 13px;
+  font-size: 15.5px;
   line-height: 1.5;
   color: var(--muted);
 }
@@ -1480,4 +1480,200 @@ body:has(dialog[open]) {
 section[id],
 footer[id] {
   scroll-margin-top: 72px;
+}
+
+.roi-subhead {
+  margin-top: 8px;
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 600;
+  color: var(--tryit);
+}
+
+/* Technical Case Studies carousel */
+.case-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.case-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.case-tab {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 17px;
+  font-weight: 600;
+  border: 2px solid var(--wire);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.case-tab[aria-selected="true"] {
+  background: var(--foreground);
+  border-color: var(--foreground);
+  color: var(--background);
+}
+
+.case-tab-num {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.case-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.case-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 2px solid var(--wire-strong);
+  background: var(--surface);
+  color: var(--foreground);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.case-arrow:hover,
+.case-tab:hover {
+  border-color: var(--note);
+}
+
+.case-count {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.case-slide {
+  padding: 24px;
+  gap: 22px;
+}
+
+@media (min-width: 640px) {
+  .case-slide {
+    padding: 32px;
+  }
+}
+
+.case-slide-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .case-slide-top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  }
+}
+
+.case-slide-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flagship-card.case-slide h3 {
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.flagship-card.case-slide p.desc {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.case-slide-media {
+  border: 1.5px solid var(--wire-strong);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.case-slide-media .project-image-row {
+  padding: 8px;
+}
+
+.case-slide-media .demo-video {
+  display: block;
+  width: 100%;
+}
+
+.psr-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 900px) {
+  .psr-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.psr-tile {
+  border-top: 5px solid var(--wire);
+  background: var(--background);
+  border-radius: 0 0 8px 8px;
+  padding: 16px 18px;
+}
+
+.psr-tile[data-kind="problem"] {
+  border-top-color: var(--showit);
+}
+
+.psr-tile[data-kind="solution"] {
+  border-top-color: var(--note);
+}
+
+.psr-tile[data-kind="result"] {
+  border-top-color: var(--tryit);
+}
+
+.psr-label {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.psr-tile p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.case-slide-more {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 639px) {
+  .case-tab-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 4px;
+  }
+  .case-tab {
+    flex-shrink: 0;
+    font-size: 15px;
+    padding: 8px 14px;
+  }
 }
