@@ -132,6 +132,12 @@ const frameworkProjects: Project[] = [
     eyebrow: "Claude Skill — methodology",
     category: "Claude Skill",
     name: "Five-Doc Framework",
+    problemShort:
+      "AI-assisted builders jump straight into building, then find out mid-build that no one defined success or how the pieces connect.",
+    solutionShort:
+      "A self-authored, mandatory five-document sequence (PRD, System Design, UI/UX, Feature Breakdown, Master Prompt), written in order before any building starts.",
+    resultShort:
+      "Less-technical builders ship working Claude agents without skipping the thinking an experienced engineer does in their head.",
     stackLine: "PRD → System Design → UI/UX → Feature Breakdown → Master Prompt",
     description:
       "A mandatory five-document planning sequence, self-authored, that lets less-technical builders ship working Claude agents without skipping the thinking.",
@@ -151,6 +157,12 @@ const frameworkProjects: Project[] = [
     eyebrow: "Strategy Framework — self-authored, inspired by Jeff Winter's transformation thinking",
     category: "Framework",
     name: "Trifecta of Transformation",
+    problemShort:
+      "Most GTM transformations stop at the tool swap. A new platform without process or buy-in is just a more expensive version of the old mess.",
+    solutionShort:
+      "A three-pillar checklist (Technology, Process, People) for whether a transformation is actually complete, not just technically shipped.",
+    resultShort:
+      "The lens behind every project on this page: even the hardest build fails if the process and the org don't change with it.",
     stackLine: "Technology ⟷ Process ⟷ People",
     description:
       "A three-pillar model for what actually has to move together for a GTM transformation to stick — not just the tool swap most teams default to.",
@@ -182,6 +194,12 @@ const otherProjects: Project[] = [
     category: "Web App",
     eyebrow: "Web App",
     name: "RevOps Recruit",
+    problemShort:
+      "A boutique GTM/RevOps recruiting venture needs a credible front door before it can take on candidates or clients.",
+    solutionShort:
+      "Built a Next.js candidate-intake site, a LinkedIn company page, and a brand: \"Precisely Placed,\" with a bullseye logo.",
+    resultShort:
+      "Site, brand, and positioning are built. Early stage and not in market yet.",
     description:
       "Boutique GTM/RevOps recruiting site — Next.js, referral-network directory.",
     problem:
@@ -200,6 +218,12 @@ const otherProjects: Project[] = [
     category: "Web App",
     eyebrow: "Web App",
     name: "Meeting Types",
+    problemShort:
+      "Generic scheduling links treat a 30-minute discovery call and a full product demo the same way.",
+    solutionShort:
+      "A Flask app with distinct meeting types, where every booking creates a Zoom meeting, a calendar event, and a Salesforce activity.",
+    resultShort:
+      "A working end-to-end booking flow, with Zoom, Calendar, and Salesforce mocked as a proof of concept for now.",
     description: "Calendly-style scheduler — Flask + mocked Zoom/Salesforce/Calendar.",
     problem:
       "Booking a call today usually means back-and-forth emails or a generic scheduling link that doesn't know the difference between a 30-minute discovery call and a full product demo.",
@@ -215,6 +239,12 @@ const otherProjects: Project[] = [
     category: "Claude Agent",
     eyebrow: "Claude Agent",
     name: "Monica",
+    problemShort:
+      "AI assistants are either chatbots with no real access, or agents you can't trust not to send or delete things on their own.",
+    solutionShort:
+      "A Claude Cowork assistant connected to my Drive, Gmail, and Calendar, with a hard rule: nothing is sent, scheduled, spent, or deleted without my approval.",
+    resultShort:
+      "A daily assistant I actually trust with real account access, because every irreversible action still goes through me.",
     description:
       "Personal AI ops assistant — Cowork, Drive/Gmail/Calendar, strict guardrails.",
     problem:
@@ -231,6 +261,12 @@ const otherProjects: Project[] = [
     category: "Claude Agent",
     eyebrow: "Claude Agent",
     name: "Aeroscout",
+    problemShort:
+      "Solo trip research means juggling sites and price trackers, and most travel AI assumes you want it to book for you.",
+    solutionShort:
+      "A research agent that finds affordable flights and hotels and the best time to buy, with an itinerary only when I ask for one.",
+    resultShort:
+      "Timing and pricing guidance with zero booking or payment access, by design. It can tell me when to buy, but it can never buy.",
     description:
       "Solo travel-research agent — flight/hotel timing, no booking capability.",
     problem:
@@ -247,6 +283,12 @@ const otherProjects: Project[] = [
     category: "n8n Automation",
     eyebrow: "n8n Automation — built at BILL",
     name: "Enablement Deck Automation",
+    problemShort:
+      "A colleague's form-to-Slides automation at BILL worked, but the slides only said whatever people typed into the form.",
+    solutionShort:
+      "I saw her unanswered question in a channel and offered to help, then added an n8n step that uses AI to improve each entry before it lands on the master deck.",
+    resultShort:
+      "Built inside BILL, so no screenshots. The lesson: \"I saw your message and wanted to try\" is a legitimate way into AI automation.",
     stackLine:
       "Form → Google Sheet (Apps Script) → n8n + AI text enhancement → master Google Slides deck → each business unit's deck",
     description:
@@ -266,6 +308,12 @@ const otherProjects: Project[] = [
     category: "n8n Automation",
     eyebrow: "n8n Automation",
     name: "TOFU Lead-Routing Pipeline",
+    problemShort:
+      "Enriching, scoring, and routing inbound leads by hand is a repetitive, error-prone chain of lookups and copy-paste.",
+    solutionShort:
+      "An n8n workflow: intake → Hunter.io enrichment → Claude ICP scoring → routing → CRM write-back → nurture handoff.",
+    resultShort:
+      "Every lead is enriched, scored, and routed the moment it lands, on free and low-cost tiers instead of a paid stack.",
     description:
       "Intake → Hunter.io enrichment → Claude ICP scoring → routing → CRM write → nurture loop.",
     problem:
@@ -283,6 +331,12 @@ const otherProjects: Project[] = [
     category: "Python",
     eyebrow: "Python",
     name: "Syncly",
+    problemShort:
+      "My consulting meetings and personal life lived in two calendars, so I had to check both and could easily double-book.",
+    solutionShort:
+      "A Python script on the Google Calendar API (OAuth2) that copies consulting events one-way into my personal calendar, 30 days ahead.",
+    resultShort:
+      "Everything sits side by side in one calendar, so I see conflicts up front. Runs locally at no cost.",
     description: "Python calendar sync: my consulting schedule and personal life in one calendar.",
     problem:
       "During a consulting engagement, my work meetings lived in one calendar and everything else in another. Knowing what my day actually looked like meant checking two places, and it was easy to double-book myself because I couldn't see both sides at once. I do my best work when my whole schedule is visible in one place, and that setup didn't give me that.",
@@ -299,6 +353,12 @@ const otherProjects: Project[] = [
     category: "Python",
     eyebrow: "Python — desktop app",
     name: "Expense Tracker (Reimbursement)",
+    problemShort:
+      "Reimbursement reports typed by hand into a spreadsheet end up with inconsistent dates, amounts, and categories.",
+    solutionShort:
+      "A Python/tkinter desktop app with category drop-downs and date and amount checks that saves straight to Excel. Vibe-coded with ChatGPT in 2024.",
+    resultShort:
+      "Vibe coding got a first version fast, then endless fix-one-thing, break-another loops. The lesson: learn and understand the code, don't just rely on it.",
     description:
       "Desktop expense tracker for work reimbursements — Python + tkinter, saving to a spreadsheet-friendly file. My first AI-assisted build, from 2024.",
     problem:
@@ -316,6 +376,10 @@ const otherProjects: Project[] = [
     category: "Python",
     eyebrow: "Python — desktop app",
     name: "Iron Chef (Recipe Importer)",
+    solutionShort:
+      "A Python (PyQt5) desktop app: paste a recipe from a web page into a form, and one click saves it as a formatted Word document.",
+    resultShort:
+      "In the demo, a recipe goes from a web page to a saved Word document in one click.",
     description:
       "A small desktop app that turns a recipe copied from a web page into a saved Word document: paste it into a form, click Save.",
     solution:
@@ -556,6 +620,27 @@ export default function Home() {
       current.includes(name)
         ? current.filter((n) => n !== name)
         : [...current, name]
+    );
+  };
+
+  const renderPsrCompact = (project: Project) => {
+    const rows: [string, string | undefined][] = [
+      ["Problem", project.problemShort],
+      ["Solution", project.solutionShort],
+      ["Result", project.resultShort],
+    ];
+    if (!rows.some(([, t]) => t)) return null;
+    return (
+      <div className="psr-compact">
+        {rows.map(([label, text]) =>
+          text ? (
+            <div key={label} className="psr-compact-row" data-kind={label.toLowerCase()}>
+              <span className="mono psr-compact-label">{label}</span>
+              <p>{text}</p>
+            </div>
+          ) : null
+        )}
+      </div>
     );
   };
 
@@ -997,6 +1082,7 @@ export default function Home() {
                     <span className="eyebrow">{project.eyebrow}</span>
                     <h4>{project.name}</h4>
                     <p className="desc">{project.description}</p>
+                    {renderPsrCompact(project)}
                     <div className="flex flex-wrap items-center gap-2">
                       <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
                       <span className="cost-tag">{project.cost}</span>
@@ -1061,6 +1147,7 @@ export default function Home() {
                     <span className="eyebrow">{project.eyebrow}</span>
                     <h4>{project.name}</h4>
                     <p className="desc">{project.description}</p>
+                    {renderPsrCompact(project)}
                     <div className="flex flex-wrap items-center gap-2">
                       <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
                       <span className="cost-tag">{project.cost}</span>

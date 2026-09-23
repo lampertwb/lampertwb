@@ -2,6 +2,11 @@
 
 Running record of every feature/section built, most recent first. Update this file whenever new features ship — don't just rely on a session handoff — so any new session (or you) can see the full build history in one place without re-deriving it from git log or old chats.
 
+## 2026-09-23 — Problem / Solution / Result on every card
+
+- Added `problemShort` / `solutionShort` / `resultShort` one-liners for all Frameworks & Strategy and Other Technical Builds projects, rendered as a compact color-coded stack under the description (`renderPsrCompact`). Full case study still behind "Read the full case study".
+- Iron Chef has no Problem line yet (its full case study has none either) — waiting on Wendy.
+
 ## 2026-09-23 — Feedback round 3: face in the hero, clearer carousel
 
 - Hero now leads with the desk photo beside "Hi, I'm Wendy Lampert, GTM Engineer." + the tagline H1 + subhead (subhead no longer width-capped). Photo removed from About so it isn't duplicated.
