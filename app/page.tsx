@@ -326,7 +326,6 @@ const categories = [
   "All",
   "Web App",
   "Claude Agent",
-  "Claude Artifact",
   "n8n Automation",
   "Python",
 ];
@@ -552,7 +551,7 @@ const skills = [
   "PyQt5",
   "Google Gemini API",
   "Salesforce",
-  "Claude Skills / Artifacts",
+  "Claude Skills",
   "MCP",
   "…and more",
 ];
@@ -676,8 +675,6 @@ function categorySlug(category?: string): string {
       return "python";
     case "Claude Agent":
       return "agent";
-    case "Claude Artifact":
-      return "artifact";
     case "n8n Automation":
       return "automation";
     case "Web App":
@@ -929,7 +926,7 @@ export default function Home() {
               What I spend vs. what it&apos;s worth
             </div>
             <div className="roi-headline">
-              What I get back: <span className="mono">~$3.8K/mo</span> in time saved.
+              What the ROI would look like: <span className="mono">~$3.8K/mo</span> in time saved.
             </div>
             <div className="roi-subhead">
               Generated from a <span className="mono">$17/mo</span> tool bill &mdash; my
@@ -1224,6 +1221,7 @@ export default function Home() {
 
         <section id="frameworks" className="mb-12">
           <h2 className="section-title"><span className="section-num">02</span>Frameworks &amp; Strategy</h2>
+          <p className="section-intro">The lenses I actually use to decide what gets built, in what order, and whether the portfolio is balanced once it is.</p>
           {(() => {
             const project = frameworkProjects[activeFramework];
             const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
@@ -1324,6 +1322,7 @@ export default function Home() {
 
         <section className="mb-12">
           <h2 className="section-title"><span className="section-num">03</span>Other Technical Builds</h2>
+          <p className="section-intro">Smaller tools and earlier builds — filter by how they were made below.</p>
           <div className="mb-4 flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button

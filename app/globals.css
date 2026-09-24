@@ -219,6 +219,14 @@ body {
   letter-spacing: 0.06em;
 }
 
+.section-intro {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: -10px 0 20px;
+  max-width: 680px;
+}
+
 /* Hero: tagline-first framing + "how I work" beliefs */
 .hero-eyebrow {
   font-size: 15.5px;
@@ -551,39 +559,37 @@ body {
   background-color: var(--wire-strong);
   background-image: repeating-linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.16) 0px,
-    rgba(255, 255, 255, 0.16) 1px,
+    rgba(255, 255, 255, 0.09) 0px,
+    rgba(255, 255, 255, 0.09) 1px,
     transparent 1px,
-    transparent 14px
+    transparent 20px
   );
 }
 
+/* Muted, low-saturation variants (toned down from the earlier bright per-category
+   colors, which read as noisy when several cards sit side by side in the grid). */
 .card-hero-placeholder[data-cat="python"] {
-  background-color: #3f5f8a;
+  background-color: #4a5568;
 }
 
 .card-hero-placeholder[data-cat="agent"] {
-  background-color: #b5623f;
-}
-
-.card-hero-placeholder[data-cat="artifact"] {
-  background-color: #6b5590;
+  background-color: #6b5a4a;
 }
 
 .card-hero-placeholder[data-cat="automation"] {
-  background-color: #a83b5e;
+  background-color: #5a4a5e;
 }
 
 .card-hero-placeholder[data-cat="web"] {
-  background-color: #2f7d5c;
+  background-color: #46564d;
 }
 
 .card-hero-placeholder[data-cat="skill"] {
-  background-color: #3f7a6b;
+  background-color: #47594f;
 }
 
 .card-hero-placeholder[data-cat="framework"] {
-  background-color: #9c7a2e;
+  background-color: #6b5f3f;
 }
 
 .about-photo {
