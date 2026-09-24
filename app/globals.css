@@ -272,6 +272,7 @@ body {
   font-size: clamp(26px, 3.4vw, 36px);
   font-weight: 700;
   line-height: 1.25;
+  color: var(--tryit);
 }
 
 .read-more-btn {
@@ -1485,7 +1486,7 @@ footer[id] {
   margin-top: 8px;
   font-size: clamp(19px, 2.2vw, 24px);
   font-weight: 600;
-  color: var(--tryit);
+  color: var(--muted);
 }
 
 /* Technical Case Studies carousel */

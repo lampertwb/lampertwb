@@ -929,11 +929,11 @@ export default function Home() {
               What I spend vs. what it&apos;s worth
             </div>
             <div className="roi-headline">
-              <span className="mono">$17/mo.</span> That&apos;s my entire tool bill for every
-              project on this page.
+              What I get back: <span className="mono">~$3.8K/mo</span> in time saved.
             </div>
             <div className="roi-subhead">
-              What I get back: <span className="mono">~$3.8K/mo</span> in time saved.
+              Generated from a <span className="mono">$17/mo</span> tool bill &mdash; my
+              entire cost for every project on this page.
             </div>
             <p className="mt-3 text-[17px] leading-relaxed text-[var(--muted)]">
               One Claude subscription; everything else is free or open source. Time saved is
