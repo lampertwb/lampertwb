@@ -1317,7 +1317,7 @@ export default function Home() {
                 <div
                   key={project.name}
                   className={`wire card${
-                    project.video || project.imageFit === "contain" ? " sm:col-span-2" : ""
+                    project.video || project.imageFit === "contain" ? " sm:col-span-2 lg:col-span-3" : ""
                   }`}
                 >
                   {!project.noHero && (
