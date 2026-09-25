@@ -379,28 +379,6 @@ const otherProjects: Project[] = [
   {
     category: "Claude Agent",
     eyebrow: "Claude Agent",
-    name: "Monica",
-    problemShort:
-      "AI assistants are either chatbots with no real access, or agents you can't trust not to send or delete things on their own.",
-    solutionShort:
-      "A Claude Cowork assistant connected to my Drive, Gmail, and Calendar, with a hard rule: nothing is sent, scheduled, spent, or deleted without my approval.",
-    resultShort:
-      "A daily assistant I actually trust with real account access, because every irreversible action still goes through me.",
-    description:
-      "Personal AI ops assistant — Cowork, Drive/Gmail/Calendar, strict guardrails.",
-    problem:
-      "Personal AI assistance usually means either a generic chatbot with no real access to your accounts, or a fully autonomous agent you can't trust not to send an email or delete a file on its own.",
-    solution:
-      "Built Monica — a personal AI assistant living in Claude Cowork with real integrations into Drive, Gmail, and Calendar, running under **strict guardrails: no sending, scheduling, spending, or deleting without my explicit approval first**. It also runs a dedicated job-search mode built on the Proficiently skill.",
-    results:
-      "A daily assistant I actually trust with real account access, because **every irreversible action still routes through me** — full capability without giving up control.",
-    badge: "explain",
-    badgeLabel: "Explain it",
-    cost: "$17/mo shared*",
-  },
-  {
-    category: "Claude Agent",
-    eyebrow: "Claude Agent",
     name: "Aeroscout",
     problemShort:
       "Solo trip research means juggling sites and price trackers, and most travel AI assumes you want it to book for you.",
@@ -439,8 +417,9 @@ const otherProjects: Project[] = [
     solution:
       "It started when I saw her question go unanswered in a channel and asked if she still needed help. She had the vision; I had the tools and wanted the practice. Once the form data landed in the spreadsheet, **I used n8n and AI to enhance what people had entered, then replaced the text on the appropriate slide in the master deck.**",
     results:
-      "**The tailored messaging and the business-unit deck updates now happen automatically instead of by hand.** Because this was built inside BILL, I can't share screenshots or a recording. What I can share is the lesson: **the barrier to helping someone with AI automation is low enough that “I saw your message and wanted to try” is a legitimate way in.** No project plan or 10,000 hours as an SME, just curiosity and a willingness to dig in.",
-    noHero: true,
+      "**The tailored messaging and the business-unit deck updates now happen automatically instead of by hand.** Because this was built inside BILL, I can't share the actual screenshots or a recording — the diagram above is a generic recreation of the workflow shape, not the real thing. What I can share is the lesson: **the barrier to helping someone with AI automation is low enough that “I saw your message and wanted to try” is a legitimate way in.** No project plan or 10,000 hours as an SME, just curiosity and a willingness to dig in.",
+    images: ["/project-media/enablement-deck-automation/enablement-deck-automation.png"],
+    imageFit: "contain",
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "N/A — employer-covered",
@@ -1034,12 +1013,6 @@ export default function Home() {
                         <td className="num">$100</td>
                       </tr>
                       <tr>
-                        <td>Monica</td>
-                        <td>Admin Assistant, $23/hr</td>
-                        <td>~5 (est.)</td>
-                        <td className="num">$116</td>
-                      </tr>
-                      <tr>
                         <td>Enablement Deck Automation</td>
                         <td>SDR base, $31/hr</td>
                         <td>~43 (stated, 10+ hrs/wk)</td>
@@ -1341,9 +1314,22 @@ export default function Home() {
               const heroImage = project.images && project.images.length > 0 ? project.images[0] : undefined;
               const extraImages = project.images && project.images.length > 1 ? project.images.slice(1) : [];
               return (
-                <div key={project.name} className={`wire card${project.video ? " sm:col-span-2" : ""}`}>
+                <div
+                  key={project.name}
+                  className={`wire card${
+                    project.video || project.imageFit === "contain" ? " sm:col-span-2" : ""
+                  }`}
+                >
                   {!project.noHero && (
-                  <div className={project.video ? "card-hero card-hero-video" : "card-hero"}>
+                  <div
+                    className={
+                      project.video
+                        ? "card-hero card-hero-video"
+                        : project.imageFit === "contain"
+                        ? "card-hero card-hero-contain"
+                        : "card-hero"
+                    }
+                  >
                     {project.video ? (
                       <video
                         className="demo-video"
