@@ -103,7 +103,7 @@ const flagshipProjects: Project[] = [
     liveUrl: "https://manage-upword.streamlit.app/",
     liveLabel: "Try Manage UpWord",
     liveNote:
-      "this demo runs entirely on free tiers. If nobody has used it recently it may take ~30 seconds to wake up, and if today's free AI limit has been reached, please check back tomorrow.",
+      "Runs on free tiers, so it may take ~30 seconds to wake up. If today's AI limit is reached, check back tomorrow.",
     badge: "try",
     badgeLabel: "Try it — live link",
     cost: "$0/mo (free tier)",
@@ -1130,23 +1130,6 @@ export default function Home() {
                       <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
                       <span className="cost-tag">{project.cost}</span>
                     </div>
-                    {project.liveUrl && (
-                      <div className="try-cta">
-                        {project.liveNote && (
-                          <p className="try-note">
-                            <strong><span aria-hidden="true">⚠️</span> Heads up:</strong> {project.liveNote}
-                          </p>
-                        )}
-                        <a
-                          className="try-btn"
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {project.liveLabel ?? "Visit the live site"} ↗
-                        </a>
-                      </div>
-                    )}
                   </div>
                   <div className="case-slide-media">
                     {project.video ? (
@@ -1194,14 +1177,33 @@ export default function Home() {
                   )}
                 </div>
                 <div className="case-slide-more">{renderProjectExtras(project, [], true)}</div>
-                <button
-                  type="button"
-                  className="case-next-btn"
-                  onClick={() => goToCase(activeCase + 1)}
-                >
-                  {activeCase === flagshipProjects.length - 1 ? "Back to the first case study" : "Next case study"}:{" "}
-                  <strong>{nextProject.name}</strong> →
-                </button>
+                {project.liveUrl && (
+                  <div className="try-row">
+                    {project.liveNote && (
+                      <p className="try-note">
+                        <strong><span aria-hidden="true">⚠️</span> Heads up:</strong> {project.liveNote}
+                      </p>
+                    )}
+                    <a
+                      className="try-btn try-btn-pill"
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span aria-hidden="true">▶</span> {project.liveLabel ?? "Visit the live site"} ↗
+                    </a>
+                  </div>
+                )}
+                <div className="case-bottom-row">
+                  <button
+                    type="button"
+                    className="case-next-btn"
+                    onClick={() => goToCase(activeCase + 1)}
+                  >
+                    {activeCase === flagshipProjects.length - 1 ? "Back to the first case study" : "Next case study"}:{" "}
+                    <strong>{nextProject.name}</strong> →
+                  </button>
+                </div>
               </div>
               <div className="case-dots-row">
                 <button
