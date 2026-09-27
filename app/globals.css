@@ -7,14 +7,14 @@
   --wire: #6e6a5f;
   --wire-strong: #47443b;
   --muted: #55524a;
-  --note: #2c4a8f;
+  --note: #3b5ba5;
   --note-bg: #e9edf7;
-  --tryit: #1f5e3f;
-  --tryit-bg: #dcedE2;
-  --showit: #7a4c12;
-  --showit-bg: #f3e3c8;
-  --explainit: #3f3c35;
-  --explainit-bg: #e3e0d6;
+  --tryit: #2f6f4f;
+  --tryit-bg: #e4f0e9;
+  --showit: #8a5a1e;
+  --showit-bg: #f5ead9;
+  --explainit: #5a5650;
+  --explainit-bg: #eae8e3;
   --tag-bg: #e6e3d8;
   --award: #7a5c00;
   --award-bg: #f7edc4;
@@ -569,27 +569,27 @@ body {
 /* Muted, low-saturation variants (toned down from the earlier bright per-category
    colors, which read as noisy when several cards sit side by side in the grid). */
 .card-hero-placeholder[data-cat="python"] {
-  background-color: #4a5568;
+  background-color: #3f5f8a;
 }
 
 .card-hero-placeholder[data-cat="agent"] {
-  background-color: #6b5a4a;
+  background-color: #b5623f;
 }
 
 .card-hero-placeholder[data-cat="automation"] {
-  background-color: #5a4a5e;
+  background-color: #a83b5e;
 }
 
 .card-hero-placeholder[data-cat="web"] {
-  background-color: #46564d;
+  background-color: #2f7d5c;
 }
 
 .card-hero-placeholder[data-cat="skill"] {
-  background-color: #47594f;
+  background-color: #3f7a6b;
 }
 
 .card-hero-placeholder[data-cat="framework"] {
-  background-color: #6b5f3f;
+  background-color: #9c7a2e;
 }
 
 .about-photo {
@@ -1905,5 +1905,44 @@ footer[id] {
 
 .case-study-credit a {
   color: var(--note);
+  text-decoration: underline;
+}
+
+/* Live "Try it" call-to-action on case-study slides */
+.try-cta {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.try-note {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--foreground);
+  background: var(--award-bg);
+  border-left: 3px solid var(--award);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.try-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--surface);
+  background: var(--tryit);
+  padding: 9px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.try-btn:hover {
+  filter: brightness(1.1);
   text-decoration: underline;
 }

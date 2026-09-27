@@ -38,6 +38,10 @@ type Project = {
   noHero?: boolean;
   // Optional: link to the live project. Renders as a "Visit the live site" link on the card.
   liveUrl?: string;
+  // Optional button text for the live link (defaults to "Visit the live site").
+  liveLabel?: string;
+  // Optional note shown just above the live link on case-study slides (e.g. free-tier caveats).
+  liveNote?: string;
   awardBanner?: string;
   awardNote?: string;
   badge: Badge;
@@ -74,6 +78,35 @@ const flagshipProjects: Project[] = [
     badge: "explain",
     badgeLabel: "Explain it",
     cost: "$17/mo shared*",
+  },
+  {
+    eyebrow: "Python + Streamlit — live AI app",
+    category: "Python",
+    name: "Manage UpWord",
+    problemShort:
+      "Turning a brain dump into a message an executive will actually read takes the right structure, length, and tone for the audience, and most people wing it.",
+    solutionShort:
+      "A Python app on Gemini: pick a framework (BLUF, SCR, STAR, and more), an audience, a tone, and a length, paste raw thoughts, and get a structured message back.",
+    resultShort:
+      "Live and free to try: seven frameworks, five output lengths, and a coach note explaining why the structure fits the audience.",
+    stackLine: "Streamlit sidebar → LangChain prompt template → Gemini 3.5 Flash-Lite → framework-structured message",
+    description:
+      "An executive communications coach: paste your raw thoughts, choose a framework, audience, and length, and it restructures them into a message ready to send up the chain.",
+    problem:
+      "Most messages to leadership start as a brain dump. **The hard part isn't the writing, it's the structure**: leading with the answer, picking the right framework for the goal, and fitting the length and tone to who's reading. Most people skip that step and send the brain dump.",
+    solution:
+      "Built in Python with **Streamlit for the interface and LangChain on Gemini** for the model. The sidebar sets four inputs (framework, target audience, style and tone, and output length), and each one is injected into a single system prompt. **The prompt ranks the constraints on purpose: length and audience come first, and the framework adapts to fit**, so a one-line header still follows BLUF, distilled into one sentence. The chat keeps its history, so a follow-up refines the same message instead of starting over. Deployed from GitHub to Streamlit Community Cloud, with the API key held in the host's secrets and never in the code.",
+    results:
+      "**Live and usable by anyone, at $0/mo**: free hosting plus Gemini's free tier. Seven frameworks and five output lengths, and every answer ends with a coach note explaining why that structure works for that audience. If the free daily limit is reached, visitors get a friendly message instead of an error.",
+    images: ["/project-media/manage-upword/manage-upword-bluf.png"],
+    imageFit: "contain",
+    liveUrl: "https://manage-upword.streamlit.app/",
+    liveLabel: "Try Manage UpWord",
+    liveNote:
+      "this demo runs entirely on free tiers. If nobody has used it recently it may take ~30 seconds to wake up, and if today's free AI limit has been reached, please check back tomorrow.",
+    badge: "try",
+    badgeLabel: "Try it — live link",
+    cost: "$0/mo (free tier)",
   },
   {
     eyebrow: "Python — built at BILL",
@@ -777,19 +810,19 @@ export default function Home() {
     );
   };
 
-  const renderProjectExtras = (project: Project, extraImages: string[] = []) => {
+  const renderProjectExtras = (project: Project, extraImages: string[] = [], hideLiveLink = false) => {
     const isExpanded = expanded.includes(project.name);
     const hasCaseStudy = project.problem || project.solution || project.results;
     return (
       <>
-        {project.liveUrl && (
+        {project.liveUrl && !hideLiveLink && (
           <a
             className="feature-link"
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit the live site ↗
+            {project.liveLabel ?? "Visit the live site"} ↗
           </a>
         )}
         {extraImages.length > 0 && (
@@ -1097,6 +1130,23 @@ export default function Home() {
                       <span className={badgeClass[project.badge]}>{project.badgeLabel}</span>
                       <span className="cost-tag">{project.cost}</span>
                     </div>
+                    {project.liveUrl && (
+                      <div className="try-cta">
+                        {project.liveNote && (
+                          <p className="try-note">
+                            <strong><span aria-hidden="true">⚠️</span> Heads up:</strong> {project.liveNote}
+                          </p>
+                        )}
+                        <a
+                          className="try-btn"
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {project.liveLabel ?? "Visit the live site"} ↗
+                        </a>
+                      </div>
+                    )}
                   </div>
                   <div className="case-slide-media">
                     {project.video ? (
@@ -1143,7 +1193,7 @@ export default function Home() {
                     ) : null
                   )}
                 </div>
-                <div className="case-slide-more">{renderProjectExtras(project, [])}</div>
+                <div className="case-slide-more">{renderProjectExtras(project, [], true)}</div>
                 <button
                   type="button"
                   className="case-next-btn"
