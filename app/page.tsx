@@ -98,7 +98,7 @@ const flagshipProjects: Project[] = [
       "Built in Python with **Streamlit for the interface and LangChain on Gemini** for the model. The sidebar sets four inputs (framework, target audience, style and tone, and output length), and each one is injected into a single system prompt. **The prompt ranks the constraints on purpose: length and audience come first, and the framework adapts to fit**, so a one-line header still follows BLUF, distilled into one sentence. The chat keeps its history, so a follow-up refines the same message instead of starting over. Deployed from GitHub to Streamlit Community Cloud, with the API key held in the host's secrets and never in the code.",
     results:
       "**Live and usable by anyone, at $0/mo**: free hosting plus Gemini's free tier. Seven frameworks and five output lengths, and every answer ends with a coach note explaining why that structure works for that audience. If the free daily limit is reached, visitors get a friendly message instead of an error.",
-    images: ["/project-media/manage-upword/manage-upword-bluf.png"],
+    images: ["/project-media/manage-upword/manage-upword-app.png"],
     imageFit: "contain",
     liveUrl: "https://manage-upword.streamlit.app/",
     liveLabel: "Try Manage UpWord",
