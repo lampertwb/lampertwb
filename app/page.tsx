@@ -42,6 +42,8 @@ type Project = {
   liveLabel?: string;
   // Optional note shown just above the live link on case-study slides (e.g. free-tier caveats).
   liveNote?: string;
+  // Hides the card without deleting it (e.g. a venture that isn't in market yet).
+  hidden?: boolean;
   awardBanner?: string;
   awardNote?: string;
   badge: Badge;
@@ -113,18 +115,18 @@ const flagshipProjects: Project[] = [
     category: "Python",
     name: "Route Detective",
     problemShort:
-      "BILL's 300+ node lead-routing graph worked, but no one could explain why a lead landed where it did. Not even LeanData's own AI.",
+      "BILL's 300+ node lead-routing graph worked, but no one could explain why a lead landed where it did. LeanData's native AI reads the logs, but it doesn't know BILL's Rules of Engagement.",
     solutionShort:
-      "After four other tools failed, I built a Python app on Gemini that compresses the ~400KB routing graph to under 1KB per lead, then diagnoses it.",
+      "No existing tool could check routing against BILL's rules, so I built a Python app on Gemini that compresses the ~400KB routing graph to under 1KB per lead, then diagnoses it.",
     resultShort:
       "Sorts every routing question into five root causes. Targets 30-40% fewer \"why did I get this lead?\" tickets and ~20 hrs/month of log-tracing.",
     stackLine: "Gemini API (zero-temperature) → graph compression → 5-bucket root-cause classification",
     description:
       "AI diagnostic tool that triangulates actual vs. expected lead-routing outcomes across a 300+ node routing graph — built from scratch after four other approaches failed.",
     problem:
-      "BILL's routing graph spans 300+ decision nodes across 14 sales teams and multiple ownership layers. It worked, but **no one outside the person who built it could explain why a lead landed where it did** — not reps, not managers, **not even LeanData's own native AI feature**, which could only reference audit logs and couldn't say whether a routing outcome was actually correct.",
+      "BILL's routing graph spans 300+ decision nodes across 14 sales teams and multiple ownership layers. It worked, but **no one outside the person who built it could explain why a lead landed where it did** — not reps, not managers. The graph was too complex to trace by hand, and **LeanData's native AI isn't built for this question**: it reads the audit logs, but it doesn't have each org's Rules of Engagement, so it can't say whether a routing outcome was actually correct.",
     solution:
-      "Four attempts failed (n8n, Glean, Claude Cowork, LeanData's native AI) before I designed a custom Python application on the Gemini API. The core engineering challenge was context: **the full routing graph runs ~400KB, too large for any model to reason over** per-record. I built a compression approach that extracts only the nodes a given lead actually traversed, **cutting the payload to under 1KB** with no loss of investigative accuracy — then ran it at zero-temperature **so the same inputs always produce the same structured verdict.** Route Detective triangulates what actually happened, what should have happened per the Rules of Engagement, and what the rep expected to happen.",
+      "I tried four tools first (n8n, Glean, Claude Cowork, LeanData's native AI). None of them could check a routing outcome against BILL's Rules of Engagement, so I designed a custom Python application on the Gemini API. The core engineering challenge was context: **the full routing graph runs ~400KB, too large for any model to reason over** per-record. I built a compression approach that extracts only the nodes a given lead actually traversed, **cutting the payload to under 1KB** with no loss of investigative accuracy — then ran it at zero-temperature **so the same inputs always produce the same structured verdict.** Route Detective triangulates what actually happened, what should have happened per the Rules of Engagement, and what the rep expected to happen.",
     results:
       "**Classifies exactly where those three diverge into five root-cause buckets, distinguishing a real misroute from routing that was \"working as designed.\"** Completed July 2026; testing already confirms correct classification against real anonymized data. Together with a companion field-level change I shipped, **it targets a 30-40% reduction in \"why did I get this lead?\" tickets and roughly 20 hours/month of manual log-tracing eliminated.**",
     images: ["/project-media/route-detective/route-detective-mockup.png"],
@@ -368,6 +370,7 @@ const otherProjects: Project[] = [
     category: "Web App",
     eyebrow: "Web App",
     name: "RevOps Recruit",
+    hidden: true,
     problemShort:
       "A boutique GTM/RevOps recruiting venture needs a credible front door before it can take on candidates or clients.",
     solutionShort:
@@ -776,10 +779,11 @@ export default function Home() {
     };
   }, []);
 
+  const shownProjects = otherProjects.filter((p) => !p.hidden);
   const visibleProjects =
     activeFilter === "All"
-      ? otherProjects
-      : otherProjects.filter((p) => p.category === activeFilter);
+      ? shownProjects
+      : shownProjects.filter((p) => p.category === activeFilter);
 
   const toggleExpanded = (name: string) => {
     setExpanded((current) =>
@@ -892,7 +896,7 @@ export default function Home() {
           <div className="mono text-[18px] font-semibold tracking-wide">
             WENDY LAMPERT <span className="text-[var(--muted)]">/ portfolio</span>
           </div>
-          <SiteNav />
+          <SiteNav onPage />
         </div>
       </header>
 
@@ -938,7 +942,7 @@ export default function Home() {
               What I spend vs. what it&apos;s worth
             </div>
             <div className="roi-headline">
-              What the ROI would look like: <span className="mono">~$3.8K/mo</span> in time saved.
+              What the ROI would look like: <span className="mono">~$4.1K/mo</span> in time saved.
             </div>
             <div className="roi-subhead">
               Generated from a <span className="mono">$17/mo</span> tool bill &mdash; my
@@ -946,8 +950,8 @@ export default function Home() {
             </div>
             <p className="mt-3 text-[17px] leading-relaxed text-[var(--muted)]">
               One Claude subscription; everything else is free or open source. Time saved is
-              measured for Route Detective, the Job Search Pipeline, and the Enablement Deck
-              Automation, estimated for five more, and priced at market medians (BLS,
+              stated for the Job Search Pipeline and the Enablement Deck Automation, projected
+              for Route Detective, estimated for four more, and priced at market medians (BLS,
               Glassdoor) for whoever normally does that work.
             </p>
             <button
@@ -989,13 +993,14 @@ export default function Home() {
                     </a>{" "}
                     ($48,310/yr → $23.23/hr),{" "}
                     <a
-                      href="https://www.glassdoor.com/Salaries/communications-manager-salary-SRCH_KO0,22.htm"
+                      href="https://www.glassdoor.com/Salaries/sales-enablement-specialist-salary-SRCH_KO0,27.htm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Glassdoor, Communications Manager
+                      Glassdoor, Sales Enablement Specialist
                     </a>{" "}
-                    ($108,624/yr avg → $52.22/hr), and{" "}
+                    (base pay midpoint ~$86,000/yr → ~$41/hr) for the deck work Enablement did
+                    by hand, and{" "}
                     <a
                       href="https://www.glassdoor.com/Salaries/sales-development-representative-salary-SRCH_KO0,32.htm"
                       target="_blank"
@@ -1018,7 +1023,7 @@ export default function Home() {
                       <tr>
                         <td>Route Detective</td>
                         <td>RevOps Manager, $46/hr</td>
-                        <td>20 (stated)</td>
+                        <td>~20 (projected)</td>
                         <td className="num">$920</td>
                       </tr>
                       <tr>
@@ -1047,9 +1052,9 @@ export default function Home() {
                       </tr>
                       <tr>
                         <td>Enablement Deck Automation</td>
-                        <td>SDR base, $31/hr</td>
+                        <td>Sales Enablement Specialist, $41/hr</td>
                         <td>~43 (stated, 10+ hrs/wk)</td>
-                        <td className="num">$1,343</td>
+                        <td className="num">$1,763</td>
                       </tr>
                       <tr>
                         <td>Syncly</td>
@@ -1059,19 +1064,19 @@ export default function Home() {
                       </tr>
                       <tr className="roi-total">
                         <td colSpan={3}>Total</td>
-                        <td className="num">~$3,816</td>
+                        <td className="num">~$4,120</td>
                       </tr>
                     </tbody>
                   </table>
                   <p className="roi-footnote">
-                    Route Detective, Job Search Pipeline, and Enablement Deck Automation hours are
-                    stated (Enablement at 10+ hrs/week, converted to a monthly figure); every
-                    other hours figure is my own reasonable estimate, not measured. Not included: TOFU Lead-Routing Pipeline (its ROI is
+                    Job Search Pipeline and Enablement Deck Automation hours are stated
+                    (Enablement at 10+ hrs/week, converted to a monthly figure). Route
+                    Detective&apos;s ~20 hours is a projection, not yet measured in production.
+                    Every other hours figure is my own reasonable estimate, not measured. Not included: TOFU Lead-Routing Pipeline (its ROI is
                     tool-cost avoidance — running on free/low-cost tiers instead of a paid
                     enrichment + orchestration stack — not hours, and I don&apos;t have
                     reliable figures for what was actually running to price that out yet),
-                    and two early-stage prototypes not yet in production use (RevOps
-                    Recruit, Meeting Types).
+                    and an early-stage prototype not yet in production use (Meeting Types).
                   </p>
                 </div>
               )}

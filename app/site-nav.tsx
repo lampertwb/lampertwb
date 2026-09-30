@@ -13,13 +13,15 @@ const items: NavItem[] = [
   { label: "Contact", href: "/#contact", key: "contact" },
 ];
 
-export default function SiteNav({ current }: { current?: NavItem["key"] }) {
+// onPage: the nav sits on the homepage (or a company copy like /unity), so section
+// links become bare hashes and keep the visitor on the URL they arrived at.
+export default function SiteNav({ current, onPage }: { current?: NavItem["key"]; onPage?: boolean }) {
   return (
     <nav aria-label="Main" className="mono flex gap-5 text-[15px]">
       {items.map((item) => (
         <Link
           key={item.key}
-          href={item.href}
+          href={onPage && item.href.startsWith("/#") ? item.href.slice(1) : item.href}
           aria-current={current === item.key ? "page" : undefined}
           className={`site-nav-link ${current === item.key ? "is-current" : ""}`}
         >
