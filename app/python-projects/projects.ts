@@ -53,7 +53,7 @@ export const projects: TrackerProject[] = [
     category: "python",
     status: "complete",
     image: {
-      src: "/project-media/pdf-generator/lined-notes-showcase.png",
+      src: "/project-media/pdf-generator/lined-notes-code-v2.png",
       alt: "Left: the first page of the generated notebook, headed Variables, with evenly spaced writing lines and a small Variables footer. Right: the Python code that draws it, with plain-English comments for the header, the writing lines, and the footer.",
     },
     download: { src: "/project-media/pdf-generator/lined-notes-sample.pdf", label: "Open the sample PDF (101 pages)" },

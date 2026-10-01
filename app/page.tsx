@@ -574,7 +574,7 @@ const otherProjects: Project[] = [
       linkText: "Python Mega Course by Ardit Sulce (App 2)",
       url: "https://www.udemy.com/course/the-python-mega-course/",
     },
-    images: ["/project-media/pdf-generator/lined-notes-showcase.png"],
+    images: ["/project-media/pdf-generator/lined-notes-code-v2.png"],
     imageFit: "contain",
     liveUrl: "/project-media/pdf-generator/lined-notes-sample.pdf",
     liveLabel: "Open the sample PDF",
