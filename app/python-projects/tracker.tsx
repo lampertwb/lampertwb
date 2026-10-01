@@ -78,6 +78,12 @@ function Showcase({ project }: { project: TrackerProject }) {
       />
     );
   }
+  if (project.image) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img className="card-hero-shot" src={project.image.src} alt={project.image.alt} loading="lazy" />
+    );
+  }
   return (
     <div className="card-hero">
       <div className="card-hero-placeholder" data-cat={project.category}>
@@ -109,6 +115,11 @@ function ShowcaseCard({ project }: { project: TrackerProject }) {
               </span>
             ))}
           </div>
+        )}
+        {project.download && (
+          <a className="feature-link" href={project.download.src} target="_blank" rel="noopener noreferrer">
+            {project.download.label} ↗
+          </a>
         )}
         {hasWriteup && (
         <details className="writeup">

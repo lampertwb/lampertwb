@@ -553,6 +553,35 @@ const otherProjects: Project[] = [
     badgeLabel: "Show it",
     cost: "$0/mo",
   },
+  {
+    category: "Python",
+    eyebrow: "Python — course build",
+    name: "Lined Notes PDF Generator",
+    problemShort:
+      "I wanted a printed notebook for the course, with a page section for every topic and room to write.",
+    solutionShort:
+      "A Python script that reads a CSV of course topics with pandas and draws each page with FPDF: header, footer, and writing lines.",
+    resultShort:
+      "One run turns a 38-row CSV into a 101-page printable notebook.",
+    description:
+      "A Python script that reads a CSV of course topics and turns it into a printable, multi-page notebook: each topic gets its own section, the page count comes from the data, and every page has a header, a footer, and evenly spaced writing lines.",
+    solution:
+      "Built while working through the Python Mega Course. **pandas reads the CSV of topics and page counts, and the script loops over its rows, so the data decides what gets printed.** `range()` does two jobs: it adds each topic's extra pages, and it spaces the writing lines 5 mm apart down the page instead of drawing each one by hand. FPDF builds the PDF itself, including a header and footer on every page.",
+    results:
+      "**One run turns a 38-row CSV into a 101-page notebook**, ready to print. Change the CSV and the notebook changes with it, with no edits to the code.",
+    credit: {
+      text: "Course build from",
+      linkText: "Python Mega Course by Ardit Sulce (App 2)",
+      url: "https://www.udemy.com/course/the-python-mega-course/",
+    },
+    images: ["/project-media/pdf-generator/lined-notes-showcase.png"],
+    imageFit: "contain",
+    liveUrl: "/project-media/pdf-generator/lined-notes-sample.pdf",
+    liveLabel: "Open the sample PDF",
+    badge: "show",
+    badgeLabel: "Show it",
+    cost: "$0/mo",
+  },
 ];
 
 const skills = [

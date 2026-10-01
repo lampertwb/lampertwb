@@ -24,6 +24,8 @@ export type TrackerProject = {
   video?: { src: string; alt: string };
   // Short scannable facts shown as tags under the description.
   facts?: string[];
+  // Downloadable sample output shown as a link under the facts.
+  download?: { src: string; label: string };
 };
 
 // Source of truth: the Python Mega Course: Build 20 Real-World Apps and AI Agents (Udemy, Ardit Sulce).
@@ -45,12 +47,23 @@ export const projects: TrackerProject[] = [
   {
     number: 2,
     slug: "app-2",
-    name: "PDF Generator Tool",
+    name: "Lined Notes PDF Generator",
     kind: "PDF",
     sections: "Section 21",
     category: "python",
-    status: "pending",
-    description: "A tool that generates PDF documents programmatically with Python.",
+    status: "complete",
+    image: {
+      src: "/project-media/pdf-generator/lined-notes-showcase.png",
+      alt: "Left: the first page of the generated notebook, headed Variables, with evenly spaced writing lines and a small Variables footer. Right: the Python code that draws it, with plain-English comments for the header, the writing lines, and the footer.",
+    },
+    download: { src: "/project-media/pdf-generator/lined-notes-sample.pdf", label: "Open the sample PDF (101 pages)" },
+    facts: ["38 topics → 101 pages", "pandas + FPDF", "range() for pages and lines"],
+    description:
+      "A Python script that reads a CSV of course topics and turns it into a printable, multi-page notebook: each topic gets its own section, the page count comes from the data, and every page has a header, a footer, and evenly spaced writing lines.",
+    solution:
+      "**pandas reads the CSV of topics and page counts, and the script loops over its rows, so the data decides what gets printed.** `range()` does two jobs: it adds each topic's extra pages, and it spaces the writing lines 5 mm apart down the page instead of drawing each one by hand. FPDF builds the PDF itself, including a header and footer on every page.",
+    results:
+      "**One run turns a 38-row CSV into a 101-page notebook**, ready to print. Change the CSV and the notebook changes with it, with no edits to the code.",
   },
   {
     number: 3,
